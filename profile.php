@@ -5,30 +5,14 @@
     <title>Profile</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/Tweeter_icon.png"/>
     <link rel="stylesheet" href="assets/style/profile_style.css">
+
 </head>
 <body>
 <!-- Boris -->
-<div class="topbar">
-    <div class="topbarcontainer">
-        <div class="navigation">
-            <ul>
-                <li class="navLi" id="navHome"><img class="navImg" src="assets/images/home.png"></li>
-                <li class="navLi" id="navNotifications"><img class="navImg" src="assets/images/notif.png"></li>
-                <li class="navLi" id="navMessages"><img class="navImg" src="assets/images/msg.png"></li>
-                <li class="navLi" id="test"><img src="assets/images/bird.png"></li>
-                <li class="navLi" id="inputLi"></li>
-            </ul>
-        </div>
-        <div id="top_bar_twat">Twaat</div>
-        <div id="iconDiv">
-            <img id="profile_icon" src="assets/images/default_icon.jpg">
-        </div>
-        <div id="asd">
-            <input id="searchInput" type="text" value="Search Twatter">
-            <i class="fa fa-search" aria-hidden="true" id="searchIcon"></i>
-        </div>
-    </div>
-</div>
+<?php
+include_once "header.html";
+?>
+
 <!-- Georgi -->
 <div id="cover">
     <img src="" alt="">

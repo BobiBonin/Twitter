@@ -157,6 +157,7 @@ span {
     background-color: white;
     position: fixed;
     z-index: 1000;
+    padding-bottom: -5px;
 }
 
 .navLi {
@@ -211,6 +212,12 @@ ul {
     margin-right: 10px;
     float: left;
     box-sizing: border-box;
+    outline: none;
+}
+
+#searchInput:focus {
+    border-radius: 21px;
+    border: 2px solid cornflowerblue;
     outline: none;
 }
 
