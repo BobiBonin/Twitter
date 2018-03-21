@@ -10,6 +10,7 @@
 <body>
 <!-- Boris -->
 <?php
+include_once 'page_lock.php';
 include_once "header.html";
 ?>
 
@@ -41,6 +42,7 @@ include_once "header.html";
 
 </div>
 <script>
+
     var header = document.getElementById("my_nav");
 
     window.onscroll = function (event) {

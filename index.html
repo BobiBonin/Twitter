@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Twatter. Това което се случва</title>
-    <link rel="stylesheet" href="assets/style/login_style.css">
-    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/Tweeter_icon.png"/>
+    <link rel="stylesheet" href="view/assets/style/login_style.css">
+    <link rel="stylesheet" href="view/assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="view/assets/images/Tweeter_icon.png"/>
 </head>
 <body>
 <div id="main">
     <section id="left">
-        <img src="assets/images/Tweeter_bird5.png" alt="">
+        <img src="view/assets/images/Tweeter_bird5.png" alt="">
         <div id="static_sentences">
             <div id="first">
                 <i class="fa fa-search fa-2x position" aria-hidden="true"></i>
@@ -29,24 +29,23 @@
 
     <section id="right">
         <div id="login">
-            <form method="post" id="login_form">
-                <input id="input_left" class="input" type="text" required
-                       placeholder="Телефон, имейл адрес или потребителско име" name="username">
+            <form method="post" id="login_form" action="controler/loginControler.php">
+                <input id="input_left" class="input" type="email" required placeholder="Имейл адрес" name="email">
                 <input class="input" type="password" placeholder="Парола" name="password" required>
                 <input id="button" type="submit" value="Вход" name="login_btn">
             </form>
         </div>
         <div id="registration">
-            <img src="assets/images/Tweeter_icon.png" alt="">
+            <img src="view/assets/images/Tweeter_icon.png" alt="">
             <h1>Виж какво се случва по света в момента</h1>
             <h3>Присъедини се към Twatter днес.</h3>
-            <form id="reg_form" method="post">
+            <form id="reg_form" method="post" action="controler/registrationControler.php">
                 <div id="reg_user_div">
-                    <input id="reg_name" type="text" class="reg_input" placeholder="Имейл адрес">
+                    <input id="reg_name" type="text" class="reg_input" placeholder="Имейл адрес" name="email">
                     <span id="span"></span>
                 </div>
                 <div id="reg_pass_div">
-                    <input id="reg_pass" type="password" class="reg_input" placeholder="Парола">
+                    <input id="reg_pass" type="password" class="reg_input" placeholder="Парола" name="password">
                     <span id="span2"></span>
                 </div>
             </form>
@@ -140,6 +139,7 @@
                 span3.id = "span3";
                 repeat_pass_div.id = "repeat_pass_div";
                 repeat_pass.className = "reg_input";
+                repeat_pass.name = "rpassword";
                 repeat_pass.placeholder = "Повторете паролата";
                 repeat_pass.type = "password";
 
@@ -151,6 +151,7 @@
                 span4.id = "span4";
 
                 username.className = "reg_input";
+                username.name = "username";
                 username.placeholder = "Потребителско име";
                 username.type = "text";
                 repeat_pass_div.appendChild(repeat_pass);
@@ -168,6 +169,7 @@
                 submit.type = "submit";
                 submit.className = "reg_button";
                 submit.style.width = "350px";
+                submit.name = "reg_btn";
                 submit.value = "Регистрация";
                 submit.addEventListener('click', function (event) {
 
@@ -226,7 +228,7 @@
                 }, false);
                 reg_form.appendChild(submit);
                 var login = document.getElementById("login_form");
-                login.style.visibility = "hidden";
+                index.style.visibility = "hidden";
                 var registration_div = document.getElementById("registration");
                 registration_div.style.marginTop = "10%";
                 pass.style.border = "";
