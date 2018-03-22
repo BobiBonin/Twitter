@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/style/home_style.css">
+</head>
+<body>
+    <div class="home_profile">
+        <div class="home_profile_cover">
+
+        </div>
+        <div class="home_profile_name">
+            <img class="home_profile_img" src="assets/images/default_icon.jpg">
+            <h2 id="profile_h2"></h2><br>
+            <h4 id="profile_h4"></h4>
+        </div>
+        <div class="home_profile_stats">
+            <ul class="profile_ul">
+                <li>Twats<br>20</li>
+                <li>Following<br>200</li>
+                <li>Followers<br>300</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var req = new XMLHttpRequest();
+        req.open("get", "../controller/profileController.php");
+        req.onreadystatechange = function (ev) {
+            var resp = this.responseText;
+            resp = JSON.parse(resp);
+            var user_name = resp["user_name"];
+            var user_pic = resp.user_pic;
+            var user_cover = resp.user_cover;
+
+            var profile_h2 = document.getElementById("profile_h2");
+            profile_h2.innerHTML=user_name;
+
+            var profile_h4 = document.getElementById("profile_h4");
+            profile_h4.innerHTML="@"+user_name;
+
+        };
+        req.send();
+    </script>
+</body>
+</html>

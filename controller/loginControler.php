@@ -9,7 +9,7 @@ if (isset($_POST['login_btn'])) {
 
     try {
         if (checkUserExist($email, sha1($password))) {
-            $_SESSION['user'] = $email;
+            $_SESSION['email'] = $email;
             header("Location: ../view/profile.php");
         }else{
             header("Location: ../view/error_login.html");
