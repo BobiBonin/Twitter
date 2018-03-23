@@ -37,9 +37,7 @@ nav {
     position: sticky;
 }
 
-#height {
-    height: 1500px;
-}
+
 
 .sticky {
     position: fixed;
@@ -85,7 +83,7 @@ span {
 #edit_btn {
     height: 35px;
     width: 200px;
-    margin-top: -40px;
+    margin-top: -60px;
     margin-right: 15%;
     float: right;
     border-radius: 33px;
@@ -104,13 +102,14 @@ span {
 #circle {
     width: 200px;
     height: 200px;
-    background-color: #1da1f2;
+    background-color: transparent;
     border-radius: 50%;
     border: 5px solid #ffffff;
     position: absolute;
     top: 100px;
     left: 15%;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 #circle img {
@@ -121,24 +120,82 @@ span {
 #nav_image {
     width: 55px;
     height: 55px;
-    background-color: #006dbf;
+    background-color: transparent;
     border-radius: 50%;
     display: inline-block;
+    overflow: hidden;
+}
+#nav_img{
+    width: 100%;
+    height: auto;
 }
 
 #profile_card a {
     color: #1da1f2;
+    text-decoration: none;
 }
 
 #profile_card {
     opacity: 0;
     margin-top: -50px;
     margin-left: 270px;
-    width: 150px;
+    width: 200px;
     height: 70px;
-    transition: opacity 2s linear;
-
+    transition: opacity 1s linear;
 }
+#ul{
+    margin-top: 10%;
+    background-color: #ffffff;
+    width: 95%;
+    height: auto;
+}
+#ul li{
+    list-style-type: none;
+    text-align: center;
+    border-bottom: 1px solid #006dbf;
+}
+#ul img{
+    width: 26px;
+    height: 26px;
+}
+#ul li a{
+    text-decoration: none;
+    color: #006dbf;
+    font-size: 1.5em;
+}
+#ul li a:hover{
+    color: #1da1f2;
+}
+#profile_edit{
+    width: 300px;
+    height: auto;
+    background-color: #e8f5fd;
+    position: absolute;
+    right: 12%;
+    border-radius: 10px;
+    z-index: -2;
+    visibility: hidden;
+}
+#profile_edit input {
+    width: 95%;
+    margin: 5px;
+    border-radius: 5px;
+    height: 25px;
+}
+#btn_edit{
+    width: 95%;
+    margin: 5px;
+    border-radius: 5px;
+    height: 25px;
+    background-color: white;
+    border: 1px solid #1da1f2;
+    cursor: pointer;
+    color: #1da1f2;
+    font-weight: bold;
+    font-family: "Segoe UI";
+    font-size: 1em;
+}
+
 
 /*Boris*/
 
