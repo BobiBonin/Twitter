@@ -40,7 +40,7 @@
     padding:0;
     display: flex;
 }
-li {
+.profile_ul li {
     width:33%;
     text-align: center;
     font-weight: bold;

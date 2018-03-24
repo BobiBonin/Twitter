@@ -16,7 +16,7 @@ include_once "header.html";
 
 <!-- Georgi -->
 <div id="cover">
-    <img src="" alt="">
+    <img id="cover_img" src="" alt="">
 </div>
 <nav id="my_nav">
     <ul>
@@ -35,10 +35,8 @@ include_once "header.html";
 <div id="circle">
     <img id="circle_img" src="">
 </div>
-<div id="height">
-</div>
 
-</form>
+
 <div id="profile_edit">
     <form method="post" action="../controller/editProfileControler.php" enctype="multipart/form-data">
         <input type="text" name="username" id="username">
@@ -49,6 +47,8 @@ include_once "header.html";
         <input type="file" name="user_cover" class="file">
         <input type="submit" value="Edit" id="btn_edit" name="btn_edit">
     </form>
+</div>
+<div id="height">
 </div>
 <script>
     /*Georgi -- 20.03.2018 -- Скриване и показване на профилната снимка в навигейшън бара*/
@@ -91,7 +91,7 @@ include_once "header.html";
 
     if (queryString.length != 0) { /*Ако в URL има параметър(чужд профил)*/
         var request = new XMLHttpRequest();
-        request.open("GET", "../controller/searchController.php?name=" + queries[0]);
+        request.open("GET", "../controller/showProfileController.php?name=" + queries[0]);
         request.onreadystatechange = function (ev) {
             if (this.status == 200 && this.readyState == 4) {
                 var response = JSON.parse(this.responseText);
@@ -100,6 +100,7 @@ include_once "header.html";
                 var a = document.getElementById("nav_name");
                 var profile_icon = document.getElementById("profile_icon");
                 var button = document.createElement("button");
+                var cover = document.getElementById("cover_img");
                 button.innerText = "Последване";
                 button.id = "edit_btn";
                 button.name = "follow";
@@ -123,6 +124,7 @@ include_once "header.html";
                 var small_img = document.getElementById("nav_img");
                 var a = document.getElementById("nav_name");
                 var button = document.createElement("button");
+                var cover = document.getElementById("cover_img");
                 document.getElementById("my_nav").appendChild(button);
                 button.innerText = "Редактиране на профила";
                 button.id = "edit_btn";
@@ -150,6 +152,7 @@ include_once "header.html";
                 img.src = "";
                 img.src = response['user_pic'];
                 small_img.src = response['user_pic'];
+                cover.src = response['user_cover'];
             }
         };
         request.send();

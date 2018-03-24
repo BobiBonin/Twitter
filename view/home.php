@@ -26,7 +26,6 @@ include "header.html";
     <div id="home_right_div">
 
     </div>
-
 </div>
 </body>
 </html>

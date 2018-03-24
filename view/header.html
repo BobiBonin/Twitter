@@ -12,14 +12,18 @@
     <div class="topbarcontainer">
         <div class="navigation">
             <ul>
-                <li class="navLi" id="navHome"><a href="home.php"><img class="navImg" src="assets/images/home.png"></a></li>
+                <li class="navLi" id="navHome"><a href="home.php"><img class="navImg" src="assets/images/home.png"></a>
+                </li>
                 <li class="navLi" id="navNotifications"><img class="navImg" src="assets/images/notif.png"></li>
                 <li class="navLi" id="navMessages"><img class="navImg" src="assets/images/msg.png"></li>
                 <li class="navLi" id="test"><img src="assets/images/bird.png"></li>
                 <li class="navLi" id="inputLi"></li>
             </ul>
         </div>
-        <div id="top_bar_twat">Log Out</div>
+        <form method="post" action="../controller/sessionDestroy.php">
+            <input type="submit" id="top_bar_twat" value="Log Out">
+        </form>
+
         <div id="iconDiv">
             <a href="profile.php"><img id="profile_icon" src=""></a>
         </div>
@@ -55,7 +59,7 @@
                     a.addEventListener("click", function () {
 
                         var name = this.innerText;
-                        var queryString = "?" + name ;
+                        var queryString = "?" + name;
                         window.location.href = "profile.php" + queryString;
                     });
                     img.src = response[key]["user_pic"];
@@ -70,19 +74,21 @@
         };
         request.send();
     }
+
     /*Georgi -- 23.03.2018 -- Показване на снимката на логнатия потребител до сърч полето*/
-   function profIcon() {
-       var request = new XMLHttpRequest();
-       request.open("GET", "../controller/profileController.php");
-       request.onreadystatechange = function (ev) {
-           if(this.status == 200 && this.readyState == 4){
-               var response = JSON.parse(this.responseText);
-              var img = document.getElementById("profile_icon");
-               img.src = response['user_pic'];
-           }
-       };
-       request.send();
-   }
+    function profIcon() {
+        var request = new XMLHttpRequest();
+        request.open("GET", "../controller/profileController.php");
+        request.onreadystatechange = function (ev) {
+            if (this.status == 200 && this.readyState == 4) {
+                var response = JSON.parse(this.responseText);
+                var img = document.getElementById("profile_icon");
+                img.src = response['user_pic'];
+            }
+        };
+        request.send();
+    }
+
 </script>
 </body>
 </html>
