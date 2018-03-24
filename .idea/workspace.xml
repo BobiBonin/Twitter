@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f08f2f-c3e1-44c2-b05e-de2be6317544" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/assets/images/default_cover.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/assets/images/uploads/cover_bobii@abv.bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/assets/images/uploads/cover_of@of.of.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/assets/images/uploads/image_bobii@abv.bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/assets/images/uploads/image_f40@ferrari.com.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/assets/images/uploads/image_of@of.of.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/assets/images/uploads/image_test7@abv.bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/Twatter.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/debug.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/loginControler.php" afterPath="$PROJECT_DIR$/controller/loginControler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/registrationControler.php" afterPath="$PROJECT_DIR$/controller/registrationControler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/compose_twat.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/style/home_style.css" afterPath="$PROJECT_DIR$/view/assets/style/home_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/header.html" afterPath="$PROJECT_DIR$/view/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/home.php" afterPath="$PROJECT_DIR$/view/home.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/home_profile.html" afterPath="$PROJECT_DIR$/view/home_profile.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +19,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5013889">
       <split-first>
         <leaf>
-          <file leaf-file-name="home.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="home.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/view/home.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+                <state relative-caret-position="440">
+                  <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
                   <folding />
                 </state>
               </provider>
@@ -45,8 +32,8 @@
           <file leaf-file-name="home_profile.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/view/home_profile.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="555">
-                  <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="28" />
+                <state relative-caret-position="655">
+                  <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -55,8 +42,18 @@
           <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/view/header.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1140">
-                  <caret line="57" column="54" lean-forward="true" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
+                <state relative-caret-position="780">
+                  <caret line="84" column="4" lean-forward="true" selection-start-line="73" selection-start-column="3" selection-end-line="84" selection-end-column="4" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="compose_twat.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/view/compose_twat.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="520">
+                  <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
                   <folding />
                 </state>
               </provider>
@@ -66,41 +63,21 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="home_style.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="home_style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/view/assets/style/home_style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="506">
-                  <caret line="51" column="18" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
+                <state relative-caret-position="526">
+                  <caret line="84" column="20" lean-forward="false" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="loginControler.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/controller/loginControler.php">
+          <file leaf-file-name="editProfileControler.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/controller/editProfileControler.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="14" column="57" lean-forward="true" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="registrationControler.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/controller/registrationControler.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="18" column="53" lean-forward="true" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="home_profile.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../../asdtest/Twatter-master 2/view/home_profile.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="760">
-                  <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="39" selection-end-column="50" />
+                <state relative-caret-position="600">
+                  <caret line="30" column="70" lean-forward="true" selection-start-line="30" selection-start-column="70" selection-end-line="30" selection-end-column="70" />
                   <folding />
                 </state>
               </provider>
@@ -109,6 +86,13 @@
         </leaf>
       </split-second>
     </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -125,9 +109,11 @@
         <option value="$PROJECT_DIR$/controller/loginControler.php" />
         <option value="$PROJECT_DIR$/controller/registrationControler.php" />
         <option value="$PROJECT_DIR$/view/header.html" />
+        <option value="$PROJECT_DIR$/controller/editProfileControler.php" />
         <option value="$PROJECT_DIR$/view/home_profile.html" />
-        <option value="$PROJECT_DIR$/view/assets/style/home_style.css" />
         <option value="$PROJECT_DIR$/view/home.php" />
+        <option value="$PROJECT_DIR$/view/compose_twat.html" />
+        <option value="$PROJECT_DIR$/view/assets/style/home_style.css" />
       </list>
     </option>
   </component>
@@ -195,6 +181,14 @@
               <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="Twatter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Twatter" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="uploads" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -206,6 +200,7 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -234,12 +229,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521885208285</updated>
-      <workItem from="1521885209423" duration="3906000" />
+      <workItem from="1521885209423" duration="7080000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3906000" />
+    <option name="totallyTimeSpent" value="7080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -307,14 +302,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="57" column="54" lean-forward="true" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/assets/images/uploads/default_icon.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -335,6 +322,19 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/assets/images/default_cover.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/loginControler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="57" lean-forward="true" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../asdtest/Twatter-master 2/view/home_profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
@@ -343,39 +343,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/assets/images/default_cover.jpg">
+    <entry file="file://$PROJECT_DIR$/view/assets/images/uploads/cover_shrek@blato.bg.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/home_profile.html">
+    <entry file="file://$PROJECT_DIR$/controller/editProfileControler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="28" />
+        <state relative-caret-position="600">
+          <caret line="30" column="70" lean-forward="true" selection-start-line="30" selection-start-column="70" selection-end-line="30" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/assets/style/home_style.css">
+    <entry file="file://$PROJECT_DIR$/view/home_profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="51" column="18" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
+        <state relative-caret-position="655">
+          <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+        <state relative-caret-position="440">
+          <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/loginControler.php">
+    <entry file="file://$PROJECT_DIR$/view/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="57" lean-forward="true" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+        <state relative-caret-position="780">
+          <caret line="84" column="4" lean-forward="true" selection-start-line="73" selection-start-column="3" selection-end-line="84" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/compose_twat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/assets/style/home_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="84" column="20" lean-forward="false" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
           <folding />
         </state>
       </provider>

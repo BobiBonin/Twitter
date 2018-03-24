@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="assets/style/home_style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div id="twat_box">
+    <img id="twat_box_icon" src="">
+</div>
+
+<script>
+    function profIcon() {
+        var request = new XMLHttpRequest();
+        request.open("GET", "../controller/profileController.php");
+        request.onreadystatechange = function (ev) {
+            if(this.status == 200 && this.readyState == 4){
+                var response = JSON.parse(this.responseText);
+                var img = document.getElementById("twat_box_icon");
+                img.src = response['user_pic'];
+            }
+        };
+        request.send();
+    }
+</script>
+</body>
+</html>

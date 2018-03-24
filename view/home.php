@@ -13,9 +13,20 @@
 include "header.html";
 ?>
 <div class="home_wrap">
-    <?php
-    include "home_profile.html";
-    ?>
+    <div id="home_left_div">
+        <?php
+        include "home_profile.html";
+        ?>
+    </div>
+    <div id="home_mid_div">
+        <?php
+        include "compose_twat.html";
+        ?>
+    </div>
+    <div id="home_right_div">
+
+    </div>
+
 </div>
 </body>
 </html>
