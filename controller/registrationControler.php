@@ -16,7 +16,7 @@ if (isset($_POST['reg_btn'])) {
                 $date = date("y-m-d H:i:s");
                 registerUser($pdo,$username,sha1($password),$email,$date);
                 $_SESSION['email'] = $email;
-                header("location: ../view/profile.php");
+                header("location: ../view/home.php");
             }else{
                 header("location: ../index.html");
             }

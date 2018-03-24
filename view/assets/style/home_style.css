@@ -2,7 +2,7 @@
     width: 288px;
     height: 212px;
     box-sizing: border-box;
-    border:1px solid black;
+    background-color: white;
 }
 .home_profile_cover{
     width: 100%;
@@ -19,13 +19,15 @@
     float:left;
 }
 #profile_h2{
+    margin-left: 10px;
+    margin-top:10px;
     float:left;
 }
 
 #profile_h4{
    float:left;
-    margin-left:-70px;
-    margin-top:26px;
+    margin-left:-20%;
+    margin-top:20px;
     color: #657786;
 }
 .home_profile_stats{
@@ -42,8 +44,22 @@ li {
     width:33%;
     text-align: center;
     font-weight: bold;
-    margin-top:-10px;
+    margin-top:18px;
 }
 .home_profile_name{
     margin-bottom:-10px;
+}
+/*24.03.2017 Boris*/
+.home_wrap{
+    width: 1190px;
+    height: 1000px;
+    margin:auto;
+    padding-top: 60px;
+}
+#hm_prof_img{
+    position: relative;
+}
+#cover{
+    width: 100%;
+    height: 95px;
 }

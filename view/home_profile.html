@@ -7,10 +7,10 @@
 <body>
     <div class="home_profile">
         <div class="home_profile_cover">
-
+            <img id="cover" src="">
         </div>
         <div class="home_profile_name">
-            <img class="home_profile_img" src="assets/images/default_icon.jpg">
+            <img class="home_profile_img" id="hm_prof_img" src="">
             <h2 id="profile_h2"></h2><br>
             <h4 id="profile_h4"></h4>
         </div>
@@ -30,8 +30,14 @@
             var resp = this.responseText;
             resp = JSON.parse(resp);
             var user_name = resp["user_name"];
-            var user_pic = resp.user_pic;
-            var user_cover = resp.user_cover;
+            var user_pic = resp["user_pic"];
+            var user_cover = resp["user_cover"];
+//          24.03.2017 Boris
+            var img = document.getElementById("hm_prof_img");
+            img.src=user_pic;
+
+            var cover = document.getElementById("cover");
+            cover.src="assets/images/"+user_cover;
 
             var profile_h2 = document.getElementById("profile_h2");
             profile_h2.innerHTML=user_name;
