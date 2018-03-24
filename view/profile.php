@@ -111,6 +111,7 @@ include_once "header.html";
                 img.src = "";
                 img.src = response[0]['user_pic'];
                 small_img.src = response[0]['user_pic'];
+                cover.src = response[0]["user_cover"];
             }
         };
         request.send();

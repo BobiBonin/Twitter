@@ -17,7 +17,9 @@
             if(this.status == 200 && this.readyState == 4){
                 var response = JSON.parse(this.responseText);
                 var img = document.getElementById("twat_box_icon");
+                var img2 = document.getElementById("profile_icon");
                 img.src = response['user_pic'];
+                img2.src = response['user_pic'];
             }
         };
         request.send();
