@@ -294,7 +294,7 @@ ul {
 
 #profile_icon {
     height: 36px;
-    width: auto;
+    width: 36px;
     border-radius: 50%;
     cursor: pointer;
 }
