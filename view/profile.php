@@ -19,36 +19,65 @@ include_once "header.html";
     <img id="cover_img" src="" alt="">
 </div>
 <nav id="my_nav">
-    <ul>
-        <li><a href="#">Следва</a></li>
-        <li><a href="#">Последователи</a></li>
-        <li><a href="#">Списъци</a></li>
-        <li><a href="#">Моменти</a></li>
-    </ul>
-    <div id="profile_card">
-        <div id="nav_image">
-            <img src="" id="nav_img">
+    <div class="in_my_nav" id="first_in_my_nav">
+        <ul>
+            <li><a href="#">Следва</a></li>
+            <li><a href="#">Последователи</a></li>
+            <li><a href="#">Списъци</a></li>
+            <li><a href="#">Моменти</a></li>
+        </ul>
+        <div id="profile_card">
+            <div id="nav_image">
+                <img src="" id="nav_img">
+            </div>
+            <a id="nav_name" href="#">@Georgi</a>
         </div>
-        <a id="nav_name" href="#">@Georgi</a>
-    </div>
 </nav>
-<div id="circle">
-    <img id="circle_img" src="">
+    </div>
+<div class="in_my_nav">
+    <div id="circle">
+        <img id="circle_img" src="">
+    </div>
 </div>
-
-
 <div id="profile_edit">
     <form method="post" action="../controller/editProfileControler.php" enctype="multipart/form-data">
-        <input type="text" name="username" id="username">
-        <input type="email" name="email" id="email">
-        <input type="password" name="password" placeholder="Enter password">
-        <input type="password" name="rpassword" placeholder="Repeat password">
-        <input type="file" name="user_pic" class="file" value="Profile picture">
-        <input type="file" name="user_cover" class="file">
-        <input type="submit" value="Edit" id="btn_edit" name="btn_edit">
+    <table>
+        <tr>
+            <td>Име:</td>
+            <td><input type="text" name="username" id="username"></td>
+        </tr>
+        <tr>
+            <td>Имейл:</td>
+            <td><input type="email" name="email" id="email"></td>
+        </tr>
+        <tr>
+            <td>Град:</td>
+            <td><input type="text" name="city" id="city" placeholder="Град"></td>
+        </tr>
+        <tr>
+            <td>Парола:</td>
+            <td><input type="password" name="password" placeholder="Въведете парола"></td>
+        </tr>
+        <tr>
+            <td>Описание:</td>
+            <td><textarea rows="5" cols="26"></textarea></td>
+        </tr>
+        <tr>
+            <td>Профилна снимка:</td>
+            <td><input type="file" name="user_pic" class="file" value="Profile picture"></td>
+        </tr>
+        <tr>
+            <td>Снимка за корица:</td>
+            <td><input type="file" name="user_cover" class="file"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Edit" id="btn_edit" name="btn_edit"></td>
+        </tr>
+    </table>
     </form>
 </div>
-<div id="height">
+<div id="main">
+   
 </div>
 <script>
     /*Georgi -- 20.03.2018 -- Скриване и показване на профилната снимка в навигейшън бара*/
@@ -63,14 +92,14 @@ include_once "header.html";
         var cover = document.getElementById("cover");
         var card = document.getElementById("profile_card");
         var y = window.scrollY;
-        if (y >= 130) {
+        if (y >= 330) {
             circle.style.marginTop = "-200px";
             circle.style.transition = "margin-top 200ms linear";
             document.getElementById("nav_image").style.visibility = "visible";
             header.style.position = "fixed";
             cover.style.position = "fixed";
             header.style.top = "70px";
-            cover.style.top = "-70px";
+            cover.style.top = "-330px";
             card.style.opacity = "1";
         }
         else {
@@ -104,7 +133,7 @@ include_once "header.html";
                 button.innerText = "Последване";
                 button.id = "edit_btn";
                 button.name = "follow";
-                document.getElementById("my_nav").appendChild(button);
+                document.getElementById("first_in_my_nav").appendChild(button);
                 profile_icon.src = response[0]['user_pic'];
                 a.innerText = '@' + response[0]['user_name'];
                 a.href = "profile.php?" + response[0]['user_name'];
@@ -126,7 +155,7 @@ include_once "header.html";
                 var a = document.getElementById("nav_name");
                 var button = document.createElement("button");
                 var cover = document.getElementById("cover_img");
-                document.getElementById("my_nav").appendChild(button);
+                document.getElementById("first_in_my_nav").appendChild(button);
                 button.innerText = "Редактиране на профила";
                 button.id = "edit_btn";
                 button.name = "edit_btn";
@@ -158,6 +187,9 @@ include_once "header.html";
         };
         request.send();
     }
+
+
+
 </script>
 </body>
 </html>

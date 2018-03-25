@@ -20,16 +20,14 @@ time, mark, audio, video {
 
 #cover {
     width: 100%;
-    height: 200px;
+    height: 400px;
     background-color: #1da1f2;
 }
 
 body {
     background-color: #e6ecf0;
 }
-#height{
-    height: 1500px;
-}
+
 nav {
     width: 100%;
     height: 70px;
@@ -38,11 +36,14 @@ nav {
     overflow: hidden;
     position: sticky;
 }
-
+.in_my_nav{
+    width: 1190px;
+    height: 100%;
+    margin: auto;
+}
 #cover_img{
     width: 100%;
-    height: 200px;
-    position: center;
+    height: 400px;
 }
 
 .sticky {
@@ -90,7 +91,6 @@ span {
     height: 35px;
     width: 200px;
     margin-top: -60px;
-    margin-right: 15%;
     float: right;
     border-radius: 33px;
     border: 1px solid #66757f;
@@ -112,8 +112,7 @@ span {
     border-radius: 50%;
     border: 5px solid #ffffff;
     position: absolute;
-    top: 100px;
-    left: 15%;
+    top: 300px;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -133,7 +132,7 @@ span {
 }
 #nav_img{
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 #profile_card a {
@@ -144,7 +143,7 @@ span {
 #profile_card {
     opacity: 0;
     margin-top: -50px;
-    margin-left: 270px;
+    margin-left: 2%;
     width: 200px;
     height: 70px;
     transition: opacity 1s linear;
@@ -173,7 +172,7 @@ span {
     color: #1da1f2;
 }
 #profile_edit{
-    width: 300px;
+    width: 350px;
     height: auto;
     background-color: #e8f5fd;
     position: absolute;
@@ -182,8 +181,11 @@ span {
     z-index: -2;
     visibility: hidden;
 }
+#profile_edit table{
+    width: 400px;
+}
 #profile_edit input {
-    width: 95%;
+    width: 75%;
     margin: 5px;
     border-radius: 5px;
     height: 25px;
@@ -201,7 +203,12 @@ span {
     font-family: "Segoe UI";
     font-size: 1em;
 }
-
+#main{
+    width: 1190px;
+    height: 1500px;
+    background-color: #66757f;
+    margin: auto;
+}
 
 /*Boris*/
 
