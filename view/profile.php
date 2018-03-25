@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/style/profile_style.css">
 
 </head>
-<body>
+<body on>
 <!-- Boris -->
 <?php
 include_once 'page_lock.php';
@@ -15,16 +15,15 @@ include_once "header.html";
 ?>
 
 <!-- Georgi -->
-<div id="cover">
+<div id="cover" onclick="hide()">
     <img id="cover_img" src="" alt="">
 </div>
 <nav id="my_nav">
     <div class="in_my_nav" id="first_in_my_nav">
         <ul>
-            <li><a href="#">Следва</a></li>
-            <li><a href="#">Последователи</a></li>
-            <li><a href="#">Списъци</a></li>
-            <li><a href="#">Моменти</a></li>
+            <li><a href="#" id="following">Следва</a></li>
+            <li><a href="#" id="followers">Последователи</a></li>
+            <li><a href="#" id="twits">Туитове</a></li>
         </ul>
         <div id="profile_card">
             <div id="nav_image">
@@ -55,12 +54,12 @@ include_once "header.html";
             <td><input type="text" name="city" id="city" placeholder="Град"></td>
         </tr>
         <tr>
-            <td>Парола:</td>
-            <td><input type="password" name="password" placeholder="Въведете парола"></td>
+            <td>Описание:</td>
+            <td><textarea rows="5" cols="26" name="description" id="description" placeholder="Кратко описание.."></textarea></td>
         </tr>
         <tr>
-            <td>Описание:</td>
-            <td><textarea rows="5" cols="26"></textarea></td>
+            <td>Парола:</td>
+            <td><input type="password" name="password" id="password" placeholder="Въведете парола"></td>
         </tr>
         <tr>
             <td>Профилна снимка:</td>
@@ -76,8 +75,33 @@ include_once "header.html";
     </table>
     </form>
 </div>
-<div id="main">
-   
+
+<div id="main" onclick="hide()">
+    <div id="user_info">
+
+    </div>
+
+    <div id="center_tweet">
+
+    </div>
+
+    <div id="random_users">
+        <div id="first">
+
+        </div>
+        <div id="second">
+
+        </div>
+        <div id="third">
+
+        </div>
+        <div id="fourth">
+
+        </div>
+        <div id="fifth">
+
+        </div>
+    </div>
 </div>
 <script>
     /*Georgi -- 20.03.2018 -- Скриване и показване на профилната снимка в навигейшън бара*/
@@ -91,6 +115,8 @@ include_once "header.html";
         var circle = document.getElementById('circle');
         var cover = document.getElementById("cover");
         var card = document.getElementById("profile_card");
+        var top_bar = document.getElementById("top_bar");
+        var main = document.getElementById("main");
         var y = window.scrollY;
         if (y >= 330) {
             circle.style.marginTop = "-200px";
@@ -101,9 +127,12 @@ include_once "header.html";
             header.style.top = "70px";
             cover.style.top = "-330px";
             card.style.opacity = "1";
+            main.style.marginTop = "484px";
+            top_bar.style.top = "0";
         }
         else {
-            card.style.opacity = "";
+            document.getElementById("nav_image").style.visibility = "hidden";
+            main.style.marginTop = "10px";
             cover.style.top = "";
             cover.style.position = "";
             header.style.position = "";
@@ -144,6 +173,30 @@ include_once "header.html";
             }
         };
         request.send();
+        /* Втори рекуест за  /СЛЕДВА,ПОСЛЕДОВАТЕЛИ,ТУИТОВЕ/ по профилите*/
+        var request2 = new XMLHttpRequest();
+        request2.open("GET", "../controller/followingControler.php?name=" + queries[0]);
+        request2.onreadystatechange = function (ev) {
+            if (this.status == 200 && this.readyState == 4) {
+                var response = JSON.parse(this.responseText);
+                console.log(response);
+                var a = document.getElementById("following");
+                var span = document.createElement('span');
+                span.innerText = response[0][0]['num'];
+                a.appendChild(span);
+
+                var a = document.getElementById("followers");
+                var span = document.createElement('span');
+                span.innerText = response[1][0]['num'];
+                a.appendChild(span);
+
+                var a = document.getElementById("twits");
+                var span = document.createElement('span');
+                span.innerText = response[2][0]['num'];
+                a.appendChild(span);
+            }
+        };
+        request2.send();
     } else { /*Ако в URL няма параметър(моя профил)*/
         var request = new XMLHttpRequest();
         request.open("GET", "../controller/profileController.php");
@@ -170,9 +223,20 @@ include_once "header.html";
                             var result = JSON.parse(this.responseText);
                             var username = document.getElementById("username");
                             var email = document.getElementById("email");
+                            var city = document.getElementById("city");
+                            var description = document.getElementById("description");
+                            var password = document.getElementById("password");
                             var btn = document.getElementById("btn_edit");
+                            btn.addEventListener("click", function () {
+                               if(password.value == 0){
+                                   password.style.border = "1px solid red";
+                                   event.preventDefault();
+                               }
+                            });
                             username.value = result['user_name'];
                             email.value = result['user_email'];
+                            city.value = result['user_city'];
+                            description.value = result['user_description'];
                         }
                     };
                     request.send();
@@ -186,6 +250,15 @@ include_once "header.html";
             }
         };
         request.send();
+    }
+
+
+
+
+
+
+    if (queryString.length != 0) { /*Ако в URL има параметър(чужд профил)*/
+
     }
 
 

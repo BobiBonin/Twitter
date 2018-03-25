@@ -8,7 +8,7 @@
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body onload="profIcon()">
-<div class="topbar">
+<div class="topbar" id="top_bar">
     <div class="topbarcontainer">
         <div class="navigation">
             <ul>
@@ -45,10 +45,12 @@
         request.onreadystatechange = function (ev) {
             if (this.readyState == 4 && this.status == 200) {
                 var ul = document.createElement("ul");
+                ul.id = "search_ul";
                 var response = JSON.parse(this.responseText);
                 var div = document.getElementById("asd");
                 var div2 = document.getElementById("ul");
                 div2.innerHTML = "";
+                div2.style.visibility = "visible";
                 for (var key in response) {
                     var li = document.createElement("li");
                     var a = document.createElement("a");

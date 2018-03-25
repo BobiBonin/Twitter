@@ -1,14 +1,15 @@
 <?php
-/*Georgi -- 23.03.2018 -- Търси юзър по имейл*/
 session_start();
 require_once "../model/userDao.php";
-
 try{
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $logged_mail = $_SESSION["email"];
-        $user = getUserInfoByEmail($pdo,$logged_mail);
+        $name = $_GET['name'];
+        $user[] = getUserFollowings($pdo, $name);
+        $user[] =  getUserFollowers($pdo, $name);
+        $user[] = getUserTwats($pdo, $name);
         echo json_encode($user);
     }
 }catch (PDOException $e){
 
 }
+

@@ -127,12 +127,14 @@ span {
     height: 55px;
     background-color: transparent;
     border-radius: 50%;
+    transition: visibility 1s linear;
     display: inline-block;
     overflow: hidden;
 }
 #nav_img{
     width: 100%;
     height: 100%;
+    transition: visibility 1s linear;
 }
 
 #profile_card a {
@@ -176,7 +178,7 @@ span {
     height: auto;
     background-color: #e8f5fd;
     position: absolute;
-    right: 12%;
+    right: 10%;
     border-radius: 10px;
     z-index: -2;
     visibility: hidden;
@@ -189,6 +191,7 @@ span {
     margin: 5px;
     border-radius: 5px;
     height: 25px;
+    outline: none;
 }
 #btn_edit{
     width: 95%;
@@ -205,10 +208,57 @@ span {
 }
 #main{
     width: 1190px;
-    height: 1500px;
-    background-color: #66757f;
+    height: 1000px;
     margin: auto;
 }
+#user_info{
+    width: 280px;
+    height: 350px;
+    background-color: #006dbf;
+    padding-top:100px ;
+    float: left;
+}
+#center_tweet{
+    width: 600px;
+    height: 350px;
+    background-color: #006dbf;
+    padding-top: 100px;
+    margin: 0px 15px 0px 15px;
+    float: left;
+}
+#random_users{
+    width: 280px;
+    height: 350px;
+    background-color: #006dbf;
+    padding-top:100px ;
+    float: right;
+}
+#first{
+    height: 20%;
+    width: 100%;
+    background-color: red;
+}
+#second{
+    height: 20%;
+    width: 100%;
+    background-color: #17be63;
+}
+#third{
+    height: 20%;
+    width: 100%;
+    background-color: yellow;
+}
+#fourth{
+    height: 20%;
+    width: 100%;
+    background-color: #66757f;
+}
+#fifth{
+    height: 20%;
+    width: 100%;
+    background-color: #dd78e0;
+}
+
 
 /*Boris*/
 

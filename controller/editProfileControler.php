@@ -14,6 +14,8 @@ if (isset($_POST['btn_edit'])) {
         $username = htmlentities($_POST['username']);
         $email = htmlentities($_POST['email']);
         $password = htmlentities($_POST['password']);
+        $city = htmlentities($_POST['city']);
+        $description = htmlentities($_POST['description']);
         $url_image = "assets/images/uploads/image_$email.png";
         $url_cover = "assets/images/uploads/cover_$email.png";
         $tmp_image = $_FILES['user_pic']['tmp_name'];
@@ -32,7 +34,7 @@ if (isset($_POST['btn_edit'])) {
             }
         }
         $id = findId($pdo, $_SESSION['email']);
-        updateUser($pdo, $username, $email, sha1($password), $url_image, $url_cover, $id['user_id']);
+        updateUser($pdo, $username, $email, sha1($password), $url_image, $url_cover, $city, $description, $id['user_id']);
         header("location: ../view/profile.php");
 
 

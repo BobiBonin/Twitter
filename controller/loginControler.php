@@ -8,7 +8,7 @@ if (isset($_POST['login_btn'])) {
     $password = htmlentities($_POST['password']);
 
     try {
-        if (checkUserExist($email, sha1($password))) {
+        if (checkUserExist($pdo,$email, sha1($password))) {
             $_SESSION['email'] = $email;
             header("Location: ../view/home.php");
         }else{
