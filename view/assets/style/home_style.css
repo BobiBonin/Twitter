@@ -86,14 +86,55 @@
 }
 /*compose_twat.html*/
 #twat_box{
-    height: 58px;
+    padding-top: 5px;
+    height: auto;
     width: 590px;
     background-color: #A3D4F2;
+    padding-bottom: 7px;
+
 }
 #twat_box_icon{
     height: 35px;
     width: 35px;
     border-radius:50%;
-    margin-left:10px;
-    margin-top:12px;
+    margin-left:15px;
+    position: absolute;
 }
+#compose_twat_text{
+    width:500px;
+    height:35px;
+    margin-left:70px;
+    resize: none;
+    font-family: Lato;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border:0;
+}
+#twat_button{
+    float:right;
+    margin-right:15px;
+    border-radius: 100px;
+    width: 75px;
+    height: 35px;
+    background-color: #48AAE6;
+    font-weight: bold;
+    border: none;
+    font-family: sans-serif;
+    color: white;
+    cursor: pointer;
+}
+#twat_button:hover {
+    background-color: #006dbf;
+}
+#compose_twat_text:focus{
+    min-height: 80px;
+    overflow: hidden;
+    outline: none;
+    border:2px solid rgba(36,120,255,0.5);
+}
+#compose_twat_text::placeholder{
+    color:#1B95E0;
+    font-family: sans-serif;
+}
+

@@ -7,8 +7,8 @@
 <body>
 <div id="twat_box">
     <img id="twat_box_icon" src="">
+    <textarea id="compose_twat_text" placeholder="What's happening?" onfocus="showButton()" onfocusout="hideButton()"></textarea>
 </div>
-
 <script>
     function profIcon() {
         var request = new XMLHttpRequest();
@@ -23,6 +23,20 @@
             }
         };
         request.send();
+    }
+    function showButton() {
+        var twat_div = document.getElementById("twat_box");
+        twat_div.style.paddingBottom="40px";
+        var but = document.createElement("button");
+        but.id="twat_button";
+        but.innerHTML="Tweet";
+        twat_div.appendChild(but);
+    }
+    function hideButton() {
+        var twat_div = document.getElementById("twat_box");
+        var but = document.getElementById("twat_button");
+        twat_div.removeChild(but);
+        twat_div.style.paddingBottom="4px";
     }
 </script>
 </body>
