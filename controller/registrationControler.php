@@ -12,7 +12,7 @@ if (isset($_POST['reg_btn'])) {
     try {
         require_once'../model/dbManager.php';
         if($password === $rpassword){
-            if(!UserExistForReg($pdo, $email)){
+            if(!userExistForReg($pdo, $email)){
                 $date = date("y-m-d H:i:s");
                 registerUser($pdo,$username,sha1($password),$email,$date);
                 $result = getUserInfoByEmail($pdo, $email);

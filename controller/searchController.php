@@ -5,6 +5,6 @@ require_once "../model/userDao.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $name = $_GET['name'];
-    $user = getUserInfoByName($pdo,$name, $_SESSION['user']['email']);
+    $user = getFirstFiveUsersByName($pdo,$name, $_SESSION['user']['email']);
     echo json_encode($user);
 }
