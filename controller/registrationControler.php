@@ -15,7 +15,19 @@ if (isset($_POST['reg_btn'])) {
             if(!UserExistForReg($pdo, $email)){
                 $date = date("y-m-d H:i:s");
                 registerUser($pdo,$username,sha1($password),$email,$date);
-                $_SESSION['email'] = $email;
+                $result = getUserInfoByEmail($pdo, $email);
+                $_SESSION['user'] = [];
+                $new = [
+                    "id" => $result['user_id'],
+                    "name" => $result['user_name'],
+                    "reg_date" => $result['user_date'],
+                    "image" => $result['user_pic'],
+                    "cover" => $result['user_cover'],
+                    "city" => $result['user_city'],
+                    "description" => $result['user_description'],
+                    "email" => $email,
+                ];
+                $_SESSION['user'] = $new;
                 header("location: ../view/home.php");
             }else{
                 header("location: ../index.html");

@@ -33,8 +33,8 @@ if (isset($_POST['btn_edit'])) {
                 $url_cover = "assets/images/uploads/cover_$email.png";
             }
         }
-        $id = findId($pdo, $_SESSION['email']);
-        updateUser($pdo, $username, $email, sha1($password), $url_image, $url_cover, $city, $description, $id['user_id']);
+        $id = $_SESSION['user']['id'];
+        updateUser($pdo, $username, $email, sha1($password), $url_image, $url_cover, $city, $description, $id);
         header("location: ../view/profile.php");
 
 

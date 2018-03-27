@@ -10,6 +10,7 @@
 </head>
 <body>
 <?php
+session_start();
 include "header.html";
 ?>
 <div class="home_wrap">

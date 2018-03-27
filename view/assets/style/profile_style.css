@@ -206,6 +206,19 @@ span {
     font-family: "Segoe UI";
     font-size: 1em;
 }
+#btn_unfollow{
+    width: 95%;
+    margin: 5px;
+    border-radius: 5px;
+    height: 25px;
+    background-color: white;
+    border: 1px solid #1da1f2;
+    cursor: pointer;
+    color: #1da1f2;
+    font-weight: bold;
+    font-family: "Segoe UI";
+    font-size: 1em;
+}
 #main{
     width: 1190px;
     height: 1000px;
@@ -215,14 +228,13 @@ span {
     width: 280px;
     height: 350px;
     background-color: #006dbf;
-    padding-top:100px ;
+
     float: left;
 }
 #center_tweet{
     width: 600px;
-    height: 350px;
-    background-color: #006dbf;
-    padding-top: 100px;
+    height:auto;
+
     margin: 0px 15px 0px 15px;
     float: left;
 }
@@ -230,7 +242,6 @@ span {
     width: 280px;
     height: 350px;
     background-color: #006dbf;
-    padding-top:100px ;
     float: right;
 }
 #first{
@@ -257,6 +268,49 @@ span {
     height: 20%;
     width: 100%;
     background-color: #dd78e0;
+}
+.followingUserInfo{
+    margin: 10px;
+    width: 269px;
+    height: 212px;
+    box-sizing: border-box;
+    background-color: white;
+    float: left;
+}
+.followingUserInfo_cover{
+    width: 100%;
+    height: 95px;
+    background-color: #1da1f2;
+}
+#followingUserInfo_image{
+    width: 100%;
+    height: 95px;
+}
+.followingUserDiv_name{
+    margin-bottom: -10px;
+}
+#followingUserProfile_image{
+    height: 68px;
+    width: 68px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-top: -20px;
+    margin-left: 5px;
+    float: left;
+    position: relative;
+}
+#profile_h2{
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+    display: inline;
+}
+#profile_h4{
+    margin-left: -20px;
+    float: left;
+    margin-top: 40px;
+    color: #657786;
+    display: inline;
 }
 
 

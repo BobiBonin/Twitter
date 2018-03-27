@@ -21,7 +21,7 @@ include_once "header.html";
 <nav id="my_nav">
     <div class="in_my_nav" id="first_in_my_nav">
         <ul>
-            <li><a href="#" id="following">Следва</a></li>
+            <li><a href="#" id="following" onclick="showFollowing()">Следва</a></li>
             <li><a href="#" id="followers">Последователи</a></li>
             <li><a href="#" id="twits">Туитове</a></li>
         </ul>
@@ -250,16 +250,61 @@ include_once "header.html";
             }
         };
         request.send();
+
+
+        function showFollowing() {
+            var request = new XMLHttpRequest();
+            request.open("GET","../controller/showFollowing.php");
+            request.onreadystatechange = function (ev) {
+                if(this.readyState == 4 && this.status == 200){
+                    var response = JSON.parse(this.responseText);
+                    var center = document.getElementById("center_tweet");
+                    center.style.width = "869px";
+                    var right = document.getElementById("random_users");
+                    right.style.visibility = "hidden";
+                    right.style.width = "1px";
+                    center.innerHTML ="";
+                    for(var key in response){
+                        var div = document.createElement("div");
+                        div.classList.add("followingUserInfo");
+                        var cover_div = document.createElement("div");
+                        cover_div.classList.add("followingUserInfo_cover");
+                        var img = document.createElement("img");
+                        img.id = "followingUserInfo_image";
+                        img.src = response[key]['user_cover'];
+
+                        center.appendChild(div);
+                        div.appendChild(cover_div);
+                        cover_div.appendChild(img);
+
+                        var div_name = document.createElement("div");
+                        div_name.classList.add("followingUserDiv_name");
+                        var user_img = document.createElement("img");
+                        user_img.id = "followingUserProfile_image";
+                        user_img.src = response[key]["user_pic"];
+                        var h2 = document.createElement("h2");
+                        h2.id = "profile_h2";
+                        h2.innerText = response[key]["user_name"];
+                        var h4 = document.createElement("h4");
+                        h4.id = "profile_h4";
+                        h4.innerText = "@" + response[key]["user_name"];
+
+                        // var button = document.createElement("button");
+                        // button.id = "btn_unfollow";
+                        // div.appendChild(button);
+
+                        div.appendChild(div_name);
+                        div_name.appendChild(user_img);
+                        div_name.appendChild(h2);
+                        div_name.appendChild(h4);
+
+                    }
+                }
+            };
+            request.send();
+        }
     }
 
-
-
-
-
-
-    if (queryString.length != 0) { /*Ако в URL има параметър(чужд профил)*/
-
-    }
 
 
 

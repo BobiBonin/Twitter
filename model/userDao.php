@@ -25,7 +25,7 @@ function registerUser($pdo, $username, $password, $email, $date)
 
 function getUserInfoByEmail($pdo, $email)
 {
-    $statement = $pdo->prepare("SELECT user_name, user_email, user_date, user_pic, user_cover, user_city, user_description FROM users WHERE user_email = ?");
+    $statement = $pdo->prepare("SELECT user_id, user_name, user_email, user_date, user_pic, user_cover, user_city, user_description FROM users WHERE user_email = ?");
     $statement->execute(array($email));
     $result = $statement->fetch(PDO::FETCH_ASSOC);
     return $result;
@@ -86,6 +86,13 @@ function findId($pdo, $email)
     $statement = $pdo->prepare("SELECT user_id FROM users WHERE user_email = ?");
     $statement->execute(array($email));
     $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+function findFollowing($pdo, $id)
+{
+    $statement = $pdo->prepare("SELECT u.user_name, u.user_pic, u.user_cover, u.user_city, u.user_description FROM users as u JOIN following as f ON u.user_id = f.following_id WHERE f.user_id = ?");
+    $statement->execute(array($id));
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
 

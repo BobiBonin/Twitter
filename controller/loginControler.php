@@ -9,7 +9,19 @@ if (isset($_POST['login_btn'])) {
 
     try {
         if (checkUserExist($pdo,$email, sha1($password))) {
-            $_SESSION['email'] = $email;
+            $result = getUserInfoByEmail($pdo, $email);
+            $_SESSION['user'] = [];
+            $new = [
+                "id" => $result['user_id'],
+                "name" => $result['user_name'],
+                "reg_date" => $result['user_date'],
+                "image" => $result['user_pic'],
+                "cover" => $result['user_cover'],
+                "city" => $result['user_city'],
+                "description" => $result['user_description'],
+                "email" => $email,
+            ];
+            $_SESSION['user'] = $new;
             header("Location: ../view/home.php");
         }else{
             header("Location: ../view/error_login.html");
