@@ -102,11 +102,13 @@ include_once "header.html";
         <div id="who_to_follow">
             <h1>Кого да следваш</h1><a href="#" onclick="random()">.Oбновяване.</a>
         </div>
-        
+        <div id="randoms">
+
+        </div>
     </div>
 </div>
 <script>
-
+    window.onload = random();
     /*Георги -- 20.03.2018 -- Скриване и показване на профилната снимка в навигейшън бара*/
     var header = document.getElementById("my_nav");
     window.onscroll = function (event) {
@@ -158,7 +160,6 @@ include_once "header.html";
                 var img = document.getElementById("circle_img");
                 var small_img = document.getElementById("nav_img");
                 var a = document.getElementById("nav_name");
-                var profile_icon = document.getElementById("profile_icon");
                 var button = document.createElement("button");
                 var cover = document.getElementById("cover_img");
                 var name = document.getElementById("name");
@@ -177,7 +178,6 @@ include_once "header.html";
                 button.id = "edit_btn";
                 button.name = "follow";
                 document.getElementById("first_in_my_nav").appendChild(button);
-                profile_icon.src = response[0]['user_pic'];
                 a.innerText = '@' + response[0]['user_name'];
                 a.href = "profile.php?" + response[0]['user_name'];
                 img.src = "";
@@ -536,52 +536,57 @@ include_once "header.html";
 
     /*Георги --28.03.2018-- Рекуест за избрани на случаен принцип профили*/
 
-
+    function random() {
         var request = new XMLHttpRequest();
         request.open("GET","../controller/showRandomUsersController.php");
         request.onreadystatechange = function (ev) {
-          if(this.readyState == 4 && this.status == 200){
-              var response = JSON.parse(this.responseText);
-              console.log(response);
-              var random_users_div = document.getElementById("random_users");
+            if(this.readyState == 4 && this.status == 200){
+                var response = JSON.parse(this.responseText);
 
-              for(var key in response){
-                  var user_div = document.createElement("div");
-                  user_div.id = "first";
-                  var image_div = document.createElement("div");
-                  image_div.id = "random_img_div";
-                  var img = document.createElement("img");
-                  img.id = "random_img";
-                  img.src = response[key]['user_pic'];
-                  var name = document.createElement("h1");
-                  name.id = "random_name";
-                  var a = document.createElement("a");
-                  a.href = "profile.php?" + response[key]["user_name"];
-                  a.id = "a_name";
-                  a.innerText = response[key]["user_name"];
-                  var button = document.createElement("button");
-                  button.innerText = "Follow";
-                  button.classList.add("follow_btn");
-                  var find = document.createElement("div");
-                  var h1 = document.createElement("h1");
-                  find.id = "last_div";
-                  h1.innerText = "Намери хора, които познаваш";
-                  find.appendChild(h1);
+                var random_users_div = document.getElementById("random_users");
+                var randoms = document.getElementById("randoms");
+                randoms.style.width = "100%";
+                randoms.style.height = "80%";
+                randoms.innerHTML = "";
 
-
-
-                  random_users_div.appendChild(user_div);
-                  user_div.appendChild(image_div);
-                  image_div.appendChild(img);
-                  name.appendChild(a);
-                  user_div.appendChild(name);
-                  user_div.appendChild(button);
-
-              }
-              random_users_div.appendChild(find);
-          }
+                for(var key in response){
+                    var user_div = document.createElement("div");
+                    user_div.id = "first";
+                    var image_div = document.createElement("div");
+                    image_div.id = "random_img_div";
+                    var img = document.createElement("img");
+                    img.id = "random_img";
+                    img.src = response[key]['user_pic'];
+                    var name = document.createElement("h1");
+                    name.id = "random_name";
+                    var a = document.createElement("a");
+                    a.href = "profile.php?" + response[key]["user_name"];
+                    a.id = "a_name";
+                    a.innerText = response[key]["user_name"];
+                    var button = document.createElement("button");
+                    button.innerText = "Follow";
+                    button.classList.add("follow_btn");
+                    var find = document.createElement("div");
+                    var h1 = document.createElement("h1");
+                    find.id = "last_div";
+                    h1.innerText = "Намери хора, които познаваш";
+                    h1.addEventListener('click',function () {
+                        var search = document.getElementById("searchInput");
+                        search.focus();
+                    });
+                    find.appendChild(h1);
+                    randoms.appendChild(user_div);
+                    user_div.appendChild(image_div);
+                    image_div.appendChild(img);
+                    name.appendChild(a);
+                    user_div.appendChild(name);
+                    user_div.appendChild(button);
+                }
+                randoms.appendChild(find);;
+            }
         };
         request.send();
+    }
 
 
 </script>

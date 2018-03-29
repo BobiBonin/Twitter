@@ -139,25 +139,35 @@ span {
     height: 70px;
     transition: opacity 1s linear;
 }
-#ul{
+#search_ul{
     margin-top: 10%;
     background-color: #ffffff;
     width: 95%;
     height: auto;
+    border-radius: 10px;
 }
 #ul li{
     list-style-type: none;
     text-align: center;
-    border-bottom: 1px solid #006dbf;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.11);
+    height: 40px;
+
+}
+#ul li:hover{
+    background-color: rgba(49, 175, 255, 0.03);
 }
 #ul img{
-    width: 26px;
-    height: 26px;
+    width: 38px;
+    height: 38px;
+    margin: 1px 0 1px 2px;
+    border-radius: 10px;
 }
 #ul li a{
+
     text-decoration: none;
     color: #006dbf;
     font-size: 1.5em;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 #ul li a:hover{
     color: #1da1f2;
@@ -330,7 +340,7 @@ span {
     color: #66757f;
 }
 #who_to_follow{
-   width: 100%;
+    width: 100%;
     height: 20%;
     box-sizing: border-box;
 }
@@ -357,7 +367,6 @@ span {
     height: 20%;
     border-bottom: 1px solid rgba(209, 209, 209, 0.3);
 }
-
 #random_img_div{
     margin: 4% 0 0 40px;
     width: 50px;
@@ -386,33 +395,35 @@ span {
     color: #2b97df;
     text-decoration: underline;
 }
-
 .follow_btn {
-     height: 25px;
-     width: 80px;
-     border-radius: 33px;
-     border: 1px solid #2b97df;
-     background-color: transparent;
-     color: #2b97df;
-     font-weight: bold;
-     margin: 7px 0 0 100px;
-     outline: none;
-     cursor: pointer;
- }
+    height: 25px;
+    width: 80px;
+    border-radius: 33px;
+    border: 1px solid #2b97df;
+    background-color: transparent;
+    color: #2b97df;
+    font-weight: bold;
+    margin: 7px 0 0 100px;
+    outline: none;
+    cursor: pointer;
+}
 .follow_btn:hover {
     background-color: rgba(49, 175, 255, 0.2);
 }
-
 #last_div{
     width: 100%;
-    height: 9%;
+    height: 20%;
 
 }
 #last_div h1{
     font-size: 13px;
     color: #2b97df;
-    margin: 7px 40px 7px 40px;
+    margin: 25px 40px 7px 40px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    cursor: pointer;
+}
+#last_div h1:hover{
+    text-decoration: underline;
 }
 
 
@@ -486,7 +497,7 @@ ul {
     box-shadow: none;
     border: 1px solid #e6ecf0;
     color: gray;
-    width: 221px;
+    width: 261px;
     padding-left: 15px;
     margin-right: 10px;
     float: left;
