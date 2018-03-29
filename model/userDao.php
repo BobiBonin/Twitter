@@ -81,7 +81,7 @@ function getUserTwits($pdo, $name)
 /*Georgi -- 23.03.2018 -- Търси конкретен юзър по име*/
 function getUserInfoByName($pdo, $name)
 {
-    $statement = $pdo->prepare("SELECT user_name, user_pic, user_cover FROM users WHERE user_name = ?");
+    $statement = $pdo->prepare("SELECT user_id, user_name, user_email, user_date, user_pic, user_cover, user_city, user_description FROM users WHERE user_name = ?");
     $statement->execute(array($name));
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
@@ -106,11 +106,28 @@ function findId($pdo, $name)
 }
 
 
-/*Намира броя на следващите дадения потребител юзъри по ID*/
+/*Намира следващите дадения потребител юзъри по ID*/
 function findFollowing($pdo, $id)
 {
     $statement = $pdo->prepare("SELECT u.user_name, u.user_pic, u.user_cover, u.user_city, u.user_description FROM users as u JOIN following as f ON u.user_id = f.following_id WHERE f.user_id = ?");
     $statement->execute(array($id));
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+/*Намира следените от дадения потребител юзъри по ID*/
+function findFollowers($pdo, $id)
+{
+    $statement = $pdo->prepare("SELECT u.user_name, u.user_pic, u.user_cover FROM users as u JOIN following as f ON u.user_id = f.user_id WHERE f.following_id = ?");
+    $statement->execute(array($id));
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+/*Избира произволни 4 юзъра*/
+function getFourRandomUsers($pdo,$email){
+    $statement = $pdo->prepare("SELECT user_name, user_pic FROM users  WHERE user_id < (SELECT COUNT(*) FROM users) AND NOT user_email = ?  ORDER BY RAND()  LIMIT 3 ");
+    $statement->execute(array($email));
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }

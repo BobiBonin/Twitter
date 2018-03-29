@@ -14,6 +14,7 @@ time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
+
 }
 
 /*Georgi*/
@@ -23,11 +24,9 @@ time, mark, audio, video {
     height: 400px;
     background-color: #1da1f2;
 }
-
 body {
     background-color: #e6ecf0;
 }
-
 nav {
     width: 100%;
     height: 70px;
@@ -45,28 +44,24 @@ nav {
     width: 100%;
     height: 400px;
 }
-
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
 }
-
 nav ul li {
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    width: 24%;
+    width: 15%;
     height: 100%;
     padding-top: 15px;
 }
-
 nav ul {
-    width: 400px;
+    width: 700px;
     margin: auto;
     height: 80%;
 }
-
 nav ul li a {
     width: 100%;
     text-decoration: none;
@@ -75,18 +70,17 @@ nav ul li a {
     font-weight: bold;
     font-size: 13px;
 }
-
 nav ul li a:hover {
     border-bottom: 3px solid #1b95e0;
     padding-bottom: 36px;
+    color: #1da1f2;
 }
-
 span {
     margin: auto;
     width: 60px;
     display: block;
+    font-size: 20px;
 }
-
 #edit_btn {
     height: 35px;
     width: 200px;
@@ -100,11 +94,9 @@ span {
     outline: none;
     cursor: pointer;
 }
-
 #edit_btn:hover {
     background-color: #eeeeee;
 }
-
 #circle {
     width: 200px;
     height: 200px;
@@ -116,12 +108,10 @@ span {
     box-sizing: border-box;
     overflow: hidden;
 }
-
 #circle img {
     width: 100%;
     height: 100%;
 }
-
 #nav_image {
     width: 55px;
     height: 55px;
@@ -136,13 +126,12 @@ span {
     height: 100%;
     transition: visibility 1s linear;
 }
-
 #profile_card a {
     color: #1da1f2;
     text-decoration: none;
 }
-
 #profile_card {
+    left: 0;
     opacity: 0;
     margin-top: -50px;
     margin-left: 2%;
@@ -223,6 +212,7 @@ span {
 }
 #btn_unfollow:hover{
     background-color: #e0245e;
+    border: 1px solid #e0245e;
 }
 #main{
     width: 1190px;
@@ -230,24 +220,26 @@ span {
     margin: auto;
 }
 #user_info{
+    margin-top: 20px;
     width: 280px;
     height: 350px;
-    border: 1px solid #006dbf;
     float: left;
 }
 #center_tweet{
+
     width: 600px;
-    height:auto;
-    margin: 0px 15px 0px 15px;
+    height: 1000px;
+    margin: 20px 15px 0px 15px;
+    background-color: white;
     float: left;
 }
 #random_users{
+    margin-top: 20px;
     width: 280px;
     height: 350px;
-    border: 1px solid #006dbf;
+    background-color: #ffffff;
     float: right;
 }
-
 .followingUserInfo{
     margin: 10px;
     width: 269px;
@@ -292,10 +284,140 @@ span {
     color: #657786;
     display: inline;
 }
-
 #profile_h4:hover{
     color: #006dbf;
 }
+#name{
+    font-size: 21px;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 25px 0px 0px 25px;
+}
+#name_{
+    font-size: 13px;
+    font-weight: lighter;
+    color: #657786;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0px 0px 0px 25px;
+}
+#descriptionid{
+    font-size: 13px;
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+    line-height: 18px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 25px 50px 0px 25px;
+}
+#cityid{
+    font-size: 15px;
+    line-height: 18px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 25px 50px 0px 25px;
+    color: #66757f;
+}
+#reg_date{
+    font-size: 15px;
+    line-height: 18px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 5px 50px 0px 25px;
+    color: #66757f;
+}
+#emailid{
+    font-size: 15px;
+    line-height: 18px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 5px 50px 0px 25px;
+    color: #66757f;
+}
+#who_to_follow{
+   width: 100%;
+    height: 20%;
+    box-sizing: border-box;
+}
+#who_to_follow h1{
+    font-size: 17px;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 25px 0 0 20px;
+    float: left;
+}
+#who_to_follow a{
+    font-size: 13px;
+    float: left;
+    padding: 28px 0 0 10px;
+    color: #2b97df;
+    text-decoration: none;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#who_to_follow a:hover{
+    text-decoration: underline;
+}
+#first{
+    width: 100%;
+    height: 20%;
+    border-bottom: 1px solid rgba(209, 209, 209, 0.3);
+}
+
+#random_img_div{
+    margin: 4% 0 0 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+#random_img{
+    width: 50px;
+    height: 50px;
+}
+#random_name{
+    font-size: 17px;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    position: relative;
+    left: 100px;
+    margin-top: -50px;
+}
+#a_name{
+    color: black;
+    text-decoration: none;
+}
+#a_name:hover{
+    color: #2b97df;
+    text-decoration: underline;
+}
+
+.follow_btn {
+     height: 25px;
+     width: 80px;
+     border-radius: 33px;
+     border: 1px solid #2b97df;
+     background-color: transparent;
+     color: #2b97df;
+     font-weight: bold;
+     margin: 7px 0 0 100px;
+     outline: none;
+     cursor: pointer;
+ }
+.follow_btn:hover {
+    background-color: rgba(49, 175, 255, 0.2);
+}
+
+#last_div{
+    width: 100%;
+    height: 9%;
+
+}
+#last_div h1{
+    font-size: 13px;
+    color: #2b97df;
+    margin: 7px 40px 7px 40px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+
+
 
 /*Boris*/
 

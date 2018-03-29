@@ -5,9 +5,9 @@
     <title>Profile</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/Tweeter_icon.png"/>
     <link rel="stylesheet" href="assets/style/profile_style.css">
-
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
-<body on>
+<body>
 <!-- Boris -->
 <?php
 include_once 'page_lock.php';
@@ -77,7 +77,21 @@ include_once "header.html";
 </div>
 <div id="main">
     <div id="user_info">
+        <h1 id="name"><a></a></h1>
+        <h2 id="name_"><a></a></h2>
+        <p id="descriptionid"></p>
+        <div id="cityid">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
 
+        </div>
+        <div id="reg_date">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+
+        </div>
+        <div id="emailid">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+
+        </div>
     </div>
 
     <div id="center_tweet">
@@ -85,29 +99,20 @@ include_once "header.html";
     </div>
 
     <div id="random_users">
-        <div id="first">
-
+        <div id="who_to_follow">
+            <h1>Кого да следваш</h1><a href="#" onclick="random()">.Oбновяване.</a>
         </div>
-        <div id="second">
-
-        </div>
-        <div id="third">
-
-        </div>
-        <div id="fourth">
-
-        </div>
-        <div id="fifth">
-
-        </div>
+        
     </div>
 </div>
 <script>
+
     /*Георги -- 20.03.2018 -- Скриване и показване на профилната снимка в навигейшън бара*/
     var header = document.getElementById("my_nav");
     window.onscroll = function (event) {
         requestAnimationFrame(checkPos);
     };
+
     function checkPos() {
         var circle = document.getElementById('circle');
         var cover = document.getElementById("cover");
@@ -156,6 +161,18 @@ include_once "header.html";
                 var profile_icon = document.getElementById("profile_icon");
                 var button = document.createElement("button");
                 var cover = document.getElementById("cover_img");
+                var name = document.getElementById("name");
+                var name_ = document.getElementById("name_");
+                var description = document.getElementById("descriptionid");
+                var city = document.getElementById('cityid');
+                var reg_date = document.getElementById("reg_date");
+                var email = document.getElementById("emailid");
+                name.innerText = response[0]['user_name'];
+                name_.innerText = "@" + response[0]['user_name'];
+                description.innerHTML = response[0]['user_description'];
+                city.innerText += 'Живее в: ' + response[0]['user_city'];
+                reg_date.innerText ='Регистриран на: ' +  response[0]['user_date'].substring(0,10);
+                email.innerText = 'Имейл: ' + response[0]['user_email'];
                 button.innerText = "Последване";
                 button.id = "edit_btn";
                 button.name = "follow";
@@ -240,15 +257,61 @@ include_once "header.html";
                         div_name.appendChild(user_img);
                         div_name.appendChild(h2);
                         div_name.appendChild(a);
-                        div.appendChild(button);
                     }
                 }
             };
             request.send();
         }
-        function showFollowers() {
 
+        function showFollowers() {
+            var request = new XMLHttpRequest();
+            request.open("GET", "../controller/showFollowersController.php?name=" + queries[0]);
+            request.onreadystatechange = function (ev) {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    var center = document.getElementById("center_tweet");
+                    center.style.width = "869px";
+                    var right = document.getElementById("random_users");
+                    right.style.visibility = "hidden";
+                    right.style.width = "1px";
+                    center.innerHTML = "";
+                    for (var key in response) {
+                        var div = document.createElement("div");
+                        div.classList.add("followingUserInfo");
+                        var cover_div = document.createElement("div");
+                        cover_div.classList.add("followingUserInfo_cover");
+                        var img = document.createElement("img");
+                        img.id = "followingUserInfo_image";
+                        img.src = response[key]['user_cover'];
+
+                        center.appendChild(div);
+                        div.appendChild(cover_div);
+                        cover_div.appendChild(img);
+
+                        var div_name = document.createElement("div");
+                        div_name.classList.add("followingUserDiv_name");
+                        var user_img = document.createElement("img");
+                        user_img.id = "followingUserProfile_image";
+                        user_img.src = response[key]["user_pic"];
+                        var h2 = document.createElement("h2");
+                        h2.id = "profile_h2";
+                        h2.innerText = response[key]["user_name"];
+                        var a = document.createElement("a");
+                        a.id = "profile_h4";
+                        a.innerText = "@" + response[key]["user_name"];
+                        a.href = "profile.php?" + response[key]["user_name"];
+
+                        div.appendChild(div_name);
+                        div_name.appendChild(user_img);
+                        div_name.appendChild(h2);
+                        div_name.appendChild(a);
+
+                    }
+                }
+            };
+            request.send();
         }
+
         function showTwits() {
             var center = document.getElementById("center_tweet");
             center.style.width = "600px";
@@ -258,6 +321,8 @@ include_once "header.html";
             right.style.width = "280px";
 
         }
+
+
     } else {/*-------------------------------------------------------------------------------------------*/
 
         /*Георги --27.03.2018-- Ако в URL НЯМА параметър се запълва профила на логнатия потребител*/
@@ -271,6 +336,18 @@ include_once "header.html";
                 var a = document.getElementById("nav_name");
                 var button = document.createElement("button");
                 var cover = document.getElementById("cover_img");
+                var name = document.getElementById("name");
+                var name_ = document.getElementById("name_");
+                var description = document.getElementById("descriptionid");
+                var city = document.getElementById('cityid');
+                var reg_date = document.getElementById("reg_date");
+                var email = document.getElementById("emailid");
+                name.innerText = response['user_name'];
+                name_.innerText = "@" + response['user_name'];
+                description.innerHTML = response['user_description'];
+                city.innerText += 'Живее в: ' + response['user_city'];
+                reg_date.innerText ='Регистриран на: ' +  response['user_date'].substring(0,10);
+                email.innerText = 'Имейл: ' + response['user_email'];
                 document.getElementById("first_in_my_nav").appendChild(button);
                 button.innerText = "Редактиране на профила";
                 button.id = "edit_btn";
@@ -395,9 +472,56 @@ include_once "header.html";
             };
             request.send();
         }
-        function showFollowers() {
 
+        function showFollowers() {
+            var request = new XMLHttpRequest();
+            request.open("GET", "../controller/showMyFollowersController.php");
+            request.onreadystatechange = function (ev) {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    var center = document.getElementById("center_tweet");
+                    center.style.width = "869px";
+                    var right = document.getElementById("random_users");
+                    right.style.visibility = "hidden";
+                    right.style.width = "1px";
+                    center.innerHTML = "";
+                    for (var key in response) {
+                        var div = document.createElement("div");
+                        div.classList.add("followingUserInfo");
+                        var cover_div = document.createElement("div");
+                        cover_div.classList.add("followingUserInfo_cover");
+                        var img = document.createElement("img");
+                        img.id = "followingUserInfo_image";
+                        img.src = response[key]['user_cover'];
+
+                        center.appendChild(div);
+                        div.appendChild(cover_div);
+                        cover_div.appendChild(img);
+
+                        var div_name = document.createElement("div");
+                        div_name.classList.add("followingUserDiv_name");
+                        var user_img = document.createElement("img");
+                        user_img.id = "followingUserProfile_image";
+                        user_img.src = response[key]["user_pic"];
+                        var h2 = document.createElement("h2");
+                        h2.id = "profile_h2";
+                        h2.innerText = response[key]["user_name"];
+                        var a = document.createElement("a");
+                        a.id = "profile_h4";
+                        a.innerText = "@" + response[key]["user_name"];
+                        a.href = "profile.php?" + response[key]["user_name"];
+
+                        div.appendChild(div_name);
+                        div_name.appendChild(user_img);
+                        div_name.appendChild(h2);
+                        div_name.appendChild(a);
+
+                    }
+                }
+            };
+            request.send();
         }
+
         function showTwits() {
             var center = document.getElementById("center_tweet");
             center.style.width = "600px";
@@ -408,6 +532,56 @@ include_once "header.html";
 
         }
     }
+
+
+    /*Георги --28.03.2018-- Рекуест за избрани на случаен принцип профили*/
+
+
+        var request = new XMLHttpRequest();
+        request.open("GET","../controller/showRandomUsersController.php");
+        request.onreadystatechange = function (ev) {
+          if(this.readyState == 4 && this.status == 200){
+              var response = JSON.parse(this.responseText);
+              console.log(response);
+              var random_users_div = document.getElementById("random_users");
+
+              for(var key in response){
+                  var user_div = document.createElement("div");
+                  user_div.id = "first";
+                  var image_div = document.createElement("div");
+                  image_div.id = "random_img_div";
+                  var img = document.createElement("img");
+                  img.id = "random_img";
+                  img.src = response[key]['user_pic'];
+                  var name = document.createElement("h1");
+                  name.id = "random_name";
+                  var a = document.createElement("a");
+                  a.href = "profile.php?" + response[key]["user_name"];
+                  a.id = "a_name";
+                  a.innerText = response[key]["user_name"];
+                  var button = document.createElement("button");
+                  button.innerText = "Follow";
+                  button.classList.add("follow_btn");
+                  var find = document.createElement("div");
+                  var h1 = document.createElement("h1");
+                  find.id = "last_div";
+                  h1.innerText = "Намери хора, които познаваш";
+                  find.appendChild(h1);
+
+
+
+                  random_users_div.appendChild(user_div);
+                  user_div.appendChild(image_div);
+                  image_div.appendChild(img);
+                  name.appendChild(a);
+                  user_div.appendChild(name);
+                  user_div.appendChild(button);
+
+              }
+              random_users_div.appendChild(find);
+          }
+        };
+        request.send();
 
 
 </script>
