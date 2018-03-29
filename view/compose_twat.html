@@ -7,7 +7,8 @@
 <body>
 <div id="twat_box">
     <img id="twat_box_icon" src="">
-    <textarea id="compose_twat_text" placeholder="What's happening?" onfocus="showButton()" onfocusout="hideButton()"></textarea>
+    <textarea id="compose_twat_text" placeholder="What's happening?" oninput="buttonEvent(this.innerHTML)" onfocus="showButton()" onfocusout="setTimeout(hideButton,1000)"></textarea>
+    <button id="twat_button" onclick="add_tweet()">Tweet</button>
 </div>
 <script>
     function profIcon() {
@@ -27,16 +28,27 @@
     function showButton() {
         var twat_div = document.getElementById("twat_box");
         twat_div.style.paddingBottom="40px";
-        var but = document.createElement("button");
-        but.id="twat_button";
-        but.innerHTML="Tweet";
-        twat_div.appendChild(but);
+//        document.getElementById("twat_button").style.visibility="visible";
     }
     function hideButton() {
         var twat_div = document.getElementById("twat_box");
-        var but = document.getElementById("twat_button");
-        twat_div.removeChild(but);
-        twat_div.style.paddingBottom="4px";
+        twat_div.style.paddingBottom="40px";
+//        document.getElementById("twat_button").style.visibility="hidden";
+    }
+    function add_tweet() {
+        var text = document.getElementById("compose_twat_text").value;
+        var request = new XMLHttpRequest();
+        request.open("GET", "../controller/tweetController.php?text="+text);
+        request.onreadystatechange = function (ev) {
+            if(this.status == 200 && this.readyState == 4){
+
+            }
+        };
+        request.send();
+        location.reload();
+    }
+    function buttonEvent(a) {
+
     }
 </script>
 </body>

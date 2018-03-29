@@ -55,7 +55,6 @@
     height: 1000px;
     margin:auto;
     padding-top: 60px;
-    border:1px solid black;
 }
 #hm_prof_img{
     position: relative;
@@ -68,29 +67,27 @@
     float: left;
     height: 600px;
     width: 288px;
-    border:1px solid black;
 }
 #home_mid_div{
     float: left;
     width: 590px;
     height: 2000px;
-    border:1px solid black;
     margin-left:10px;
+    box-sizing: border-box;
 }
 #home_right_div{
     float: left;
     height: 600px;
     width: 288px;
-    border:1px solid black;
     margin-left:8px;
 }
 /*compose_twat.html*/
 #twat_box{
     padding-top: 5px;
     height: auto;
-    width: 590px;
+    width: 100%;
     background-color: #A3D4F2;
-    padding-bottom: 7px;
+    padding-bottom: 40px;
 
 }
 #twat_box_icon{
@@ -110,6 +107,8 @@
     box-sizing: border-box;
     border-radius: 7px;
     border:0;
+    vertical-align: top;
+
 }
 #twat_button{
     float:right;
@@ -123,6 +122,7 @@
     font-family: sans-serif;
     color: white;
     cursor: pointer;
+    /*visibility: hidden;*/
 }
 #twat_button:hover {
     background-color: #006dbf;
@@ -132,9 +132,17 @@
     overflow: hidden;
     outline: none;
     border:2px solid rgba(36,120,255,0.5);
+
 }
 #compose_twat_text::placeholder{
     color:#1B95E0;
     font-family: sans-serif;
+}
+.ownTweets{
+    background-color: white;
+    width: 100%;
+    height: 100px;
+    border:1px solid lightgray;
+    box-sizing: border-box;
 }
 

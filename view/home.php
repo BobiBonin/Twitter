@@ -22,6 +22,7 @@ include "header.html";
     <div id="home_mid_div">
         <?php
         include "compose_twat.html";
+        include "ownTweets.html"
         ?>
     </div>
     <div id="home_right_div">
