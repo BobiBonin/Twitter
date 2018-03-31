@@ -55,7 +55,6 @@
     height: 1000px;
     margin:auto;
     padding-top: 60px;
-    border:1px solid black;
 }
 #hm_prof_img{
     position: relative;
@@ -68,7 +67,6 @@
     float: left;
     height: 600px;
     width: 288px;
-    border:1px solid black;
 }
 #home_mid_div{
     float: left;
@@ -76,14 +74,13 @@
     height: 2000px;
     margin-left:10px;
     box-sizing: border-box;
-    border:1px solid black;
+
 }
 #home_right_div{
     float: left;
     height: 600px;
     width: 288px;
     margin-left:8px;
-    border:1px solid black;
     padding: 0;
 }
 /*compose_twat.html*/

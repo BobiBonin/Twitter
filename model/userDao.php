@@ -152,9 +152,18 @@ function dislikeIt($pdo,$me,$you){
     $result = $statement->rowCount();
     return $result;
 }
+
 function getFollowersId($pdo,$user_id){
     $statement = $pdo->prepare("SELECT following_id from mydb.following WHERE user_id = ?");
     $statement->execute(array($user_id));
     $result = $statement->fetchAll(PDO::FETCH_COLUMN);
+    return $result;
+}
+
+function getUserInfoById($pdo, $id)
+{
+    $statement = $pdo->prepare("SELECT user_id, user_name, user_email, user_date, user_pic, user_cover, user_city, user_description FROM users WHERE user_id = ?");
+    $statement->execute(array($id));
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }

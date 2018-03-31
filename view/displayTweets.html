@@ -14,12 +14,28 @@
             var resp = this.responseText;
             resp = JSON.parse(resp);
             div = document.getElementById("home_mid_div");
-            for (var i=0;i<resp.length;i++){
+            for (var i=0; i < resp.length; i++) {
                 tweet = document.createElement("div");
-                tweet.innerHTML=resp[i]["twat_date"];
-                tweet.innerHTML+='<br>'+resp[i]["twat_content"];
-                tweet.className="ownTweets";
-                div.appendChild(tweet);
+                tweet.className = "ownTweets";
+                var counter=0;
+                var req2 = new XMLHttpRequest();
+                req2.open("get", "../controller/userByIdController.php?id=" + resp[i]["user_id"]);
+                req2.onreadystatechange = function (ev) {
+                    if (this.status == 200 && this.readyState == 4) {
+
+                        var resp2 = this.responseText;
+                        resp2 = JSON.parse(resp2);
+                        tweet = document.createElement("div");
+                        tweet.className = "ownTweets";
+                        tweet.innerHTML += '<h3>' + resp2[0]["user_name"] + '</h3>';
+                        tweet.innerHTML += resp[counter]["twat_date"]+"<br>";
+                        tweet.innerHTML += resp[counter]["twat_content"];
+                        div.appendChild(tweet);
+                        counter++;
+                    }
+                };
+                req2.send();
+
             }
         }
     };
