@@ -210,18 +210,18 @@ include_once "header.html";
                 var is_follow = new XMLHttpRequest();
                 is_follow .open("GET","../controller/isFollowController.php?name=" + queries[0]);
                 is_follow.onreadystatechange = function (ev2) {
-                  if(this.readyState == 4 && this.status == 200){
-                      var response = JSON.parse(this.responseText);
-                      if(response == "0"){
-                          button.innerText = "Последване";
-                          button.id = "edit_btn";
-                          button.name = "follow";
-                      }else {
-                          button.innerText = "Премахни";
-                          button.id = "edit_btn_remove";
-                          button.name = "follow";
-                      }
-                  }
+                    if(this.readyState == 4 && this.status == 200){
+                        var response = JSON.parse(this.responseText);
+                        if(response == "0"){
+                            button.innerText = "Последване";
+                            button.id = "edit_btn";
+                            button.name = "follow";
+                        }else {
+                            button.innerText = "Премахни";
+                            button.id = "edit_btn_remove";
+                            button.name = "follow";
+                        }
+                    }
                 };
                 is_follow.send();
                 /*В зависимост какъв е бутона се изпълнява LIKE или DISLIKE функция*/
@@ -241,7 +241,7 @@ include_once "header.html";
                         };
                         request.send();
                     }else
-                        if(this.innerHTML == "Премахни"){
+                    if(this.innerHTML == "Премахни"){
                         var request = new XMLHttpRequest();
                         request.open("GET", "../controller/dislikeItController.php?name=" + queries[0]);
                         request.onreadystatechange = function (ev) {
@@ -280,7 +280,7 @@ include_once "header.html";
                     var a = document.getElementById("following");
                     var span = document.getElementById('sledva');
                     span.innerText = response[0][0]['num'];
-                    
+
                     var a = document.getElementById("followers");
                     var span = document.getElementById('sledvat');
                     span.innerText = response[1][0]['num'];
@@ -306,6 +306,7 @@ include_once "header.html";
 
                     var center = document.getElementById("center_tweet");
                     center.style.width = "869px";
+                    center.style.backgroundColor = "transparent";
                     var right = document.getElementById("random_users");
                     right.style.visibility = "hidden";
                     right.style.width = "1px";
@@ -402,6 +403,7 @@ include_once "header.html";
             var center = document.getElementById("center_tweet");
             center.style.width = "600px";
             center.innerHTML = "";
+            center.style.backgroundColor = "";
 
             var right = document.getElementById("random_users");
             right.style.visibility = "visible";
@@ -480,29 +482,30 @@ include_once "header.html";
 
         /* Георги --27.03.2018--  Втори рекуест (логнат профил) за визуализиране на цифрите на броя юзъри които
         * следва, го следват и публикуваните туитове*/
-        var request = new XMLHttpRequest();
-        request.open("GET", "../controller/showMyProfileController.php");
-        request.onreadystatechange = function (ev) {
-            if (this.status == 200 && this.readyState == 4) {
-                var response = JSON.parse(this.responseText);
+        function showMynumbers() {
+            var request = new XMLHttpRequest();
+            request.open("GET", "../controller/showMyProfileController.php");
+            request.onreadystatechange = function (ev) {
+                if (this.status == 200 && this.readyState == 4) {
+                    var response = JSON.parse(this.responseText);
 
-                var a = document.getElementById("following");
-                var span = document.createElement('span');
-                span.innerText = response[0][0]['num'];
-                a.appendChild(span);
+                    var a = document.getElementById("following");
+                    var span = document.getElementById('sledva');
+                    span.innerText = response[0][0]['num'];
 
-                var a = document.getElementById("followers");
-                var span = document.createElement('span');
-                span.innerText = response[1][0]['num'];
-                a.appendChild(span);
+                    var a = document.getElementById("followers");
+                    var span = document.getElementById('sledvat');
+                    span.innerText = response[1][0]['num'];
 
-                var a = document.getElementById("twits");
-                var span = document.createElement('span');
-                span.innerText = response[2][0]['num'];
-                a.appendChild(span);
-            }
-        };
-        request.send();
+                    var a = document.getElementById("twits");
+                    var span = document.getElementById('tuitove');
+                    span.innerText = response[2][0]['num'];
+
+                }
+            };
+            request.send();
+        }
+        showMynumbers();
 
 
         /*Георги --27.03.2018--С натискане върху линка "следва" се визуализират прозорци с информация
@@ -516,6 +519,7 @@ include_once "header.html";
 
                     var center = document.getElementById("center_tweet");
                     center.style.width = "869px";
+                    center.style.backgroundColor = "transparent";
                     var right = document.getElementById("random_users");
                     right.style.visibility = "hidden";
                     right.style.width = "1px";
@@ -549,6 +553,22 @@ include_once "header.html";
                         var button = document.createElement("button");
                         button.id = "btn_unfollow";
                         button.innerText = "Премахни";
+                        button.value = response[key]["user_name"];
+                        button.addEventListener("click" ,function () {
+                            var name = this.value;
+                            var request = new XMLHttpRequest();
+                            request.open("GET", "../controller/dislikeItController.php?name=" + name);
+                            request.onreadystatechange = function (ev) {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    var response = JSON.parse(this.responseText);
+                                    if(response == "1"){
+                                        showFollowing();
+                                        showMynumbers();
+                                    }
+                                }
+                            };
+                            request.send();
+                        });
 
                         div.appendChild(div_name);
                         div_name.appendChild(user_img);
@@ -617,6 +637,7 @@ include_once "header.html";
             var center = document.getElementById("center_tweet");
             center.style.width = "600px";
             center.innerHTML = "";
+            center.style.backgroundColor = "";
             var right = document.getElementById("random_users");
             right.style.visibility = "visible";
             right.style.width = "280px";
@@ -652,6 +673,7 @@ include_once "header.html";
                     var a = document.createElement("a");
                     a.href = "profile.php?" + response[key]["user_name"];
                     a.id = "a_name";
+
                     a.innerText = response[key]["user_name"];
                     a.addEventListener("mouseover", function () { /*При ховър се показва допълнителна информация за юзъра*/
 
@@ -720,8 +742,27 @@ include_once "header.html";
                     });
 
                     var button = document.createElement("button");
-                    button.innerText = "Follow";
+                    button.innerText = "Последвай";
                     button.classList.add("follow_btn");
+                    button.value = response[key]["user_name"];
+                    button.addEventListener("click", function () {
+                        var name = this.value;
+                        var request = new XMLHttpRequest();
+                        request.open("GET", "../controller/likeItController.php?name=" + name);
+                        request.onreadystatechange = function (ev) {
+                            if (this.readyState == 4 && this.status == 200) {
+                                var response = JSON.parse(this.responseText);
+                                console.log(response);
+                                if(response == "1"){
+                                    random();
+                                    showMynumbers();
+                                }
+                            }
+                        };
+                        request.send();
+
+
+                    });
                     var find = document.createElement("div");
                     var h1 = document.createElement("h1");
                     find.id = "last_div";
@@ -743,10 +784,6 @@ include_once "header.html";
         };
         request.send();
     }
-
-
-
-
 </script>
 </body>
 </html>
