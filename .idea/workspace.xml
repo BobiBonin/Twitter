@@ -2,102 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3719e800-ccc2-4b08-8c5c-bd9b37b606b1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/editProfileControler.php" afterPath="$PROJECT_DIR$/controller/editProfileControler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/followingControler.php" afterPath="$PROJECT_DIR$/controller/followingControler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/loginControler.php" afterPath="$PROJECT_DIR$/controller/loginControler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/profileController.php" afterPath="$PROJECT_DIR$/controller/profileController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/registrationControler.php" afterPath="$PROJECT_DIR$/controller/registrationControler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/searchController.php" afterPath="$PROJECT_DIR$/controller/searchController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/sessionDestroy.php" afterPath="$PROJECT_DIR$/controller/sessionDestroy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/showFollowersController.php" afterPath="$PROJECT_DIR$/controller/showFollowersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/showFollowing.php" afterPath="$PROJECT_DIR$/controller/showFollowing.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/showMyFollowersController.php" afterPath="$PROJECT_DIR$/controller/showMyFollowersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/showMyProfileController.php" afterPath="$PROJECT_DIR$/controller/showMyProfileController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/showOtherUserFollowing.php" afterPath="$PROJECT_DIR$/controller/showOtherUserFollowing.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/displayTweetsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/showOwnTweets.php" afterPath="$PROJECT_DIR$/controller/showOwnTweets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/showProfileController.php" afterPath="$PROJECT_DIR$/controller/showProfileController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/showRandomUsersController.php" afterPath="$PROJECT_DIR$/controller/showRandomUsersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/tweetController.php" afterPath="$PROJECT_DIR$/controller/tweetController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/dbManager.php" afterPath="$PROJECT_DIR$/model/dbManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/tweetDao.php" afterPath="$PROJECT_DIR$/model/tweetDao.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/userDao.php" afterPath="$PROJECT_DIR$/model/userDao.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/css/font-awesome.css" afterPath="$PROJECT_DIR$/view/assets/css/font-awesome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/view/assets/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/HELP-US-OUT.txt" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/HELP-US-OUT.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/css/font-awesome.css" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/css/font-awesome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/animated.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/animated.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/bordered-pulled.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/core.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/core.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/fixed-width.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/fixed-width.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/font-awesome.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/font-awesome.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/icons.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/icons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/larger.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/larger.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/list.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/list.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/mixins.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/mixins.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/path.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/path.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/rotated-flipped.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/screen-reader.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/screen-reader.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/stacked.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/stacked.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/variables.less" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/less/variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_animated.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_animated.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_bordered-pulled.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_core.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_core.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_fixed-width.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_icons.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_icons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_larger.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_larger.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_list.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_list.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_mixins.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_mixins.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_path.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_path.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_rotated-flipped.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_screen-reader.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_screen-reader.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_stacked.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_stacked.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_variables.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/view/assets/font-awesome-4.7.0/scss/font-awesome.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/view/assets/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/animated.less" afterPath="$PROJECT_DIR$/view/assets/less/animated.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/view/assets/less/bordered-pulled.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/core.less" afterPath="$PROJECT_DIR$/view/assets/less/core.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/fixed-width.less" afterPath="$PROJECT_DIR$/view/assets/less/fixed-width.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/font-awesome.less" afterPath="$PROJECT_DIR$/view/assets/less/font-awesome.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/icons.less" afterPath="$PROJECT_DIR$/view/assets/less/icons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/larger.less" afterPath="$PROJECT_DIR$/view/assets/less/larger.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/list.less" afterPath="$PROJECT_DIR$/view/assets/less/list.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/mixins.less" afterPath="$PROJECT_DIR$/view/assets/less/mixins.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/path.less" afterPath="$PROJECT_DIR$/view/assets/less/path.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/view/assets/less/rotated-flipped.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/screen-reader.less" afterPath="$PROJECT_DIR$/view/assets/less/screen-reader.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/stacked.less" afterPath="$PROJECT_DIR$/view/assets/less/stacked.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/less/variables.less" afterPath="$PROJECT_DIR$/view/assets/less/variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_animated.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_animated.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_bordered-pulled.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_core.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_core.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_fixed-width.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_icons.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_icons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_larger.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_larger.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_list.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_list.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_mixins.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_mixins.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_path.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_path.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_rotated-flipped.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_screen-reader.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_screen-reader.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_stacked.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_stacked.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/_variables.scss" afterPath="$PROJECT_DIR$/view/assets/scss/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/view/assets/scss/font-awesome.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/style/error_page_style.css" afterPath="$PROJECT_DIR$/view/assets/style/error_page_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/style/home_style.css" afterPath="$PROJECT_DIR$/view/assets/style/home_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/style/login_style.css" afterPath="$PROJECT_DIR$/view/assets/style/login_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/style/profile_style.css" afterPath="$PROJECT_DIR$/view/assets/style/profile_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/compose_twat.html" afterPath="$PROJECT_DIR$/view/compose_twat.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/error_login.html" afterPath="$PROJECT_DIR$/view/error_login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/error_page.html" afterPath="$PROJECT_DIR$/view/error_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/header.html" afterPath="$PROJECT_DIR$/view/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/displayTweets.html" afterPath="$PROJECT_DIR$/view/displayTweets.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/home.php" afterPath="$PROJECT_DIR$/view/home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/home_profile.html" afterPath="$PROJECT_DIR$/view/home_profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/ownTweets.html" afterPath="$PROJECT_DIR$/view/ownTweets.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/page_lock.php" afterPath="$PROJECT_DIR$/view/page_lock.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/profile.php" afterPath="$PROJECT_DIR$/view/profile.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -107,53 +18,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5400972">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="ownTweets.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/view/ownTweets.html">
+          <file leaf-file-name="displayTweets.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/view/displayTweets.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="7" />
-                  <folding>
-                    <marker date="1522491859314" expanded="true" signature="509:840" ph="{...}" />
-                    <marker date="1522491859314" expanded="true" signature="509:846" ph="{...}" />
-                    <marker date="1522491859314" expanded="true" signature="556:830" ph="{...}" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="home.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/view/home.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="761">
-                  <caret line="194" column="0" lean-forward="false" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+                <state relative-caret-position="384">
+                  <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="compose_twat.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/view/compose_twat.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="400">
-                  <caret line="20" column="63" lean-forward="false" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-                  <folding>
-                    <marker date="1522489128189" expanded="true" signature="1876:1922" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="profile.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/view/profile.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2820">
-                  <caret line="141" column="4" lean-forward="false" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
-                  <folding>
-                    <marker date="1522491930199" expanded="true" signature="35444:35455" ph="..." />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -161,22 +34,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="profile_style.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/view/assets/style/profile_style.css">
+        <leaf>
+          <file leaf-file-name="home.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/view/home.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="7200">
-                  <caret line="360" column="0" lean-forward="false" selection-start-line="360" selection-start-column="0" selection-end-line="360" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="home_style.css" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/view/assets/style/home_style.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="775">
-                  <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+                <state relative-caret-position="330">
+                  <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
                   <folding />
                 </state>
               </provider>
@@ -204,8 +67,13 @@
       <list>
         <option value="$PROJECT_DIR$/view/profile.php" />
         <option value="$PROJECT_DIR$/view/assets/style/home_style.css" />
-        <option value="$PROJECT_DIR$/view/home.php" />
         <option value="$PROJECT_DIR$/view/ownTweets.html" />
+        <option value="$PROJECT_DIR$/model/userDao.php" />
+        <option value="$PROJECT_DIR$/controller/showOwnTweets.php" />
+        <option value="$PROJECT_DIR$/controller/displayTweetsController.php" />
+        <option value="$PROJECT_DIR$/model/tweetDao.php" />
+        <option value="$PROJECT_DIR$/view/home.php" />
+        <option value="$PROJECT_DIR$/view/displayTweets.html" />
       </list>
     </option>
   </component>
@@ -297,6 +165,23 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="PHP Script.displayTweetsController.php">
+    <configuration name="displayTweetsController.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/controller/displayTweetsController.php" />
+    <configuration name="tweetDao.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/model/tweetDao.php" />
+    <configuration name="userDao.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/model/userDao.php" />
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="PHP Script.userDao.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Script.tweetDao.php" />
+      <item index="2" class="java.lang.String" itemvalue="PHP Script.displayTweetsController.php" />
+    </list>
+    <recent_temporary>
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.displayTweetsController.php" />
+        <item index="1" class="java.lang.String" itemvalue="PHP Script.tweetDao.php" />
+        <item index="2" class="java.lang.String" itemvalue="PHP Script.userDao.php" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
@@ -309,12 +194,12 @@
       <updated>1522340866158</updated>
       <workItem from="1522340867359" duration="3243000" />
       <workItem from="1522428570051" duration="1289000" />
-      <workItem from="1522492119721" duration="66000" />
+      <workItem from="1522492119721" duration="5172000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4598000" />
+    <option name="totallyTimeSpent" value="9704000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -324,10 +209,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -354,11 +239,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="7" />
-          <folding>
-            <marker date="1522491859314" expanded="true" signature="509:840" ph="{...}" />
-            <marker date="1522491859314" expanded="true" signature="509:846" ph="{...}" />
-            <marker date="1522491859314" expanded="true" signature="556:830" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -410,11 +291,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <marker date="1522491859314" expanded="true" signature="509:840" ph="{...}" />
-            <marker date="1522491859314" expanded="true" signature="509:846" ph="{...}" />
-            <marker date="1522491859314" expanded="true" signature="556:830" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -477,14 +354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/assets/style/profile_style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7200">
-          <caret line="360" column="0" lean-forward="false" selection-start-line="360" selection-start-column="0" selection-end-line="360" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/profile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2820">
@@ -513,22 +382,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/ownTweets.html">
+    <entry file="file://$PROJECT_DIR$/controller/likeItController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="7" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/followingControler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/editProfileControler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/isFollowController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/tweetController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/showOwnTweets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/userDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="154" column="9" lean-forward="false" selection-start-line="154" selection-start-column="9" selection-end-line="154" selection-end-column="9" />
           <folding>
-            <marker date="1522491859314" expanded="true" signature="509:840" ph="{...}" />
-            <marker date="1522491859314" expanded="true" signature="509:846" ph="{...}" />
-            <marker date="1522491859314" expanded="true" signature="556:830" ph="{...}" />
+            <marker date="1522493309896" expanded="true" signature="151:224" ph="SELECT COUNT... " />
+            <marker date="1522493309896" expanded="true" signature="481:536" ph="SELECT COUNT... " />
+            <marker date="1522493309896" expanded="true" signature="782:859" ph="INSERT INTO users... " />
+            <marker date="1522493309896" expanded="true" signature="1051:1182" ph="SELECT user_... users" />
+            <marker date="1522493309896" expanded="true" signature="1444:1547" ph="SELECT user_... users" />
+            <marker date="1522493309896" expanded="true" signature="1818:1923" ph="SELECT COUNT... users" />
+            <marker date="1522493309896" expanded="true" signature="2168:2278" ph="SELECT COUNT... following" />
+            <marker date="1522493309896" expanded="true" signature="2531:2634" ph="SELECT COUNT... twats" />
+            <marker date="1522493309896" expanded="true" signature="2885:3015" ph="SELECT user_... users" />
+            <marker date="1522493309896" expanded="true" signature="3311:3453" ph="UPDATE users... " />
+            <marker date="1522493309896" expanded="true" signature="3679:3724" ph="SELECT user_... users" />
+            <marker date="1522493309896" expanded="true" signature="3963:4126" ph="SELECT u.use... users" />
+            <marker date="1522493309896" expanded="true" signature="4367:4497" ph="SELECT u.use... users" />
+            <marker date="1522493309896" expanded="true" signature="4719:4851" ph="SELECT user_... users" />
+            <marker date="1522493309896" expanded="true" signature="4775:4801" ph="SELECT COUNT... users" />
+            <marker date="1522493309896" expanded="true" signature="5037:5094" ph="INSERT INTO following... " />
+            <marker date="1522493309896" expanded="true" signature="5269:5331" ph="SELECT * FRO... following" />
+            <marker date="1522493309896" expanded="true" signature="5506:5566" ph="DELETE FROM " />
+            <marker date="1522493309896" expanded="true" signature="5744:5801" ph="SELECT follo... following" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/assets/style/profile_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="360" column="0" lean-forward="false" selection-start-line="360" selection-start-column="0" selection-end-line="360" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/displayTweetsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/tweetDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+          <folding>
+            <marker date="1522496658795" expanded="true" signature="109:163" ph="INSERT INTO twats... " />
+            <marker date="1522496658795" expanded="true" signature="284:372" ph="SELECT twat_... twats" />
+            <marker date="1522496658795" expanded="true" signature="573:656" ph="SELECT twat_... twats" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/ownTweets.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="26" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="761">
-          <caret line="194" column="0" lean-forward="false" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+        <state relative-caret-position="330">
+          <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/displayTweets.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
           <folding />
         </state>
       </provider>

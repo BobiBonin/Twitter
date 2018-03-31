@@ -19,12 +19,16 @@ include "header.html";
         include "home_profile.html";
         ?>
     </div>
+
+
     <div id="home_mid_div">
         <?php
         include "compose_twat.html";
-        include_once "ownTweets.html";
+        include_once "displayTweets.html";
         ?>
     </div>
+
+
     <div id="home_right_div">
         <div id="random_users">
             <div id="who_to_follow">

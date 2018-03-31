@@ -7,6 +7,22 @@
 
 </body>
 <script>
-
+    var req = new XMLHttpRequest();
+    req.open("get", "../controller/displayTweetsController.php");
+    req.onreadystatechange = function (ev) {
+        if (this.status == 200 && this.readyState == 4) {
+            var resp = this.responseText;
+            resp = JSON.parse(resp);
+            div = document.getElementById("home_mid_div");
+            for (var i=0;i<resp.length;i++){
+                tweet = document.createElement("div");
+                tweet.innerHTML=resp[i]["twat_date"];
+                tweet.innerHTML+='<br>'+resp[i]["twat_content"];
+                tweet.className="ownTweets";
+                div.appendChild(tweet);
+            }
+        }
+    };
+    req.send();
 </script>
 </html>

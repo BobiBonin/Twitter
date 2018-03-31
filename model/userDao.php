@@ -155,6 +155,6 @@ function dislikeIt($pdo,$me,$you){
 function getFollowersId($pdo,$user_id){
     $statement = $pdo->prepare("SELECT following_id from mydb.following WHERE user_id = ?");
     $statement->execute(array($user_id));
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-    print_r(json_encode($result));
+    $result = $statement->fetchAll(PDO::FETCH_COLUMN);
+    return $result;
 }
