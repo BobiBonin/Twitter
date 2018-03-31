@@ -99,18 +99,18 @@ span {
     color: #1da1f2;
 }
 #edit_btn_remove{
-     height: 35px;
-     width: 200px;
-     margin-top: -60px;
-     float: right;
-     border-radius: 33px;
-     border: 1px solid #66757f;
-     background-color: transparent;
-     color: #66757f;
-     font-weight: bold;
-     outline: none;
-     cursor: pointer;
- }
+    height: 35px;
+    width: 200px;
+    margin-top: -60px;
+    float: right;
+    border-radius: 33px;
+    border: 1px solid #66757f;
+    background-color: transparent;
+    color: #66757f;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
 #edit_btn_remove:hover{
     background-color: #eeeeee;
     font-size: 15px;
@@ -205,6 +205,7 @@ span {
     width: 400px;
 }
 #profile_edit input {
+    border: 1px solid #1da1f2;
     width: 75%;
     margin: 5px;
     border-radius: 5px;
@@ -227,7 +228,7 @@ span {
 #btn_unfollow{
     width: 50%;
     margin: 5px;
-    margin-top: 10%;
+    margin-top: 6%;
     border-radius: 5px;
     height: 25px;
     background-color: #2b97df;
@@ -272,11 +273,12 @@ span {
 .followingUserInfo{
     margin: 10px;
     width: 269px;
-    height: 212px;
+    height: 200px;
     box-sizing: border-box;
     border-radius: 5px;
     background-color: white;
     float: left;
+    overflow: hidden;
 }
 .followingUserInfo_cover{
     width: 100%;
@@ -416,7 +418,7 @@ span {
 }
 .follow_btn {
     height: 25px;
-    width: 80px;
+    width: 100px;
     border-radius: 33px;
     border: 1px solid #2b97df;
     background-color: transparent;
@@ -539,7 +541,48 @@ span {
     color: #1da1f2;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+/*----TWEETS----*/
+.tweet{
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid rgba(128,128,128,0.34);
+}
+.tweet_image_div{
+    width: 100px;
+    height: 100%;
+    float: left;
+}
+.content_div{
+    width: 500px;
+    height: 70%;
+    float: left;
+}
+#tweet_image{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 10px 0 0 25px;
+}
+.tweet_name{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 0 0  0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.content{
+    font-size: 15px;
+    font-weight: lighter;
+    padding: 10px 0 0  0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    border-bottom: 1px solid rgba(128,128,128,0.34);
 
+}
+.comments{
+    float: right;
+    padding: 5px;
+}
+/*----END TWEETS----*/
 /*Boris*/
 
 .topbarcontainer {

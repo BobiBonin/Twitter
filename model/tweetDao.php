@@ -24,3 +24,12 @@ function asd($pdo,$str){
         echo "wtf";
     }
 }
+
+
+/*Georgi*/
+function showMyTweets($pdo,$id){
+    $statement = $pdo->prepare("SELECT u.user_name, u.user_pic, t.twat_date, t.twat_content FROM twats AS t JOIN users AS u ON u.user_id = t.user_id WHERE u.user_id = ?");
+    $statement->execute(array($id));
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}

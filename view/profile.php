@@ -641,7 +641,7 @@ include_once "header.html";
             var right = document.getElementById("random_users");
             right.style.visibility = "visible";
             right.style.width = "280px";
-
+            showMyTwits();
         }
     }
 
@@ -784,6 +784,50 @@ include_once "header.html";
         };
         request.send();
     }
+
+
+    function showMyTwits(){
+        var request = new XMLHttpRequest();
+        request.open("GET", "../controller/showMyTweetsController.php");
+        request.onreadystatechange = function (ev) {
+            if(this.readyState == 4 && this.status == 200){
+                var response = JSON.parse(this.responseText);
+                var center_div = document.getElementById("center_tweet");
+
+                for(var key in response){
+                    var tweet = document.createElement("div");
+                    tweet.classList.add("tweet");
+                    var image_div = document.createElement("div");
+                    image_div.classList.add("tweet_image_div");
+                    var img = document.createElement("img");
+                    img.id = "tweet_image";
+                    img.src = response[key]['user_pic'];
+                    var tweet_content = document.createElement("tweet_content_div");
+                    tweet_content.classList.add("content_div");
+                    var name = document.createElement("h1");
+                    name.classList.add("tweet_name");
+                    name.innerText = response[key]['user_name'];
+                    var p = document.createElement("p");
+                    p.classList.add("content");
+                    p.innerText = response[key]['twat_content'];
+                    var a = document.createElement("a");
+                    a.innerText = "коментари";
+                    a.classList.add("comments");
+
+                    image_div.appendChild(img);
+                    tweet.appendChild(image_div);
+                    tweet_content.appendChild(name);
+                    tweet_content.appendChild(p);
+                    tweet.appendChild(tweet_content);
+                    tweet.appendChild(a);
+                    center_div.appendChild(tweet);
+                }
+
+            }
+        };
+        request.send();
+    }
+    showMyTwits();
 </script>
 </body>
 </html>
