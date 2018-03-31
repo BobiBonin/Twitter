@@ -13,28 +13,14 @@
         if (this.status == 200 && this.readyState == 4) {
             var resp = this.responseText;
             resp = JSON.parse(resp);
-            div = document.getElementById("home_mid_div");
+            var div = document.getElementById("home_mid_div");
             for (var i=0; i < resp.length; i++) {
-                tweet = document.createElement("div");
+                var tweet = document.createElement("div");
                 tweet.className = "ownTweets";
-                var counter=0;
-                var req2 = new XMLHttpRequest();
-                req2.open("get", "../controller/userByIdController.php?id=" + resp[i]["user_id"]);
-                req2.onreadystatechange = function (ev) {
-                    if (this.status == 200 && this.readyState == 4) {
-
-                        var resp2 = this.responseText;
-                        resp2 = JSON.parse(resp2);
-                        tweet = document.createElement("div");
-                        tweet.className = "ownTweets";
-                        tweet.innerHTML += '<h3>' + resp2[0]["user_name"] + '</h3>';
-                        tweet.innerHTML += resp[counter]["twat_date"]+"<br>";
-                        tweet.innerHTML += resp[counter]["twat_content"];
-                        div.appendChild(tweet);
-                        counter++;
-                    }
-                };
-                req2.send();
+                tweet.innerHTML="<a href=>"+resp[i]["user_name"]+"</a>";
+                tweet.innerHTML+="<h5>"+resp[i]["twat_date"]+"</h5>";
+                tweet.innerHTML+="<h3>"+resp[i]["twat_content"]+"</h3>";
+                div.appendChild(tweet);
 
             }
         }

@@ -14,13 +14,18 @@ function showUserTweets($pdo,$id)
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     print_r(json_encode($result));
 }
-function asd($pdo,$str){
+function asd($pdo, $str)
+{
     try {
-        $statement = $pdo->query("SELECT twat_content,twat_date,user_id FROM twats WHERE $str ORDER BY twat_date DESC");
+        $statement = $pdo->query("
+                                  SELECT users.user_name,users.user_pic ,twats.twat_content, twats.twat_date, twats.user_id 
+                                  FROM users,twats 
+                                  WHERE ($str) 
+                                  AND twats.user_id = users.user_id 
+                                  ORDER BY twats.twat_date DESC");
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         print_r(json_encode($result));
-    }
-    catch (PDOException $e){
+    } catch (PDOException $e) {
         echo "wtf";
     }
 }
