@@ -96,7 +96,7 @@ function updateUser($pdo, $username, $email, $password, $img, $cover, $city, $de
 }
 
 
-/*Georgi -- 23.03.2018 -- Намира ID на юзър по имейл*/
+/*Georgi -- 23.03.2018 -- Намира ID на юзър по име*/
 function findId($pdo, $name)
 {
     $statement = $pdo->prepare("SELECT user_id FROM users WHERE user_name = ?");
@@ -132,3 +132,29 @@ function getFourRandomUsers($pdo,$email){
     return $result;
 }
 
+function likeIt($pdo,$me,$you){
+    $statement = $pdo->prepare("INSERT INTO following (user_id,following_id) VALUES (?,?)");
+    $statement->execute(array($me,$you));
+    $result = $statement->rowCount();
+    return $result;
+}
+
+function isFollow($pdo,$myid, $id){
+    $statement = $pdo->prepare("SELECT * FROM following WHERE user_id = ? AND following_id = ?");
+    $statement->execute(array($myid,$id));
+    $result = $statement->rowCount();
+    return $result;
+}
+
+function dislikeIt($pdo,$me,$you){
+    $statement = $pdo->prepare("DELETE FROM following WHERE user_id = ? AND following_id = ?");
+    $statement->execute(array($me,$you));
+    $result = $statement->rowCount();
+    return $result;
+}
+function getFollowersId($pdo,$user_id){
+    $statement = $pdo->prepare("SELECT following_id from mydb.following WHERE user_id = ?");
+    $statement->execute(array($user_id));
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    print_r(json_encode($result));
+}

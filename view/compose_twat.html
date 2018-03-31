@@ -7,46 +7,49 @@
 <body>
 <div id="twat_box">
     <img id="twat_box_icon" src="">
-    <textarea id="compose_twat_text" placeholder="What's happening?" oninput="buttonEvent(this.innerHTML)" onfocus="showButton()" onfocusout="setTimeout(hideButton,1000)"></textarea>
+    <textarea id="compose_twat_text" placeholder="What's happening?" oninput="buttonEvent(this.innerHTML)"
+              onfocus="showButton()" onfocusout="setTimeout(hideButton,1000)"></textarea>
     <button id="twat_button" onclick="add_tweet()">Tweet</button>
 </div>
 <script>
-    function profIcon() {
-        var request = new XMLHttpRequest();
-        request.open("GET", "../controller/profileController.php");
-        request.onreadystatechange = function (ev) {
-            if(this.status == 200 && this.readyState == 4){
-                var response = JSON.parse(this.responseText);
-                var img = document.getElementById("twat_box_icon");
-                var img2 = document.getElementById("profile_icon");
-                img.src = response['user_pic'];
-                img2.src = response['user_pic'];
-            }
-        };
-        request.send();
-    }
+    var request = new XMLHttpRequest();
+    request.open("GET", "../controller/profileController.php");
+    request.onreadystatechange = function (ev) {
+        if (this.status == 200 && this.readyState == 4) {
+            var response = JSON.parse(this.responseText);
+            var img = document.getElementById("twat_box_icon");
+            var img2 = document.getElementById("profile_icon");
+            img.src = response['user_pic'];
+            img2.src = response['user_pic'];
+        }
+    };
+    request.send();
+
     function showButton() {
         var twat_div = document.getElementById("twat_box");
-        twat_div.style.paddingBottom="40px";
+        twat_div.style.paddingBottom = "40px";
 //        document.getElementById("twat_button").style.visibility="visible";
     }
+
     function hideButton() {
         var twat_div = document.getElementById("twat_box");
-        twat_div.style.paddingBottom="40px";
+        twat_div.style.paddingBottom = "40px";
 //        document.getElementById("twat_button").style.visibility="hidden";
     }
+
     function add_tweet() {
         var text = document.getElementById("compose_twat_text").value;
         var request = new XMLHttpRequest();
-        request.open("GET", "../controller/tweetController.php?text="+text);
+        request.open("GET", "../controller/tweetController.php?text=" + text);
         request.onreadystatechange = function (ev) {
-            if(this.status == 200 && this.readyState == 4){
+            if (this.status == 200 && this.readyState == 4) {
 
             }
         };
         request.send();
         location.reload();
     }
+
     function buttonEvent(a) {
 
     }

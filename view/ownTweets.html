@@ -9,12 +9,12 @@
 </body>
 <script>
     var req = new XMLHttpRequest();
-    req.open("get", "../controller/showOwnTweets.php");
+    req.open("get", "../controller/showUserTweets.php");
     req.onreadystatechange = function (ev) {
         if (this.status == 200 && this.readyState == 4) {
             var resp = this.responseText;
             resp = JSON.parse(resp);
-            div = document.getElementById("home_mid_div");
+            div = document.getElementById("center_tweet");
             for (var i=0;i<resp.length;i++){
                 tweet = document.createElement("div");
                 tweet.innerHTML=resp[i]["twat_date"];

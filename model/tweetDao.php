@@ -7,12 +7,7 @@ function addTweet($pdo, $text, $user)
     $statement->execute(array($user, $text));
 }
 
-function showFollowingTweets()
-{
-
-}
-
-function showOwnTweets($pdo,$id)
+function showUserTweets($pdo,$id)
 {
     $statement = $pdo->prepare("SELECT twat_content,twat_date,user_id FROM twats WHERE user_id=? ORDER BY twat_date DESC");
     $statement->execute(array($id));

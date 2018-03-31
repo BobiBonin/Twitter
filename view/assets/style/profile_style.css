@@ -96,6 +96,25 @@ span {
 }
 #edit_btn:hover {
     background-color: #eeeeee;
+    color: #1da1f2;
+}
+#edit_btn_remove{
+     height: 35px;
+     width: 200px;
+     margin-top: -60px;
+     float: right;
+     border-radius: 33px;
+     border: 1px solid #66757f;
+     background-color: transparent;
+     color: #66757f;
+     font-weight: bold;
+     outline: none;
+     cursor: pointer;
+ }
+#edit_btn_remove:hover{
+    background-color: #eeeeee;
+    font-size: 15px;
+    color: red;
 }
 #circle {
     width: 200px;
@@ -383,9 +402,9 @@ span {
     font-size: 17px;
     font-weight: bold;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    position: relative;
     left: 100px;
     margin-top: -50px;
+    padding-left: 100px;
 }
 #a_name{
     color: black;
@@ -425,10 +444,101 @@ span {
 #last_div h1:hover{
     text-decoration: underline;
 }
+#position_div{
+    position: absolute;
+    width: 290px;
+    height: 300px;
+    background-color: #ffffff;
+    display: none;
+    opacity: 0;
+    transition: opacity 1.25s linear;
+    -moz-transition: opacity 1.25s linear;
+    -webkit-transition: opacity 1.25s linear;
+    border-radius: 5px;
+    overflow: hidden;
+}
+#small_cover{
+    width: 100%;
+    height: 25%;
+    overflow: hidden;
 
+}
+#small_cover_image{
+    width: 100%;
+    height: 100%;
+}
+#small_profile_pic{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    position: absolute;
+    border: 3px solid white;
+    top: 50px;
+    left: 20px;
+    overflow: hidden;
+}
+#small_image{
+    width: 65px;
+    height: 64px;
+}
+#small_name{
+    width: 100%;
+    height: 30%;
 
+}
+#small_h1{
+    font-size: 21px;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 50px 0px 0px 25px;
+}
+#small_h4{
+    font-size: 15px;
+    font-weight: lighter;
+    color: #657786;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 0px 0px 0px 25px;
+}
+#small_description{
+    width: 100%;
+    height: 20%;
 
+}
+#opisanie{
+    font-size: 13px;
+    font-weight: lighter;
+    letter-spacing: 0.5px;
+    line-height: 18px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 15px 0px 0px 25px;
+}
+#small_info{
+    width: 100%;
+    height: 25%;
 
+}
+.info{
+    width: 33%;
+    height: 100%;
+    display: inline;
+    float: left;
+    text-align: center;
+}
+.info h1{
+    font-size: 13px;
+    font-weight: bold;
+    padding:  12px 0 0 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgba(128,128,128,0.88);
+
+}
+.info span{
+    font-size: 25px;
+    font-weight: bold;
+    padding:  5px 0 0 0;
+    color: #1da1f2;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
 
 /*Boris*/
 

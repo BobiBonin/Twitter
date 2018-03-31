@@ -7,7 +7,7 @@
     <link href="assets/css/font-awesome.css" rel="stylesheet">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
 </head>
-<body onload="profIcon()">
+<body>
 <div class="topbar" id="top_bar">
     <div class="topbarcontainer">
         <div class="navigation">
@@ -44,31 +44,44 @@
         request.open("get", "../controller/searchController.php?name=" + pole);
         request.onreadystatechange = function (ev) {
             if (this.readyState == 4 && this.status == 200) {
-                var ul = document.createElement("ul");
-                ul.id = "search_ul";
                 var response = JSON.parse(this.responseText);
-                var div = document.getElementById("asd");
-                var div2 = document.getElementById("ul");
-                div2.innerHTML = "";
-                div2.style.visibility = "visible";
-                for (var key in response) {
+                if (response.length == 0) {                             /* Ако няма резултат изписва "Няма резултат.."*/
+                    var ul = document.createElement("ul");
+                    ul.id = "search_ul";
+                    var div = document.getElementById("asd");
+                    var div2 = document.getElementById("ul");
+                    div2.innerHTML = "";
+                    div2.style.visibility = "visible";
                     var li = document.createElement("li");
                     var a = document.createElement("a");
-                    a.href = "#";
-                    var img = document.createElement("img");
-                    a.innerHTML = response[key]["user_name"];
-                    a.style.margin = "5px";
-                    a.addEventListener("click", function () {
-
-                        var name = this.innerText;
-                        var queryString = "?" + name;
-                        window.location.href = "profile.php" + queryString;
-                    });
-                    img.src = response[key]["user_pic"];
-                    img.style.cssFloat = "left";
-                    li.appendChild(img);
+                    a.innerHTML = "Няма резултати..";
                     li.appendChild(a);
                     ul.appendChild(li);
+                } else {                                                 /* В противен случай изкарва всичко от масива*/
+                    var ul = document.createElement("ul");
+                    ul.id = "search_ul";
+                    var div = document.getElementById("asd");
+                    var div2 = document.getElementById("ul");
+                    div2.innerHTML = "";
+                    div2.style.visibility = "visible";
+                    for (var key in response) {
+                        var li = document.createElement("li");
+                        var a = document.createElement("a");
+                        a.href = "#";
+                        var img = document.createElement("img");
+                        a.innerHTML = response[key]["user_name"];
+                        a.style.margin = "5px";
+                        a.addEventListener("click", function () {  /*При клик върху име пренасочва към избрания профил*/
+                            var name = this.innerText;
+                            var queryString = "?" + name;
+                            window.location.href = "profile.php" + queryString;
+                        });
+                        img.src = response[key]["user_pic"];
+                        img.style.cssFloat = "left";
+                        li.appendChild(img);
+                        li.appendChild(a);
+                        ul.appendChild(li);
+                    }
                 }
                 div2.appendChild(ul);
                 div.appendChild(div2);
@@ -79,17 +92,16 @@
 
     /*Georgi -- 23.03.2018 -- Показване на снимката на логнатия потребител до сърч полето*/
 
-        var request = new XMLHttpRequest();
-        request.open("GET", "../controller/profileController.php");
-        request.onreadystatechange = function (ev) {
-            if (this.status == 200 && this.readyState == 4) {
-                var response = JSON.parse(this.responseText);
-                var img = document.getElementById("profile_icon");
-                img.src = response['user_pic'];
-            }
-        };
-        request.send();
-    
+    var request = new XMLHttpRequest();
+    request.open("GET", "../controller/profileController.php");
+    request.onreadystatechange = function (ev) {
+        if (this.status == 200 && this.readyState == 4) {
+            var response = JSON.parse(this.responseText);
+            var img = document.getElementById("profile_icon");
+            img.src = response['user_pic'];
+        }
+    };
+    request.send();
 
 </script>
 </body>

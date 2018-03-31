@@ -21,9 +21,9 @@ include_once "header.html";
 <nav id="my_nav">
     <div class="in_my_nav" id="first_in_my_nav">
         <ul>
-            <li><a href="#" id="following" onclick="showFollowing()">Следва</a></li>
-            <li><a href="#" id="followers" onclick="showFollowers()">Последователи</a></li>
-            <li><a href="#" id="twits" onclick="showTwits()">Туитове</a></li>
+            <li><a href="#" id="following" onclick="showFollowing()">Следва<span id="sledva"></span></a></li>
+            <li><a href="#" id="followers" onclick="showFollowers()">Последователи<span id="sledvat"></span></a></li>
+            <li><a href="#" id="twits" onclick="showTwits()">Туитове<span id="tuitove"></span></a></li>
         </ul>
         <div id="profile_card">
             <div id="nav_image">
@@ -106,6 +106,37 @@ include_once "header.html";
 
         </div>
     </div>
+    <div id="position_div">
+        <div id="small_cover">
+            <img id="small_cover_image" src="" alt="">
+        </div>
+        <div id="small_profile_pic">
+            <img id="small_image" src="" alt="">
+        </div>
+
+        <div id="small_name">
+            <h1 id="small_h1"></h1>
+            <h4 id="small_h4"></h4>
+        </div>
+        <div id="small_description">
+            <h5 id="opisanie"></h5>
+        </div>
+        <div id="small_info">
+            <div class="info">
+                <h1>Следва</h1>
+                <span id="one"></span>
+            </div>
+            <div class="info">
+                <h1>Последователи</h1>
+                <span id="two"></span>
+            </div>
+            <div class="info">
+                <h1>Туитове</h1>
+                <span id="three"></span>
+            </div>
+
+        </div>
+    </div>
 </div>
 <script>
     window.onload = random();
@@ -115,14 +146,14 @@ include_once "header.html";
         requestAnimationFrame(checkPos);
     };
 
-    function checkPos() {
+    function checkPos() {                                                /*Проверява позицията на скрола*/
         var circle = document.getElementById('circle');
         var cover = document.getElementById("cover");
         var card = document.getElementById("profile_card");
         var top_bar = document.getElementById("top_bar");
         var main = document.getElementById("main");
         var y = window.scrollY;
-        if (y >= 330) {
+        if (y >= 330) {                                                 /*Ако е над 300px скрива снимката*/
             circle.style.marginTop = "-200px";
             circle.style.transition = "margin-top 200ms linear";
             document.getElementById("nav_image").style.visibility = "visible";
@@ -134,7 +165,7 @@ include_once "header.html";
             main.style.marginTop = "484px";
             top_bar.style.top = "0";
         }
-        else {
+        else {                                                /*В противен случай и връща параметрите по подразбиране*/
             document.getElementById("nav_image").style.visibility = "hidden";
             main.style.marginTop = "10px";
             cover.style.top = "";
@@ -157,6 +188,7 @@ include_once "header.html";
         request.onreadystatechange = function (ev) {
             if (this.status == 200 && this.readyState == 4) {
                 var response = JSON.parse(this.responseText);
+
                 var img = document.getElementById("circle_img");
                 var small_img = document.getElementById("nav_img");
                 var a = document.getElementById("nav_name");
@@ -172,11 +204,59 @@ include_once "header.html";
                 name_.innerText = "@" + response[0]['user_name'];
                 description.innerHTML = response[0]['user_description'];
                 city.innerText += 'Живее в: ' + response[0]['user_city'];
-                reg_date.innerText ='Регистриран на: ' +  response[0]['user_date'].substring(0,10);
+                reg_date.innerText = 'Регистриран на: ' + response[0]['user_date'].substring(0, 10);
                 email.innerText = 'Имейл: ' + response[0]['user_email'];
-                button.innerText = "Последване";
-                button.id = "edit_btn";
-                button.name = "follow";
+                /*Проверка какъв бутон да бъде поставен*/
+                var is_follow = new XMLHttpRequest();
+                is_follow .open("GET","../controller/isFollowController.php?name=" + queries[0]);
+                is_follow.onreadystatechange = function (ev2) {
+                  if(this.readyState == 4 && this.status == 200){
+                      var response = JSON.parse(this.responseText);
+                      if(response == "0"){
+                          button.innerText = "Последване";
+                          button.id = "edit_btn";
+                          button.name = "follow";
+                      }else {
+                          button.innerText = "Премахни";
+                          button.id = "edit_btn_remove";
+                          button.name = "follow";
+                      }
+                  }
+                };
+                is_follow.send();
+                /*В зависимост какъв е бутона се изпълнява LIKE или DISLIKE функция*/
+                button.addEventListener("click", function () {
+                    if(this.innerHTML == "Последване"){
+                        var request = new XMLHttpRequest();
+                        request.open("GET", "../controller/likeItController.php?name=" + queries[0]);
+                        request.onreadystatechange = function (ev) {
+                            if (this.readyState == 4 && this.status == 200) {
+                                var response = JSON.parse(this.responseText);
+                                if(response == "1"){
+                                    button.innerText = "Премахни";
+                                    button.id = "edit_btn_remove";
+                                    showNumbers();
+                                }
+                            }
+                        };
+                        request.send();
+                    }else
+                        if(this.innerHTML == "Премахни"){
+                        var request = new XMLHttpRequest();
+                        request.open("GET", "../controller/dislikeItController.php?name=" + queries[0]);
+                        request.onreadystatechange = function (ev) {
+                            if (this.readyState == 4 && this.status == 200) {
+                                var response = JSON.parse(this.responseText);
+                                if(response == "1"){
+                                    button.innerText = "Последване";
+                                    button.id = "edit_btn";
+                                    showNumbers();
+                                }
+                            }
+                        };
+                        request.send();
+                    }
+                });
                 document.getElementById("first_in_my_nav").appendChild(button);
                 a.innerText = '@' + response[0]['user_name'];
                 a.href = "profile.php?" + response[0]['user_name'];
@@ -190,28 +270,30 @@ include_once "header.html";
 
         /* Георги --27.03.2018--  Втори рекуест (чужд профил) за визуализиране на цифрите на броя юзъри които
         * следва, го следват и публикуваните туитове*/
-        var request2 = new XMLHttpRequest();
-        request2.open("GET", "../controller/followingControler.php?name=" + queries[0]);
-        request2.onreadystatechange = function (ev) {
-            if (this.status == 200 && this.readyState == 4) {
-                var response = JSON.parse(this.responseText);
-                var a = document.getElementById("following");
-                var span = document.createElement('span');
-                span.innerText = response[0][0]['num'];
-                a.appendChild(span);
+        function showNumbers() {
+            var request2 = new XMLHttpRequest();
+            request2.open("GET", "../controller/followingControler.php?name=" + queries[0]);
+            request2.onreadystatechange = function (ev) {
+                if (this.status == 200 && this.readyState == 4) {
+                    var response = JSON.parse(this.responseText);
 
-                var a = document.getElementById("followers");
-                var span = document.createElement('span');
-                span.innerText = response[1][0]['num'];
-                a.appendChild(span);
+                    var a = document.getElementById("following");
+                    var span = document.getElementById('sledva');
+                    span.innerText = response[0][0]['num'];
+                    
+                    var a = document.getElementById("followers");
+                    var span = document.getElementById('sledvat');
+                    span.innerText = response[1][0]['num'];
 
-                var a = document.getElementById("twits");
-                var span = document.createElement('span');
-                span.innerText = response[2][0]['num'];
-                a.appendChild(span);
-            }
-        };
-        request2.send();
+                    var a = document.getElementById("twits");
+                    var span = document.getElementById('tuitove');
+                    span.innerText = response[2][0]['num'];
+
+                }
+            };
+            request2.send();
+        }
+        showNumbers();
 
         /*Георги --27.03.2018--С натискане върху линка "следва" се визуализират прозорци с информация
          * за всеки го следващ юзър */
@@ -221,6 +303,7 @@ include_once "header.html";
             request.onreadystatechange = function (ev) {
                 if (this.readyState == 4 && this.status == 200) {
                     var response = JSON.parse(this.responseText);
+
                     var center = document.getElementById("center_tweet");
                     center.style.width = "869px";
                     var right = document.getElementById("random_users");
@@ -263,12 +346,15 @@ include_once "header.html";
             request.send();
         }
 
+        /*Георги --27.03.2018--С натискане върху линка "последователи" се визуализират прозорци с информация
+         * за всеки последовател*/
         function showFollowers() {
             var request = new XMLHttpRequest();
             request.open("GET", "../controller/showFollowersController.php?name=" + queries[0]);
             request.onreadystatechange = function (ev) {
                 if (this.readyState == 4 && this.status == 200) {
                     var response = JSON.parse(this.responseText);
+
                     var center = document.getElementById("center_tweet");
                     center.style.width = "869px";
                     var right = document.getElementById("random_users");
@@ -305,24 +391,22 @@ include_once "header.html";
                         div_name.appendChild(user_img);
                         div_name.appendChild(h2);
                         div_name.appendChild(a);
-
                     }
                 }
             };
             request.send();
         }
 
+        /*Георги --27.03.2018--С натискане върху линка "туитове" се визуализират прозорец с всички туитове на потребителя*/
         function showTwits() {
             var center = document.getElementById("center_tweet");
             center.style.width = "600px";
             center.innerHTML = "";
+
             var right = document.getElementById("random_users");
             right.style.visibility = "visible";
             right.style.width = "280px";
-
         }
-
-
     } else {/*-------------------------------------------------------------------------------------------*/
 
         /*Георги --27.03.2018-- Ако в URL НЯМА параметър се запълва профила на логнатия потребител*/
@@ -331,6 +415,7 @@ include_once "header.html";
         request.onreadystatechange = function (ev) {
             if (this.status == 200 && this.readyState == 4) {
                 var response = JSON.parse(this.responseText);
+
                 var img = document.getElementById("circle_img");
                 var small_img = document.getElementById("nav_img");
                 var a = document.getElementById("nav_name");
@@ -346,7 +431,7 @@ include_once "header.html";
                 name_.innerText = "@" + response['user_name'];
                 description.innerHTML = response['user_description'];
                 city.innerText += 'Живее в: ' + response['user_city'];
-                reg_date.innerText ='Регистриран на: ' +  response['user_date'].substring(0,10);
+                reg_date.innerText = 'Регистриран на: ' + response['user_date'].substring(0, 10);
                 email.innerText = 'Имейл: ' + response['user_email'];
                 document.getElementById("first_in_my_nav").appendChild(button);
                 button.innerText = "Редактиране на профила";
@@ -361,6 +446,7 @@ include_once "header.html";
                     request.onreadystatechange = function (ev2) {
                         if (this.readyState == 4 && this.status == 200) {
                             var result = JSON.parse(this.responseText);
+
                             var username = document.getElementById("username");
                             var email = document.getElementById("email");
                             var city = document.getElementById("city");
@@ -399,6 +485,7 @@ include_once "header.html";
         request.onreadystatechange = function (ev) {
             if (this.status == 200 && this.readyState == 4) {
                 var response = JSON.parse(this.responseText);
+
                 var a = document.getElementById("following");
                 var span = document.createElement('span');
                 span.innerText = response[0][0]['num'];
@@ -426,6 +513,7 @@ include_once "header.html";
             request.onreadystatechange = function (ev) {
                 if (this.readyState == 4 && this.status == 200) {
                     var response = JSON.parse(this.responseText);
+
                     var center = document.getElementById("center_tweet");
                     center.style.width = "869px";
                     var right = document.getElementById("random_users");
@@ -473,12 +561,15 @@ include_once "header.html";
             request.send();
         }
 
+        /*Георги --29.03.2018--С натискане върху линка "последователи" се визуализират прозорци с информация
+         * за всеки последовател*/
         function showFollowers() {
             var request = new XMLHttpRequest();
             request.open("GET", "../controller/showMyFollowersController.php");
             request.onreadystatechange = function (ev) {
                 if (this.readyState == 4 && this.status == 200) {
                     var response = JSON.parse(this.responseText);
+
                     var center = document.getElementById("center_tweet");
                     center.style.width = "869px";
                     var right = document.getElementById("random_users");
@@ -515,13 +606,13 @@ include_once "header.html";
                         div_name.appendChild(user_img);
                         div_name.appendChild(h2);
                         div_name.appendChild(a);
-
                     }
                 }
             };
             request.send();
         }
 
+        /*Георги --27.03.2018--С натискане върху линка "туитове" се визуализират прозорец с всички туитове на потребителя*/
         function showTwits() {
             var center = document.getElementById("center_tweet");
             center.style.width = "600px";
@@ -533,14 +624,13 @@ include_once "header.html";
         }
     }
 
-
     /*Георги --28.03.2018-- Рекуест за избрани на случаен принцип профили*/
 
     function random() {
         var request = new XMLHttpRequest();
-        request.open("GET","../controller/showRandomUsersController.php");
+        request.open("GET", "../controller/showRandomUsersController.php");
         request.onreadystatechange = function (ev) {
-            if(this.readyState == 4 && this.status == 200){
+            if (this.readyState == 4 && this.status == 200) {
                 var response = JSON.parse(this.responseText);
 
                 var random_users_div = document.getElementById("random_users");
@@ -549,7 +639,7 @@ include_once "header.html";
                 randoms.style.height = "80%";
                 randoms.innerHTML = "";
 
-                for(var key in response){
+                for (var key in response) {
                     var user_div = document.createElement("div");
                     user_div.id = "first";
                     var image_div = document.createElement("div");
@@ -563,6 +653,72 @@ include_once "header.html";
                     a.href = "profile.php?" + response[key]["user_name"];
                     a.id = "a_name";
                     a.innerText = response[key]["user_name"];
+                    a.addEventListener("mouseover", function () { /*При ховър се показва допълнителна информация за юзъра*/
+
+                        var user_name = this.innerHTML;
+                        var request = new XMLHttpRequest();
+                        request.open("GET", "../controller/showProfileController.php?name=" + user_name);
+                        request.onreadystatechange = function (ev) {
+                            if (this.status == 200 && this.readyState == 4) {
+                                var response = JSON.parse(this.responseText);
+
+                                var cover = document.getElementById("small_cover_image");
+                                cover.src = response[0]['user_cover'];
+                                var image = document.getElementById("small_image");
+                                image.src = response[0]['user_pic'];
+                                var name = document.getElementById("small_h1");
+                                name.innerText = response[0]['user_name'];
+                                var small_name = document.getElementById("small_h4");
+                                small_name.innerText = "@" + response[0]['user_name'];
+                                var asd = document.getElementById("opisanie");
+                                asd.innerHTML = response[0]['user_description'];
+                            }
+                        };
+                        request.send();
+
+                        var request2 = new XMLHttpRequest();
+                        request2.open("GET", "../controller/showSmallDivTwits.php?name=" + user_name);
+                        request2.onreadystatechange = function (ev) {
+                            if (this.status == 200 && this.readyState == 4) {
+                                var response = JSON.parse(this.responseText);
+
+                                var first = document.getElementById("one");
+                                var second = document.getElementById("two");
+                                var third = document.getElementById("three");
+
+                                first.innerHTML = response[0][0]['num'];
+                                second.innerHTML = response[1][0]['num'];
+                                third.innerHTML = response[2][0]['num'];
+                            }
+                        };
+                        request2.send();
+
+                        /*Определя се позицията на която да се покаже прозореца с допълнителната информация*/
+                        var posx = 0;
+                        var posy = 0;
+                        if (!e) var e = window.event;
+                        if (e.pageX || e.pageY) {
+                            posx = e.pageX;
+                            posy = e.pageY;
+                        }
+                        else if (e.clientX || e.clientY) {
+                            posx = e.clientX;
+                            posy = e.clientY;
+                        }
+                        var position = document.getElementById("position_div");
+                        position.style.left = posx + "px";
+                        position.style.top = posy + "px";
+                        position.style.display = "block";
+                        position.style.opacity = "1";
+                        position.style.transition = "opacity 1.25s linear";
+
+                    });
+                    /*При махане на мишката прозореца се скрива*/
+                    a.addEventListener("mouseout", function () {
+                        var position = document.getElementById("position_div");
+                        position.style.display = "none";
+                    });
+
                     var button = document.createElement("button");
                     button.innerText = "Follow";
                     button.classList.add("follow_btn");
@@ -570,7 +726,7 @@ include_once "header.html";
                     var h1 = document.createElement("h1");
                     find.id = "last_div";
                     h1.innerText = "Намери хора, които познаваш";
-                    h1.addEventListener('click',function () {
+                    h1.addEventListener('click', function () {   /*При натискане фокуса се премества върху сърч полето*/
                         var search = document.getElementById("searchInput");
                         search.focus();
                     });
@@ -582,11 +738,13 @@ include_once "header.html";
                     user_div.appendChild(name);
                     user_div.appendChild(button);
                 }
-                randoms.appendChild(find);;
+                randoms.appendChild(find);
             }
         };
         request.send();
     }
+
+
 
 
 </script>

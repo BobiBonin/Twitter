@@ -1,0 +1,11 @@
+RewriteEngine On
+
+php_value upload_max_filesize 100M
+php_value post_max_size 100M
+
+Options -Indexes
+
+DirectoryIndex index.html
+
+ErrorDocument 404 /error_404.php
+ErrorDocument 403 /error_403.php
