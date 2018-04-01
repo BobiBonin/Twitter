@@ -9,7 +9,6 @@ function checkUserExist($pdo, $email, $pass)
     return $result['rows'] > 0;
 }
 
-
 /*Проверява дали юзъра съществува по имейл за регистрацията*/
 function userExistForReg($pdo, $email)
 {
@@ -19,14 +18,12 @@ function userExistForReg($pdo, $email)
     return $result['rows'] > 0;
 }
 
-
 /*Записва новия юзър в базата*/
 function registerUser($pdo, $username, $password, $email, $date)
 {
     $statement = $pdo->prepare("INSERT INTO users (user_name,user_email,user_pass,user_date) VALUES (?,?,?,?)");
     $statement->execute(array($username, $email, $password, $date));
 }
-
 
 /*Взима информация за юзъра по имейл*/
 function getUserInfoByEmail($pdo, $email)
@@ -37,7 +34,6 @@ function getUserInfoByEmail($pdo, $email)
     return $result;
 }
 
-
 /*Търси първите 5 потребителя по име (за търсачката)*/
 function getFirstFiveUsersByName($pdo, $name, $email)
 {
@@ -46,7 +42,6 @@ function getFirstFiveUsersByName($pdo, $name, $email)
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
-
 
 /*Намира броя на следващите дадения потребител юзъри по ИМЕ*/
 function getUserFollowings($pdo, $name)
@@ -57,7 +52,6 @@ function getUserFollowings($pdo, $name)
     return $result;
 }
 
-
 /*Намира броя на последваните потребители по ИМЕ*/
 function getUserFollowers($pdo, $name)
 {
@@ -66,7 +60,6 @@ function getUserFollowers($pdo, $name)
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
-
 
 /*Намира броя на публикуваните туитове по ИМЕ на потребителя*/
 function getUserTwits($pdo, $name)
@@ -77,7 +70,6 @@ function getUserTwits($pdo, $name)
     return $result;
 }
 
-
 /*Georgi -- 23.03.2018 -- Търси конкретен юзър по име*/
 function getUserInfoByName($pdo, $name)
 {
@@ -87,14 +79,12 @@ function getUserInfoByName($pdo, $name)
     return $result;
 }
 
-
 /*Georgi -- 23.03.2018 -- Ъпдейтва профила*/
 function updateUser($pdo, $username, $email, $password, $img, $cover, $city, $description, $id)
 {
     $statement = $pdo->prepare("UPDATE users SET user_name = ?,user_email = ?,user_pass = ?,user_pic = ?,user_cover = ?, user_city = ?, user_description = ? WHERE user_id = ?");
     $statement->execute(array($username, $email, $password, $img, $cover, $city, $description, $id));
 }
-
 
 /*Georgi -- 23.03.2018 -- Намира ID на юзър по име*/
 function findId($pdo, $name)
@@ -104,7 +94,6 @@ function findId($pdo, $name)
     $result = $statement->fetch(PDO::FETCH_ASSOC);
     return $result;
 }
-
 
 /*Намира следващите дадения потребител юзъри по ID*/
 function findFollowing($pdo, $id)
@@ -124,7 +113,7 @@ function findFollowers($pdo, $id)
     return $result;
 }
 
-/*Избира произволни 4 юзъра*/
+/*Избира произволни 3 юзъра*/
 function getFourRandomUsers($pdo,$email){
     $statement = $pdo->prepare("SELECT user_name, user_pic FROM users  WHERE user_id < (SELECT COUNT(*) FROM users) AND NOT user_email = ?  ORDER BY RAND()  LIMIT 3 ");
     $statement->execute(array($email));
@@ -132,6 +121,7 @@ function getFourRandomUsers($pdo,$email){
     return $result;
 }
 
+/*Харесва потребител*/
 function likeIt($pdo,$me,$you){
     $statement = $pdo->prepare("INSERT INTO following (user_id,following_id) VALUES (?,?)");
     $statement->execute(array($me,$you));
@@ -139,6 +129,7 @@ function likeIt($pdo,$me,$you){
     return $result;
 }
 
+/**/
 function isFollow($pdo,$myid, $id){
     $statement = $pdo->prepare("SELECT * FROM following WHERE user_id = ? AND following_id = ?");
     $statement->execute(array($myid,$id));
@@ -146,6 +137,7 @@ function isFollow($pdo,$myid, $id){
     return $result;
 }
 
+/*Отхаресва потребител*/
 function dislikeIt($pdo,$me,$you){
     $statement = $pdo->prepare("DELETE FROM following WHERE user_id = ? AND following_id = ?");
     $statement->execute(array($me,$you));
@@ -153,6 +145,7 @@ function dislikeIt($pdo,$me,$you){
     return $result;
 }
 
+/*Взима following ID*/
 function getFollowersId($pdo,$user_id){
     $statement = $pdo->prepare("SELECT following_id from mydb.following WHERE user_id = ?");
     $statement->execute(array($user_id));
@@ -160,6 +153,7 @@ function getFollowersId($pdo,$user_id){
     return $result;
 }
 
+/*Взима инфо за юзъра по ID*/
 function getUserInfoById($pdo, $id)
 {
     $statement = $pdo->prepare("SELECT user_id, user_name, user_email, user_date, user_pic, user_cover, user_city, user_description FROM users WHERE user_id = ?");
