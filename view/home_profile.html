@@ -5,48 +5,70 @@
     <link rel="stylesheet" href="assets/style/home_style.css">
 </head>
 <body>
-    <div class="home_profile">
-        <div class="home_profile_cover">
-            <img id="cover" src="">
-        </div>
-        <div class="home_profile_name">
-            <img class="home_profile_img" id="hm_prof_img" src="">
-            <h2 id="profile_h2"></h2><br>
-            <h4 id="profile_h4"></h4>
-        </div>
-        <div class="home_profile_stats">
-            <ul class="profile_ul">
-                <li>Twats<br>20</li>
-                <li>Following<br>200</li>
-                <li>Followers<br>300</li>
-            </ul>
-        </div>
+<div class="home_profile">
+    <div class="home_profile_cover">
+        <img id="cover" src="">
     </div>
+    <div class="home_profile_name">
+        <img class="home_profile_img" id="hm_prof_img" src="">
+        <h2 id="profile_h2"></h2><br>
+        <h4 id="profile_h4"></h4>
+    </div>
+    <div class="home_profile_stats">
+        <ul class="profile_ul">
+            <li class="prof_li">Следва<br><a class="prof_box_numbers" id="home_prof_following"></a></li>
+            <li class="prof_li">Последователи<br><a class="prof_box_numbers" id="home_prof_followers"></a></li>
+            <li class="prof_li">Туитове<br><a class="prof_box_numbers" id="home_prof_tweets"></a></li>
+        </ul>
+    </div>
+</div>
 
-    <script>
-        var req = new XMLHttpRequest();
-        req.open("get", "../controller/profileController.php");
-        req.onreadystatechange = function (ev) {
-            var resp = this.responseText;
-            resp = JSON.parse(resp);
-            var user_name = resp["user_name"];
-            var user_pic = resp["user_pic"];
-            var user_cover = resp["user_cover"];
+<script>
+
+
+    var req = new XMLHttpRequest();
+    req.open("get", "../controller/profileController.php");
+    req.onreadystatechange = function (ev) {
+        var resp = this.responseText;
+        resp = JSON.parse(resp);
+        var user_name = resp["user_name"];
+        var user_pic = resp["user_pic"];
+        var user_cover = resp["user_cover"];
 //24.03.2017 Boris
-            var img = document.getElementById("hm_prof_img");
-            img.src=user_pic;
+        var img = document.getElementById("hm_prof_img");
+        img.src = user_pic;
 
-            var cover = document.getElementById("cover");
-            cover.src=user_cover;
+        var cover = document.getElementById("cover");
+        cover.src = user_cover;
 
-            var profile_h2 = document.getElementById("profile_h2");
-            profile_h2.innerHTML=user_name;
+        var profile_h2 = document.getElementById("profile_h2");
+        profile_h2.innerHTML = user_name;
 
-            var profile_h4 = document.getElementById("profile_h4");
-            profile_h4.innerHTML="@"+user_name;
+        var profile_h4 = document.getElementById("profile_h4");
+        profile_h4.innerHTML = "@" + user_name;
 
+
+        var request2 = new XMLHttpRequest();
+        request2.open("GET", "../controller/followingControler.php?name=" + resp["user_name"]);
+        request2.onreadystatechange = function (ev) {
+            if (this.status == 200 && this.readyState == 4) {
+                var response = JSON.parse(this.responseText);
+
+                var a = document.getElementById("home_prof_following");
+                a.innerText = response[0][0]['num'];
+
+                var a = document.getElementById("home_prof_followers");
+                a.innerText = response[1][0]['num'];
+
+                var a = document.getElementById("home_prof_tweets");
+                a.innerText = response[2][0]['num'];
+
+            }
         };
-        req.send();
-    </script>
+        request2.send();
+    };
+    req.send();
+
+</script>
 </body>
 </html>

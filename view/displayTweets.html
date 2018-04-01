@@ -17,9 +17,10 @@
             for (var i=0; i < resp.length; i++) {
                 var tweet = document.createElement("div");
                 tweet.className = "ownTweets";
-                tweet.innerHTML="<a href=>"+resp[i]["user_name"]+"</a>";
-                tweet.innerHTML+="<h5>"+resp[i]["twat_date"]+"</h5>";
-                tweet.innerHTML+="<h3>"+resp[i]["twat_content"]+"</h3>";
+                tweet.innerHTML = "<img class='home_tweet_image' src="+resp[i]["user_pic"]+">"
+                tweet.innerHTML+="<h1 class='tweet_name'><a href=>"+resp[i]["user_name"]+"</a></h1>";
+                tweet.innerHTML+="<h4 class='tweet_date'>"+resp[i]["twat_date"]+"</h4>";
+                tweet.innerHTML+="<p class='content' style='border: 0'>"+resp[i]["twat_content"]+"</p>";
                 div.appendChild(tweet);
 
             }
