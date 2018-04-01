@@ -208,15 +208,15 @@ include_once "header.html";
                 email.innerText = 'Имейл: ' + response[0]['user_email'];
                 /*Проверка какъв бутон да бъде поставен*/
                 var is_follow = new XMLHttpRequest();
-                is_follow .open("GET","../controller/isFollowController.php?name=" + queries[0]);
+                is_follow.open("GET", "../controller/isFollowController.php?name=" + queries[0]);
                 is_follow.onreadystatechange = function (ev2) {
-                    if(this.readyState == 4 && this.status == 200){
+                    if (this.readyState == 4 && this.status == 200) {
                         var response = JSON.parse(this.responseText);
-                        if(response == "0"){
+                        if (response == "0") {
                             button.innerText = "Последване";
                             button.id = "edit_btn";
                             button.name = "follow";
-                        }else {
+                        } else {
                             button.innerText = "Премахни";
                             button.id = "edit_btn_remove";
                             button.name = "follow";
@@ -226,13 +226,13 @@ include_once "header.html";
                 is_follow.send();
                 /*В зависимост какъв е бутона се изпълнява LIKE или DISLIKE функция*/
                 button.addEventListener("click", function () {
-                    if(this.innerHTML == "Последване"){
+                    if (this.innerHTML == "Последване") {
                         var request = new XMLHttpRequest();
                         request.open("GET", "../controller/likeItController.php?name=" + queries[0]);
                         request.onreadystatechange = function (ev) {
                             if (this.readyState == 4 && this.status == 200) {
                                 var response = JSON.parse(this.responseText);
-                                if(response == "1"){
+                                if (response == "1") {
                                     button.innerText = "Премахни";
                                     button.id = "edit_btn_remove";
                                     showNumbers();
@@ -240,14 +240,13 @@ include_once "header.html";
                             }
                         };
                         request.send();
-                    }else
-                    if(this.innerHTML == "Премахни"){
+                    } else if (this.innerHTML == "Премахни") {
                         var request = new XMLHttpRequest();
                         request.open("GET", "../controller/dislikeItController.php?name=" + queries[0]);
                         request.onreadystatechange = function (ev) {
                             if (this.readyState == 4 && this.status == 200) {
                                 var response = JSON.parse(this.responseText);
-                                if(response == "1"){
+                                if (response == "1") {
                                     button.innerText = "Последване";
                                     button.id = "edit_btn";
                                     showNumbers();
@@ -293,6 +292,7 @@ include_once "header.html";
             };
             request2.send();
         }
+
         showNumbers();
 
         /*Георги --27.03.2018--С натискане върху линка "следва" се визуализират прозорци с информация
@@ -408,7 +408,151 @@ include_once "header.html";
             var right = document.getElementById("random_users");
             right.style.visibility = "visible";
             right.style.width = "280px";
+            showOtherUsersTwits(queries[0]);
         }
+
+        function showOtherUsersTwits(name) {
+            var request = new XMLHttpRequest();
+            request.open("GET", "../controller/showOtherUsersTweetsController.php?name=" + name);
+            request.onreadystatechange = function (ev) {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    var center_div = document.getElementById("center_tweet");
+                    center_div.innerHTML = "";
+                    for (var key in response) {
+                        var tweet = document.createElement("div");
+                        tweet.classList.add("tweet");
+                        var image_div = document.createElement("div");
+                        image_div.classList.add("tweet_image_div");
+                        var img = document.createElement("img");
+                        img.id = "tweet_image";
+                        img.src = response[key]['user_pic'];
+                        var tweet_content = document.createElement("tweet_content_div");
+                        tweet_content.classList.add("content_div");
+                        var name = document.createElement("h1");
+                        name.classList.add("tweet_name");
+                        name.innerText = response[key]['user_name'];
+                        var date = document.createElement("h4");
+                        date.classList.add("tweet_date");
+                        date.innerText = response[key]['twat_date'];
+                        var p = document.createElement("p");
+                        p.classList.add("content");
+                        p.innerText = response[key]['twat_content'];
+                        var a = document.createElement("a");
+                        a.innerText = "коментари";
+                        a.classList.add("comments");
+
+                        var comments_div = document.createElement("div");
+                        comments_div.classList.add("comment_space");
+                        comments_div.id = response[key]['twat_id'];
+                        var text = document.createElement("input");
+                        text.type = "text";
+                        text.classList.add("comment_text");
+                        text.name = response[key]['twat_id'];
+                        text.id = "asd" + response[key]['twat_id'];
+                        var button = document.createElement("button");
+                        button.classList.add("comment_button");
+                        button.innerText = "Изпрати";
+                        button.value = response[key]['twat_id'];
+
+                        button.addEventListener("click" , function () {
+                            var request = new XMLHttpRequest();
+                            request.open("post", "../controller/sendCommentController.php");
+                            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                            request.onreadystatechange = function (ev) {
+                                if(this.readyState == 4 && this.status == 200){
+                                    var response = JSON.parse(this.responseText);
+                                    if(response == "1"){
+                                        var queryString = decodeURIComponent(window.location.search);
+                                        queryString = queryString.substring(1);
+                                        var queries = queryString.split("&");
+                                        showOtherUsersTwits(queries[0]);
+                                    }
+                                }
+                            };
+                            request.send("content=" + document.getElementById("asd"+ this.value).value + "&tweetId=" + this.value);
+
+                        });
+
+                        var tweet_id = response[key]['twat_id'];
+
+                        image_div.appendChild(img);
+                        tweet.appendChild(image_div);
+                        tweet_content.appendChild(name);
+                        tweet_content.appendChild(date);
+                        tweet_content.appendChild(p);
+                        tweet.appendChild(tweet_content);
+                        tweet.appendChild(a);
+                        center_div.appendChild(tweet);
+                        center_div.appendChild(comments_div);
+                        comments_div.appendChild(text);
+                        comments_div.appendChild(button);
+
+                        /*Георги 01.04.2018 -- Показва коментарите под туитовете !!!*/
+                        var request = new XMLHttpRequest();
+                        request.open("GET", "../controller/showMyTweetCommentController.php?tweet_id=" + tweet_id);
+                        request.onreadystatechange = function (ev) {
+                            if (this.readyState == 4 && this.status == 200) {
+                                var response = JSON.parse(this.responseText);
+                                var master_comment = document.createElement("div");
+                                master_comment.id = "master";
+
+                                for(var key in response){
+
+                                    var add_comments = document.createElement("div");
+                                    add_comments.classList.add("added_comments");
+
+                                    var comment_space = document.createElement("div");
+                                    comment_space.classList.add("space_comment");
+
+                                    var comment_img_div = document.createElement("div");
+                                    comment_img_div.classList.add("div_img_comment");
+
+                                    var img_ramka = document.createElement("div");
+                                    img_ramka.classList.add("img_ramka");
+
+                                    var img = document.createElement("img");
+                                    img.id = "com_img";
+                                    img.src = response[key]['user_pic'];
+
+                                    var comment_content = document.createElement("div");
+                                    comment_content.classList.add("content_comment");
+
+                                    var name = document.createElement("h1");
+                                    name.classList.add("comment_name");
+                                    name.innerText = response[key]['user_name'];
+
+                                    var date = document.createElement("h4");
+                                    date.classList.add("comment_date");
+                                    date.innerText = response[key]['comment_date'];
+
+                                    var comment = document.createElement("h4");
+                                    comment.classList.add("comment");
+                                    comment.innerText = response[key]['comment_text'];
+
+
+                                    document.getElementById(response[key]["twat_id"]).appendChild(master_comment);
+                                    master_comment.appendChild(add_comments);
+                                    add_comments.appendChild(comment_space);
+                                    comment_space.appendChild(comment_img_div);
+                                    comment_img_div.appendChild(img_ramka);
+                                    img_ramka.appendChild(img);
+
+                                    comment_space.appendChild(comment_content);
+                                    comment_content.appendChild(name);
+                                    comment_content.appendChild(date);
+                                    comment_content.appendChild(comment);
+                                }
+                            }
+                        };
+                        request.send();
+                    }
+                }
+            };
+            request.send();
+        }
+        showOtherUsersTwits(queries[0]);
+
     } else {/*-------------------------------------------------------------------------------------------*/
 
         /*Георги --27.03.2018-- Ако в URL НЯМА параметър се запълва профила на логнатия потребител*/
@@ -507,7 +651,6 @@ include_once "header.html";
         }
         showMynumbers();
 
-
         /*Георги --27.03.2018--С натискане върху линка "следва" се визуализират прозорци с информация
         * за всеки го следващ юзър, както и бутон за "unfollow" */
         function showFollowing() {
@@ -554,14 +697,14 @@ include_once "header.html";
                         button.id = "btn_unfollow";
                         button.innerText = "Премахни";
                         button.value = response[key]["user_name"];
-                        button.addEventListener("click" ,function () {
+                        button.addEventListener("click", function () {
                             var name = this.value;
                             var request = new XMLHttpRequest();
                             request.open("GET", "../controller/dislikeItController.php?name=" + name);
                             request.onreadystatechange = function (ev) {
                                 if (this.readyState == 4 && this.status == 200) {
                                     var response = JSON.parse(this.responseText);
-                                    if(response == "1"){
+                                    if (response == "1") {
                                         showFollowing();
                                         showMynumbers();
                                     }
@@ -643,10 +786,11 @@ include_once "header.html";
             right.style.width = "280px";
             showMyTwits();
         }
+
+        showMyTwits();
     }
 
     /*Георги --28.03.2018-- Рекуест за избрани на случаен принцип профили*/
-
     function random() {
         var request = new XMLHttpRequest();
         request.open("GET", "../controller/showRandomUsersController.php");
@@ -753,7 +897,7 @@ include_once "header.html";
                             if (this.readyState == 4 && this.status == 200) {
                                 var response = JSON.parse(this.responseText);
                                 console.log(response);
-                                if(response == "1"){
+                                if (response == "1") {
                                     random();
                                     showMynumbers();
                                 }
@@ -785,16 +929,16 @@ include_once "header.html";
         request.send();
     }
 
-
-    function showMyTwits(){
+    /*Георги 01.04.2018 -- Показва туитовете !!!*/
+    function showMyTwits() {
         var request = new XMLHttpRequest();
         request.open("GET", "../controller/showMyTweetsController.php");
         request.onreadystatechange = function (ev) {
-            if(this.readyState == 4 && this.status == 200){
+            if (this.readyState == 4 && this.status == 200) {
                 var response = JSON.parse(this.responseText);
                 var center_div = document.getElementById("center_tweet");
-
-                for(var key in response){
+                center_div.innerHTML = "";
+                for (var key in response) {
                     var tweet = document.createElement("div");
                     tweet.classList.add("tweet");
                     var image_div = document.createElement("div");
@@ -807,6 +951,9 @@ include_once "header.html";
                     var name = document.createElement("h1");
                     name.classList.add("tweet_name");
                     name.innerText = response[key]['user_name'];
+                    var date = document.createElement("h4");
+                    date.classList.add("tweet_date");
+                    date.innerText = response[key]['twat_date'];
                     var p = document.createElement("p");
                     p.classList.add("content");
                     p.innerText = response[key]['twat_content'];
@@ -814,20 +961,117 @@ include_once "header.html";
                     a.innerText = "коментари";
                     a.classList.add("comments");
 
+                    var comments_div = document.createElement("div");
+                    comments_div.classList.add("comment_space");
+                    comments_div.id = response[key]['twat_id'];
+                    var text = document.createElement("input");
+                    text.type = "text";
+                    text.classList.add("comment_text");
+                    text.name = response[key]['twat_id'];
+                    text.id = "asd" + response[key]['twat_id'];
+                    var button = document.createElement("button");
+                    button.classList.add("comment_button");
+                    button.innerText = "Изпрати";
+                    button.value = response[key]['twat_id'];
+
+                    button.addEventListener("click" , function () {
+                        console.log(document.getElementById("asd"+ this.value).value);
+
+                        var request = new XMLHttpRequest();
+                        request.open("post", "../controller/sendCommentController.php");
+                        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        request.onreadystatechange = function (ev) {
+                            if(this.readyState == 4 && this.status == 200){
+                                var response = JSON.parse(this.responseText);
+                                if(response == "1"){
+                                    showMyTwits();
+                                }
+
+                            }
+                        };
+                        request.send("content=" + document.getElementById("asd"+ this.value).value + "&tweetId=" + this.value);
+
+                    });
+
+                    var tweet_id = response[key]['twat_id'];
+
                     image_div.appendChild(img);
                     tweet.appendChild(image_div);
                     tweet_content.appendChild(name);
+                    tweet_content.appendChild(date);
                     tweet_content.appendChild(p);
                     tweet.appendChild(tweet_content);
                     tweet.appendChild(a);
                     center_div.appendChild(tweet);
-                }
+                    center_div.appendChild(comments_div);
+                    comments_div.appendChild(text);
+                    comments_div.appendChild(button);
 
+                    /*Георги 01.04.2018 -- Показва коментарите под туитовете !!!*/
+                    var request = new XMLHttpRequest();
+                    request.open("GET", "../controller/showMyTweetCommentController.php?tweet_id=" + tweet_id);
+                    request.onreadystatechange = function (ev) {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var response = JSON.parse(this.responseText);
+                            var master_comment = document.createElement("div");
+                            master_comment.id = "master";
+
+                            for(var key in response){
+
+                                var add_comments = document.createElement("div");
+                                add_comments.classList.add("added_comments");
+
+                                var comment_space = document.createElement("div");
+                                comment_space.classList.add("space_comment");
+
+                                var comment_img_div = document.createElement("div");
+                                comment_img_div.classList.add("div_img_comment");
+
+                                var img_ramka = document.createElement("div");
+                                img_ramka.classList.add("img_ramka");
+
+                                var img = document.createElement("img");
+                                img.id = "com_img";
+                                img.src = response[key]['user_pic'];
+
+                                var comment_content = document.createElement("div");
+                                comment_content.classList.add("content_comment");
+
+                                var name = document.createElement("h1");
+                                name.classList.add("comment_name");
+                                name.innerText = response[key]['user_name'];
+
+                                var date = document.createElement("h4");
+                                date.classList.add("comment_date");
+                                date.innerText = response[key]['comment_date'];
+
+                                var comment = document.createElement("h4");
+                                comment.classList.add("comment");
+                                comment.innerText = response[key]['comment_text'];
+
+
+                                document.getElementById(response[key]["twat_id"]).appendChild(master_comment);
+                                master_comment.appendChild(add_comments);
+                                add_comments.appendChild(comment_space);
+                                comment_space.appendChild(comment_img_div);
+                                comment_img_div.appendChild(img_ramka);
+                                img_ramka.appendChild(img);
+
+                                comment_space.appendChild(comment_content);
+                                comment_content.appendChild(name);
+                                comment_content.appendChild(date);
+                                comment_content.appendChild(comment);
+                            }
+                        }
+                    };
+                    request.send();
+                }
             }
         };
         request.send();
     }
-    showMyTwits();
+
+
 </script>
 </body>
 </html>

@@ -33,8 +33,22 @@ function asd($pdo, $str)
 
 /*Georgi*/
 function showMyTweets($pdo,$id){
-    $statement = $pdo->prepare("SELECT u.user_name, u.user_pic, t.twat_date, t.twat_content FROM twats AS t JOIN users AS u ON u.user_id = t.user_id WHERE u.user_id = ?");
+    $statement = $pdo->prepare("SELECT u.user_name, u.user_pic, t.twat_date, t.twat_content, t.twat_id FROM twats AS t JOIN users AS u ON u.user_id = t.user_id WHERE u.user_id = ?");
     $statement->execute(array($id));
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
+}
+function showMyComments($pdo,$id){
+    $statement = $pdo->prepare("SELECT c.twat_id, c.comment_text, c.comment_date, u.user_pic, u.user_name FROM comments AS c JOIN users AS u ON u.user_id = c.owner_id WHERE c.twat_id = ?");
+    $statement->execute(array($id));
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function addComment($pdo,$tweetId,$date,$content,$ownerId){
+    $statement = $pdo->prepare("INSERT INTO comments (twat_id, comment_date, comment_text, owner_id) VALUES (?,?,?,?)");
+    $statement->execute(array($tweetId,$date,$content,$ownerId));
+    $result = $statement->rowCount();
+    return $result;
+
 }

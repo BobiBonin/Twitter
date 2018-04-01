@@ -258,7 +258,7 @@ span {
 #center_tweet{
 
     width: 600px;
-    height: 1000px;
+    height: auto;
     margin: 20px 15px 0px 15px;
     background-color: white;
     float: left;
@@ -544,12 +544,12 @@ span {
 /*----TWEETS----*/
 .tweet{
     width: 100%;
-    height: 100px;
-    border-bottom: 1px solid rgba(128,128,128,0.34);
+    height: 120px;
+    border-top: 1px solid rgba(128,128,128,0.34);
 }
 .tweet_image_div{
     width: 100px;
-    height: 100%;
+    height: 70%;
     float: left;
 }
 .content_div{
@@ -578,11 +578,115 @@ span {
     border-bottom: 1px solid rgba(128,128,128,0.34);
 
 }
-.comments{
-    float: right;
-    padding: 5px;
+.tweet_date{
+    font-size: 10px;
+    font-weight: lighter;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #657786;
+    display: inline;
+}
+.tweet_date:hover{
+    font-size: 12px;
+}
+.fa-heart{
+    padding: 10px 0 0 30px;
 }
 /*----END TWEETS----*/
+/*----COMMENTS----*/
+.comments{
+    float: right;
+    padding: 5px 15px 0 15px;
+}
+.comment_space{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-bottom: 5px solid #e6ecf0;
+
+}
+.comment_text{
+    width: 70%;
+    height: 20px;
+    margin: 10px 10px 10px 30px;
+    border-radius: 5px;
+    border: 1px solid #1da1f2;
+    outline: none;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 2px;
+}
+.comment_button{
+    height: 25px;
+    width: 100px;
+    border-radius: 33px;
+    border: 1px solid #2b97df;
+    background-color: transparent;
+    color: #2b97df;
+    font-weight: bold;
+
+    outline: none;
+    cursor: pointer;
+}
+.added_comments{
+    width: 90%;
+    height: auto;
+    margin: auto;
+}
+.space_comment{
+    width: 98%;
+    height: 50px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(102, 117, 127, 0.25);
+}
+.div_img_comment{
+    height: 100%;
+    width: 10%;
+    float: left;
+}
+.img_ramka{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+}
+#com_img{
+    width: 52px;
+    height: 50px;
+}
+.content_comment{
+    width: 90%;
+    height: 100%;
+    background-color: white;
+    float: left;
+}
+.comment_name{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    display: inline;
+}
+.comment_date{
+    font-size: 10px;
+    font-weight: lighter;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #657786;
+    display: inline;
+    padding-left: 10px;
+}
+.comment{
+    font-size: 10px;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #363f48;
+    padding: 15px 0 0 30px;
+}
+#master{
+    width: 90%;
+    height: auto;
+    margin: auto;
+}
+/*----END COMMENTS----*/
 /*Boris*/
 
 .topbarcontainer {
