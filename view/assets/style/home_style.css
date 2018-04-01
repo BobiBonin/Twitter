@@ -88,7 +88,7 @@
     padding-top: 5px;
     height: auto;
     width: 100%;
-    background-color: #A3D4F2;
+    background-color: #cce6ff;
     padding-bottom: 40px;
 
 }
@@ -124,7 +124,9 @@
     font-family: sans-serif;
     color: white;
     cursor: pointer;
-    /*visibility: hidden;*/
+    visibility: hidden;
+    margin-top: 3px;
+    transition: 0s;
 }
 #twat_button:hover {
     background-color: #006dbf;

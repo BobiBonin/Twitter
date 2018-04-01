@@ -17,8 +17,13 @@
             for (var i=0; i < resp.length; i++) {
                 var tweet = document.createElement("div");
                 tweet.className = "ownTweets";
-                tweet.innerHTML = "<img class='home_tweet_image' src="+resp[i]["user_pic"]+">"
-                tweet.innerHTML+="<h1 class='tweet_name'><a href=>"+resp[i]["user_name"]+"</a></h1>";
+                var link_name = resp[i]["user_name"];
+                link_name=link_name.replace(" ","%20");
+                console.log(resp[i]["user_name"]);
+                console.log(link_name);
+
+                tweet.innerHTML = "<a href="+"profile.php?"+link_name+"><img class='home_tweet_image' src="+resp[i]["user_pic"]+"></a>";
+                tweet.innerHTML+="<h1 class='tweet_name'><a href=profile.php?"+link_name+">"+resp[i]["user_name"]+"</a></h1>";
                 tweet.innerHTML+="<h4 class='tweet_date'>"+resp[i]["twat_date"]+"</h4>";
                 tweet.innerHTML+="<p class='content' style='border: 0'>"+resp[i]["twat_content"]+"</p>";
                 div.appendChild(tweet);

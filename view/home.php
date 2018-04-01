@@ -10,8 +10,8 @@
 </head>
 <body>
 <?php
-session_start();
-include "header.html";
+        include_once 'page_lock.php';
+        include "header.html";
 ?>
 <div class="home_wrap">
     <div id="home_left_div">
@@ -194,5 +194,9 @@ include "header.html";
         };
         request.send();
     }
+
+    var home = document.getElementById("navHome");
+    home.style.borderBottom="3px solid #1b95e0";
+
 </script>
 </html>

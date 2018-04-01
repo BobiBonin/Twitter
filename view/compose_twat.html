@@ -7,7 +7,7 @@
 <body>
 <div id="twat_box">
     <img id="twat_box_icon" src="">
-    <textarea id="compose_twat_text" placeholder="What's happening?" oninput="buttonEvent(this.innerHTML)"
+    <textarea id="compose_twat_text" placeholder="What's happening?"
               onfocus="showButton()" onfocusout="setTimeout(hideButton,1000)"></textarea>
     <button id="twat_button" onclick="add_tweet()">Tweet</button>
 </div>
@@ -28,31 +28,31 @@
     function showButton() {
         var twat_div = document.getElementById("twat_box");
         twat_div.style.paddingBottom = "40px";
-//        document.getElementById("twat_button").style.visibility="visible";
+        document.getElementById("twat_button").style.visibility = "visible";
     }
 
     function hideButton() {
         var twat_div = document.getElementById("twat_box");
         twat_div.style.paddingBottom = "40px";
-//        document.getElementById("twat_button").style.visibility="hidden";
+//        document.getElementById("twat_button").style.visibility = "hidden";
     }
 
     function add_tweet() {
+
         var text = document.getElementById("compose_twat_text").value;
-        var request = new XMLHttpRequest();
-        request.open("GET", "../controller/tweetController.php?text=" + text);
-        request.onreadystatechange = function (ev) {
-            if (this.status == 200 && this.readyState == 4) {
+        if(text.length>0){
+            var request = new XMLHttpRequest();
+            request.open("GET", "../controller/tweetController.php?text=" + text);
+            request.onreadystatechange = function (ev) {
+                if (this.status == 200 && this.readyState == 4) {
 
-            }
-        };
-        request.send();
-        location.reload();
+                }
+            };
+            request.send();
+            location.reload();
+        }
     }
 
-    function buttonEvent(a) {
-
-    }
 </script>
 </body>
 </html>

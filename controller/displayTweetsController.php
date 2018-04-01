@@ -6,7 +6,7 @@ require_once "../model/tweetDao.php";
 require_once "../model/userDao.php";
 
 $arr = getFollowersId($pdo,$user_id);
-$string="";
+$string="twats.user_id = ".$user_id." OR ";
 for ($i=0;$i<count($arr);$i++){
     $string=$string."twats.user_id = $arr[$i]";
     if ($i < count($arr)-1){
