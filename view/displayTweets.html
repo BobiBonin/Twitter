@@ -27,15 +27,14 @@
                 tweet.innerHTML += "<h1 class='tweet_name'><a href=profile.php?" + link_name + ">" + resp[i]["user_name"] + "</a></h1>";
                 tweet.innerHTML += "<h4 class='tweet_date'>" + resp[i]["twat_date"] + "</h4>";
                 tweet.innerHTML += "<p class='content' style='border: 0'>" + resp[i]["twat_content"] + "</p>";
+                tweet.innerHTML += "<i id='heart' value=" + resp[i]['twat_id'] + " onclick=\"myFunction(" + resp[i]['twat_id'] + ",this.id)\" class=\"fa fa-heart\"></i>";
                 var comment_div = document.createElement('div');
                 comment_div.className = "home_tweet_comments";
-                comment_div.id=resp[i]['twat_id'];
+                comment_div.id = resp[i]['twat_id'];
                 div.appendChild(tweet);
                 div.appendChild(comment_div);
 
 
-
-                
 //                adding comments to the tweets
                 test(resp[i]['twat_id']);
 
@@ -53,35 +52,36 @@
                 var div = document.getElementById(id);
                 var cmnt_box = document.createElement("input");
                 var btn = document.createElement("button");
-                btn.innerHTML="Коментирай";
-                btn.className="cmnt_btn";
-                btn.value=id;
-                btn.addEventListener("click" , function () {
-                    console.log(document.getElementById("asd"+ this.value).value);
+                btn.innerHTML = "Коментирай";
+                btn.className = "cmnt_btn";
+                btn.value = id;
+                btn.addEventListener("click", function () {
+                    console.log(document.getElementById("asd" + this.value).value);
 
                     var request = new XMLHttpRequest();
                     request.open("post", "../controller/sendCommentController.php");
                     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     request.onreadystatechange = function (ev) {
-                        if(this.readyState == 4 && this.status == 200){
+                        if (this.readyState == 4 && this.status == 200) {
                             var response = JSON.parse(this.responseText);
-                            if(response == "1"){
-                               test(id);
+                            if (response == "1") {
+                                test(id);
                             }
 
                         }
                     };
-                    request.send("content=" + document.getElementById("asd"+ this.value).value + "&tweetId=" + this.value);
+                    request.send("content=" + document.getElementById("asd" + this.value).value + "&tweetId=" + this.value);
 
                 });
-                cmnt_box.type="text";
-                cmnt_box.className="cmnt_box_home";
-                cmnt_box.id="asd"+id;
-                div.innerHTML="";
+                cmnt_box.type = "text";
+                cmnt_box.className = "cmnt_box_home";
+                cmnt_box.id = "asd" + id;
+                cmnt_box.placeholder="Постави твоя коментар";
+                div.innerHTML = "";
                 div.appendChild(cmnt_box);
                 div.appendChild(btn);
-                if (response.length>0){
-                    for(var i = 0; i < response.length;i++){
+                if (response.length > 0) {
+                    for (var i = 0; i < response.length; i++) {
 //                        div.innerHTML += response[i]["comment_text"]+"<br>";
 
                         var cmnt_div = document.createElement('div');
@@ -100,9 +100,8 @@
                     }
 
                 }
-                else
-                {
-                    div.innerHTML += "<br>No comments on this tweet";
+                else {
+                    div.innerHTML += "<br><h3 style='margin-left:70px;'>No comments on this tweet</h3>";
                 }
                 console.log(response);
             }
@@ -113,5 +112,17 @@
         request.send();
     }
 
+    function myFunction(id,tweet_id) {
+        var like = document.getElementById(tweet_id);
+        like.style.color='red';
+        var request = new XMLHttpRequest();
+        request.open("GET", "../controller/likeATweetController.php?twat_id="+id);
+        request.onreadystatechange = function (ev) {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("Succesfuly liked "+id);
+            }
+        };
+        request.send();
+    }
 </script>
 </html>

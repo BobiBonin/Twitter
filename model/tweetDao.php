@@ -53,9 +53,7 @@ function addComment($pdo,$tweetId,$date,$content,$ownerId){
 
 }
 
-function getTweetComments($pdo,$id){
-    $statement = $pdo->prepare("");
-    $statement->execute(array($id));
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-    print_r(json_encode($result));
+function likeATweet($pdo,$twat_id,$user_id){
+    $statement = $pdo->prepare("INSERT INTO likes (user_id, twat_id) VALUES (?,?)");
+    $statement->execute(array($user_id,$twat_id));
 }

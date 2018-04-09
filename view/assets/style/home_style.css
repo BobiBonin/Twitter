@@ -421,3 +421,17 @@ a {
     color: #006dbf;
     border: 1px solid #006dbf;
 }
+.fa {
+    font-size: 25px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.fa:hover {
+    color: red;
+}
+#heart{
+    float: right;
+    margin-top: -80px;
+    margin-right: 10px;
+}
