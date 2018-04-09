@@ -18,7 +18,7 @@ function asd($pdo, $str)
 {
     try {
         $statement = $pdo->query("
-                                  SELECT users.user_name,users.user_pic ,twats.twat_content, twats.twat_date, twats.user_id 
+                                  SELECT users.user_name,users.user_pic ,twats.twat_content, twats.twat_date, twats.user_id, twats.twat_id 
                                   FROM users,twats 
                                   WHERE ($str) 
                                   AND twats.user_id = users.user_id 
@@ -51,4 +51,11 @@ function addComment($pdo,$tweetId,$date,$content,$ownerId){
     $result = $statement->rowCount();
     return $result;
 
+}
+
+function getTweetComments($pdo,$id){
+    $statement = $pdo->prepare("");
+    $statement->execute(array($id));
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    print_r(json_encode($result));
 }

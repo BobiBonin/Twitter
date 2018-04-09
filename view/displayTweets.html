@@ -13,24 +13,105 @@
         if (this.status == 200 && this.readyState == 4) {
             var resp = this.responseText;
             resp = JSON.parse(resp);
+            console.log(resp);
             var div = document.getElementById("home_mid_div");
-            for (var i=0; i < resp.length; i++) {
+            for (var i = 0; i < resp.length; i++) {
                 var tweet = document.createElement("div");
                 tweet.className = "ownTweets";
+//                tweet.addEventListener('click',test.bind(this,resp[i]['twat_id']));
                 var link_name = resp[i]["user_name"];
-                link_name=link_name.replace(" ","%20");
-                console.log(resp[i]["user_name"]);
-                console.log(link_name);
+                link_name = link_name.replace(" ", "%20");
 
-                tweet.innerHTML = "<a href="+"profile.php?"+link_name+"><img class='home_tweet_image' src="+resp[i]["user_pic"]+"></a>";
-                tweet.innerHTML+="<h1 class='tweet_name'><a href=profile.php?"+link_name+">"+resp[i]["user_name"]+"</a></h1>";
-                tweet.innerHTML+="<h4 class='tweet_date'>"+resp[i]["twat_date"]+"</h4>";
-                tweet.innerHTML+="<p class='content' style='border: 0'>"+resp[i]["twat_content"]+"</p>";
+//                adding the data into the tweet
+                tweet.innerHTML = "<a href=" + "profile.php?" + link_name + "><img class='home_tweet_image' src=" + resp[i]["user_pic"] + "></a>";
+                tweet.innerHTML += "<h1 class='tweet_name'><a href=profile.php?" + link_name + ">" + resp[i]["user_name"] + "</a></h1>";
+                tweet.innerHTML += "<h4 class='tweet_date'>" + resp[i]["twat_date"] + "</h4>";
+                tweet.innerHTML += "<p class='content' style='border: 0'>" + resp[i]["twat_content"] + "</p>";
+                var comment_div = document.createElement('div');
+                comment_div.className = "home_tweet_comments";
+                comment_div.id=resp[i]['twat_id'];
                 div.appendChild(tweet);
+                div.appendChild(comment_div);
+
+
+
+                
+//                adding comments to the tweets
+                test(resp[i]['twat_id']);
 
             }
         }
     };
     req.send();
+
+    function test(id) {
+        var request = new XMLHttpRequest();
+        request.open("GET", "../controller/showMyTweetCommentController.php?tweet_id=" + id);
+        request.onreadystatechange = function (ev) {
+            if (this.readyState == 4 && this.status == 200) {
+                var response = JSON.parse(this.responseText);
+                var div = document.getElementById(id);
+                var cmnt_box = document.createElement("input");
+                var btn = document.createElement("button");
+                btn.innerHTML="Коментирай";
+                btn.className="cmnt_btn";
+                btn.value=id;
+                btn.addEventListener("click" , function () {
+                    console.log(document.getElementById("asd"+ this.value).value);
+
+                    var request = new XMLHttpRequest();
+                    request.open("post", "../controller/sendCommentController.php");
+                    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    request.onreadystatechange = function (ev) {
+                        if(this.readyState == 4 && this.status == 200){
+                            var response = JSON.parse(this.responseText);
+                            if(response == "1"){
+                               test(id);
+                            }
+
+                        }
+                    };
+                    request.send("content=" + document.getElementById("asd"+ this.value).value + "&tweetId=" + this.value);
+
+                });
+                cmnt_box.type="text";
+                cmnt_box.className="cmnt_box_home";
+                cmnt_box.id="asd"+id;
+                div.innerHTML="";
+                div.appendChild(cmnt_box);
+                div.appendChild(btn);
+                if (response.length>0){
+                    for(var i = 0; i < response.length;i++){
+//                        div.innerHTML += response[i]["comment_text"]+"<br>";
+
+                        var cmnt_div = document.createElement('div');
+                        cmnt_div.className = "commentss";
+                        var link_name = response[i]["user_name"];
+                        link_name = link_name.replace(" ", "%20");
+
+                        cmnt_div.innerHTML = "<a href=" + "profile.php?" + link_name + "><img class='home_comment_image' src=" + response[i]["user_pic"] + "></a>";
+                        cmnt_div.innerHTML += "<h1 class='tweet_name'><a href=profile.php?" + link_name + ">" + response[i]["user_name"] + "</a></h1>";
+                        cmnt_div.innerHTML += "<h4 class='tweet_date'>" + response[i]["comment_date"] + "</h4>";
+                        cmnt_div.innerHTML += "<p class='content' style='border: 0'>" + response[i]["comment_text"] + "</p>";
+
+                        div.appendChild(cmnt_div);
+
+
+                    }
+
+                }
+                else
+                {
+                    div.innerHTML += "<br>No comments on this tweet";
+                }
+                console.log(response);
+            }
+            else {
+                comments = "deba";
+            }
+        };
+        request.send();
+    }
+
 </script>
 </html>

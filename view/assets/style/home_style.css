@@ -1,90 +1,104 @@
-.home_profile{
+.home_profile {
     width: 288px;
     height: 212px;
     box-sizing: border-box;
     background-color: white;
 }
-.home_profile_cover{
+
+.home_profile_cover {
     width: 100%;
     height: 95px;
     background-color: #1da1f2;
 }
-.home_profile_img{
+
+.home_profile_img {
     height: 68px;
     width: 68px;
     border-radius: 50%;
-    border:2px solid white;
-    margin-top:-20px;
-    margin-left:5px;
-    float:left;
-}
-#profile_h2{
-    margin-left: 10px;
-    margin-top:10px;
-    float:left;
+    border: 2px solid white;
+    margin-top: -20px;
+    margin-left: 5px;
+    float: left;
 }
 
-#profile_h4{
-    float:left;
-    margin-left:-20%;
-    margin-top:20px;
+#profile_h2 {
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+}
+
+#profile_h4 {
+    float: left;
+    margin-left: -20%;
+    margin-top: 20px;
     color: #657786;
 }
-.home_profile_stats{
+
+.home_profile_stats {
     box-sizing: border-box;
 }
-.profile_ul{
+
+.profile_ul {
     list-style-type: none;
     width: 100%;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     display: flex;
 }
+
 .profile_ul li {
-    width:33%;
+    width: 33%;
     text-align: center;
     font-weight: bold;
-    margin-top:18px;
+    margin-top: 18px;
 }
-.home_profile_name{
-    margin-bottom:-10px;
+
+.home_profile_name {
+    margin-bottom: -10px;
 }
+
 /*24.03.2017 Boris*/
-.home_wrap{
+.home_wrap {
     width: 1190px;
     height: 1000px;
-    margin:auto;
+    margin: auto;
     padding-top: 60px;
 }
-#hm_prof_img{
+
+#hm_prof_img {
     position: relative;
 }
-#cover{
+
+#cover {
     width: 100%;
     height: 95px;
 }
-#home_left_div{
+
+#home_left_div {
     float: left;
     height: 600px;
     width: 288px;
 }
-#home_mid_div{
+
+#home_mid_div {
     float: left;
     width: 590px;
     height: 2000px;
-    margin-left:10px;
+    margin-left: 10px;
     box-sizing: border-box;
 
 }
-#home_right_div{
+
+#home_right_div {
     float: left;
     height: 600px;
     width: 288px;
-    margin-left:8px;
+    margin-left: 8px;
     padding: 0;
 }
+
 /*compose_twat.html*/
-#twat_box{
+#twat_box {
     padding-top: 5px;
     height: auto;
     width: 100%;
@@ -92,29 +106,32 @@
     padding-bottom: 40px;
 
 }
-#twat_box_icon{
+
+#twat_box_icon {
     height: 35px;
     width: 35px;
-    border-radius:50%;
-    margin-left:15px;
+    border-radius: 50%;
+    margin-left: 15px;
     position: absolute;
 }
-#compose_twat_text{
-    width:500px;
-    height:35px;
-    margin-left:70px;
+
+#compose_twat_text {
+    width: 500px;
+    height: 35px;
+    margin-left: 70px;
     resize: none;
     font-family: Lato;
     padding: 5px;
     box-sizing: border-box;
     border-radius: 7px;
-    border:0;
+    border: 0;
     vertical-align: top;
 
 }
-#twat_button{
-    float:right;
-    margin-right:15px;
+
+#twat_button {
+    float: right;
+    margin-right: 15px;
     border-radius: 100px;
     width: 75px;
     height: 35px;
@@ -128,60 +145,68 @@
     margin-top: 3px;
     transition: 0s;
 }
+
 #twat_button:hover {
     background-color: #006dbf;
 }
-#compose_twat_text:focus{
+
+#compose_twat_text:focus {
     min-height: 80px;
     overflow: hidden;
     outline: none;
-    border:2px solid rgba(36,120,255,0.5);
+    border: 2px solid rgba(36, 120, 255, 0.5);
 
 }
-#compose_twat_text::placeholder{
-    color:#1B95E0;
+
+#compose_twat_text::placeholder {
+    color: #1B95E0;
     font-family: sans-serif;
 }
-.ownTweets{
+
+.ownTweets {
     background-color: white;
     width: 100%;
     height: 100px;
-    border:1px solid lightgray;
+    border: 1px solid lightgray;
     box-sizing: border-box;
     padding-left: 70px;
 }
 
-
 /*-----------------Random Users CSS 29.03.2018-----------------*/
-#who_to_follow{
+#who_to_follow {
     width: 100%;
     height: 20%;
     box-sizing: border-box;
 }
-#who_to_follow h1{
+
+#who_to_follow h1 {
     font-size: 17px;
     font-weight: bold;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 25px 0 0 20px;
     float: left;
 }
-#who_to_follow a{
+
+#who_to_follow a {
     font-size: 13px;
     float: left;
     padding: 28px 0 0 10px;
     color: #2b97df;
     text-decoration: none;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-#who_to_follow a:hover{
+
+#who_to_follow a:hover {
     text-decoration: underline;
 }
-#first{
+
+#first {
     width: 100%;
     height: 20%;
     border-bottom: 1px solid rgba(209, 209, 209, 0.3);
 }
-#random_img_div{
+
+#random_img_div {
     margin: 4% 0 0 40px;
     width: 50px;
     height: 50px;
@@ -189,25 +214,30 @@
     overflow: hidden;
 
 }
-#random_img{
+
+#random_img {
     width: 50px;
     height: 50px;
 }
-#random_name{
+
+#random_name {
     font-size: 17px;
     font-weight: bold;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     left: 100px;
     margin-top: -50px;
 }
-#a_name{
+
+#a_name {
     color: black;
     text-decoration: none;
 }
-#a_name:hover{
+
+#a_name:hover {
     color: #2b97df;
     text-decoration: underline;
 }
+
 .follow_btn {
     height: 25px;
     width: 80px;
@@ -220,86 +250,101 @@
     outline: none;
     cursor: pointer;
 }
+
 .follow_btn:hover {
     background-color: rgba(49, 175, 255, 0.2);
 }
-#last_div{
+
+#last_div {
     width: 100%;
     height: 20%;
 
 }
-#last_div h1{
+
+#last_div h1 {
     font-size: 13px;
     color: #2b97df;
     margin: 25px 40px 7px 40px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer;
 }
-#last_div h1:hover{
+
+#last_div h1:hover {
     text-decoration: underline;
 }
-#random_users{
-    margin-top:0;
+
+#random_users {
+    margin-top: 0;
     width: 288px;
 }
 
-.prof_li{
-    color: rgb(98,120,137);
-}
-.prof_li:hover{
-    color: rgb(27,147,224);
-}
-.prof_box_numbers{
-    font-family: Segoe UI;
-    font-size: 18px;
-    color: rgb(27,147,224);
+.prof_li {
+    color: rgb(98, 120, 137);
 }
 
-.tweet{
+.prof_li:hover {
+    color: rgb(27, 147, 224);
+}
+
+.prof_box_numbers {
+    font-family: Segoe UI;
+    font-size: 18px;
+    color: rgb(27, 147, 224);
+}
+
+.tweet {
     width: 100%;
     height: 100px;
-    border-bottom: 1px solid rgba(128,128,128,0.34);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.34);
 }
-.tweet_image_div{
+
+.tweet_image_div {
     width: 100px;
     height: 100%;
     float: left;
 }
-.content_div{
+
+.content_div {
     width: 500px;
     height: 70%;
     float: left;
 }
-#tweet_image{
+
+#tweet_image {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     background-color: white;
     margin: 10px 0 0 25px;
 }
-.tweet_name{
+
+.tweet_name {
     font-size: 18px;
     font-weight: bold;
-    padding: 10px 0 0  0;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 10px 0 0 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
-.content{
+
+.content {
     font-size: 15px;
     font-weight: lighter;
-    padding: 10px 0 0  0;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 10px 0 0 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     /*border-bottom: 1px solid rgba(128,128,128,0.34);*/
 
 }
-.comments{
+
+.comments {
     float: right;
     padding: 5px;
 }
-a{
+
+a {
     text-decoration: none;
     color: black;
 }
+
 .home_tweet_image {
     border-radius: 50%;
     height: 48px;
@@ -307,4 +352,72 @@ a{
     position: absolute;
     margin-left: -60px;
     margin-top: 10px;
+}
+
+.home_tweet_comments {
+    width: 100%;
+    max-height: 0;
+    transition: height 1s ease-out;
+    overflow: hidden;
+    font-size: 14px;
+    color: black;
+}
+
+.ownTweets:hover + .home_tweet_comments {
+    max-height: 1000px;
+    border-left: 4px solid cornflowerblue;
+}
+.ownTweets:hover {
+
+    border-left: 4px solid cornflowerblue;
+}
+
+.home_tweet_comments:hover {
+    max-height: 1000px;
+    border-left: 4px solid cornflowerblue;
+}
+
+.commentss{
+    background-color: white;
+    width: 99.4%;
+    height: 100px;
+    border-bottom: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    box-sizing: border-box;
+    padding-left: 100px;
+    font-size: 14px;
+}
+.home_comment_image{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: relative;
+    margin-left: -60px;
+    margin-bottom: -40px;
+}
+.cmnt_box_home{
+    width: 70%;
+    height: 20px;
+    margin: 10px 10px 10px 30px;
+    border-radius: 5px;
+    border: 1px solid #1da1f2;
+    outline: none;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 2px;
+}
+.cmnt_btn{
+    height: 25px;
+    width: 100px;
+    border-radius: 33px;
+    border: 1px solid #2b97df;
+    background-color: white;
+    color: #2b97df;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+.cmnt_btn:hover{
+    color: #006dbf;
+    border: 1px solid #006dbf;
 }
