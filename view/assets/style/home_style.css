@@ -422,7 +422,7 @@ a {
     border: 1px solid #006dbf;
 }
 .fa {
-    font-size: 25px;
+    font-size: 15px;
     cursor: pointer;
     user-select: none;
 }
@@ -430,7 +430,7 @@ a {
 .fa:hover {
     color: red;
 }
-#heart{
+.hrt{
     float: right;
     margin-top: -80px;
     margin-right: 10px;

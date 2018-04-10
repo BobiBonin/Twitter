@@ -27,7 +27,7 @@
                 tweet.innerHTML += "<h1 class='tweet_name'><a href=profile.php?" + link_name + ">" + resp[i]["user_name"] + "</a></h1>";
                 tweet.innerHTML += "<h4 class='tweet_date'>" + resp[i]["twat_date"] + "</h4>";
                 tweet.innerHTML += "<p class='content' style='border: 0'>" + resp[i]["twat_content"] + "</p>";
-                tweet.innerHTML += "<i id='heart' value=" + resp[i]['twat_id'] + " onclick=\"myFunction(" + resp[i]['twat_id'] + ",this.id)\" class=\"fa fa-heart\"></i>";
+                tweet.innerHTML += "<i id='heart" + resp[i]['twat_id'] + "' value=" + resp[i]['twat_id'] + " onclick=\"myFunction(" + resp[i]['twat_id'] + ",this.id)\" class=\"fa fa-heart hrt\"></i>";
                 var comment_div = document.createElement('div');
                 comment_div.className = "home_tweet_comments";
                 comment_div.id = resp[i]['twat_id'];
@@ -76,7 +76,7 @@
                 cmnt_box.type = "text";
                 cmnt_box.className = "cmnt_box_home";
                 cmnt_box.id = "asd" + id;
-                cmnt_box.placeholder="Постави твоя коментар";
+                cmnt_box.placeholder = "Постави твоя коментар";
                 div.innerHTML = "";
                 div.appendChild(cmnt_box);
                 div.appendChild(btn);
@@ -112,14 +112,14 @@
         request.send();
     }
 
-    function myFunction(id,tweet_id) {
+    function myFunction(id, tweet_id) {
         var like = document.getElementById(tweet_id);
-        like.style.color='red';
+        like.style.color = 'red';
         var request = new XMLHttpRequest();
-        request.open("GET", "../controller/likeATweetController.php?twat_id="+id);
+        request.open("GET", "../controller/likeATweetController.php?twat_id=" + id);
         request.onreadystatechange = function (ev) {
             if (this.readyState == 4 && this.status == 200) {
-                console.log("Succesfuly liked "+id);
+                console.log("Succesfuly liked " + id);
             }
         };
         request.send();
