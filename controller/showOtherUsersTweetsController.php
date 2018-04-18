@@ -1,12 +1,24 @@
 <?php
 session_start();
-require_once "../model/tweetDao.php";
-require_once "../model/userDao.php";
 
+use \model\UserDao;
+use \model\TweetDao;
 
+function __autoload($class)
+{
+    $class = "..\\" . $class;
+    require_once str_replace("\\", "/", $class) . ".php";
+}
 
-    $name = $_GET['name'];
-    $you = findId($pdo, $name);
-    $result = showMyTweets($pdo,$you['user_id']);
+try{
+    $name = htmlentities($_GET['name']);
+    $uDao = new UserDao();
+    $tDao = new TweetDao();
+    $you = $uDao->findId($name);
+    $result = $tDao->showMyTweets($you['user_id']);
     echo json_encode($result);
+} catch (Exception $exception){
+
+}
+
 

@@ -1,7 +1,21 @@
 <?php
 session_start();
-$id = $_SESSION['user']['id'];
-require_once "../model/tweetDao.php";
 
-showUserTweets($pdo,$id);
+use \model\TweetDao;
+
+function __autoload($class)
+{
+    $class = "..\\" . $class;
+    require_once str_replace("\\", "/", $class) . ".php";
+}
+
+try {
+    $id = $_SESSION['user']['id'];
+    $dao = new TweetDao();
+    $dao->showUserTweets($id);
+} catch (Exception $exception) {
+
+}
+
+
 

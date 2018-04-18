@@ -1,3 +1,6 @@
+<?php
+    include_once 'page_lock.php';
+?>
 <!--24.03.2017 Boris-->
 <!DOCTYPE HTML>
 <html lang="en">
@@ -10,7 +13,6 @@
 </head>
 <body>
 <?php
-        include_once 'page_lock.php';
         include "header.html";
 ?>
 <div class="home_wrap">

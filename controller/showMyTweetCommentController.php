@@ -1,10 +1,23 @@
 <?php
 session_start();
-require_once "../model/tweetDao.php";
 
+use \model\CommentDao;
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $id = $_GET['tweet_id'];
-    $comments = showMyComments($pdo,$id);
-    echo json_encode($comments);
+function __autoload($class)
+{
+    $class = "..\\" . $class;
+    require_once str_replace("\\", "/", $class) . ".php";
 }
+
+
+try {
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $dao = new CommentDao();
+        $id = $_GET['tweet_id'];
+        $comments = $dao->showMyComments($id);
+        echo json_encode($comments);
+    }
+} catch (Exception $exception) {
+
+}
+

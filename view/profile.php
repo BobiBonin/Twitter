@@ -10,8 +10,8 @@
 <body>
 <!-- Boris -->
 <?php
-include_once 'page_lock.php';
-include_once "header.html";
+    include_once "page_lock.php";
+    include_once "header.html";
 ?>
 
 <!-- Georgi -->

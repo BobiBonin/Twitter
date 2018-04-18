@@ -1,16 +1,23 @@
 <?php
-
 session_start();
-require_once "../model/userDao.php";
 
-try{
+use \model\UserDao;
+
+function __autoload($class)
+{
+    $class = "..\\" . $class;
+    require_once str_replace("\\", "/", $class) . ".php";
+}
+
+try {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $dao = new UserDao();
         $name = $_GET['name'];
-        $id = findId($pdo, $name);
-        $result = findFollowing($pdo, $id['user_id']);
+        $id = $dao->findId($name);
+        $result = $dao->findFollowing($id['user_id']);
         echo json_encode($result);
     }
-}catch (PDOException $e){
+} catch (PDOException $e) {
 
 }
 

@@ -1,16 +1,33 @@
 <?php
 
 session_start();
-$user_id = $_SESSION['user']['id'];
-require_once "../model/tweetDao.php";
-require_once "../model/userDao.php";
 
-$arr = getFollowersId($pdo,$user_id);
-$string="twats.user_id = ".$user_id." OR ";
-for ($i=0;$i<count($arr);$i++){
-    $string=$string."twats.user_id = $arr[$i]";
-    if ($i < count($arr)-1){
-        $string  = $string." OR ";
-    }
+use \model\TweetDao;
+use \model\UserDao;
+
+function __autoload($class)
+{
+    $class = "..\\" . $class;
+    require_once str_replace("\\", "/", $class) . ".php";
 }
-asd($pdo,$string);
+
+try{
+    $uDao = new UserDao();
+    $tDao = new TweetDao();
+
+    $user_id = $_SESSION['user']['id'];
+
+    $arr = $uDao->getFollowersId($user_id);
+
+    $string="twats.user_id = ".$user_id." OR ";
+    for ($i=0;$i<count($arr);$i++){
+        $string=$string."twats.user_id = $arr[$i]";
+        if ($i < count($arr)-1){
+            $string  = $string." OR ";
+        }
+    }
+    $tDao->getMyFollowersTweets($string);
+} catch (Exception $exception){
+
+}
+

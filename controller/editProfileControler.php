@@ -1,16 +1,18 @@
 <?php
-/*Georgi -- 23.03.2018 -- Редактиране на профила
-снимката изчезва когато се събмитне празна формата
-трябва да се оправи също трябва да се напише проверка
-дали снимката вече е била качена и при смяна на снимка
-старата да се изтрива
-*/
+
 session_start();
-require_once "../model/userDao.php";
+
+use \model\UserDao;
+use \model\User;
+
+function __autoload($class)
+{
+    $class = "..\\" . $class;
+    require_once str_replace("\\", "/", $class) . ".php";
+}
 
 if (isset($_POST['btn_edit'])) {
     try {
-        require_once '../model/dbManager.php';
         $username = htmlentities($_POST['username']);
         $email = htmlentities($_POST['email']);
         $password = htmlentities($_POST['password']);
@@ -34,9 +36,11 @@ if (isset($_POST['btn_edit'])) {
             }
         }
         $id = $_SESSION['user']['id'];
-        updateUser($pdo, $username, $email, sha1($password), $url_image, $url_cover, $city, $description, $id);
-        header("location: ../view/profile.php");
+        $user = new User($email, sha1($password), $username, $url_image, $url_cover, $city, $description, $id);
 
+        $pdo = new UserDao();
+        $pdo->updateUser($user);
+        header("location: ../view/profile.php");
 
     } catch (PDOException $e) {
 

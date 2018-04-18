@@ -1,13 +1,26 @@
 <?php
 session_start();
-require_once "../model/tweetDao.php";
+
+use \model\CommentDao;
+use \model\Comment;
+
+function __autoload($class)
+{
+    $class = "..\\" . $class;
+    require_once str_replace("\\", "/", $class) . ".php";
+}
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user_id = $_SESSION['user']['id'];
-    $date = date("y-m-d H:i:s");
-    $content = $_POST['content'];
-    $tweet_id = $_POST['tweetId'];
-    $comments = addComment($pdo,$tweet_id,$date,$content,$user_id);
-    echo json_encode($comments);
+try{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $user_id = $_SESSION['user']['id'];
+        $content = $_POST['content'];
+        $tweet_id = $_POST['tweetId'];
+        $comment = new Comment($tweet_id,$content,$user_id);
+        $dao = new CommentDao();
+        $comments = $dao->addComment($comment);
+        echo json_encode($comments);
+    }
+} catch (Exception $exception){
+
 }

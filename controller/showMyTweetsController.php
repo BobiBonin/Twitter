@@ -1,12 +1,20 @@
 <?php
 session_start();
-require_once "../model/tweetDao.php";
 
-try{
-        $id = $_SESSION['user']['id'];
-        $result = showMyTweets($pdo,$id);
-        echo json_encode($result);
+use \model\TweetDao;
 
-}catch (PDOException $e){
+function __autoload($class)
+{
+    $class = "..\\" . $class;
+    require_once str_replace("\\", "/", $class) . ".php";
+}
+
+try {
+    $id = $_SESSION['user']['id'];
+    $dao = new TweetDao();
+    $result = $dao->showMyTweets($id);
+    echo json_encode($result);
+
+} catch (PDOException $e) {
 
 }
